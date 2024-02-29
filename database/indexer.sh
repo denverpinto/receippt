@@ -1,2 +1,2 @@
 #!/bin/sh
-python _indexer.py
+python __indexer.py

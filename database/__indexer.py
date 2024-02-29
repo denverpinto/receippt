@@ -23,7 +23,7 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 		for file in files:
 			updatedIndex[file] = {}
 			updatedIndex[file]["name"] = file
-			prs = prs = Presentation(root+"\\"+file)
+			prs = prs = Presentation(root+"/"+file)
 			texts = []
 			for slide_number, slide in enumerate(prs.slides):
 				texts.append(f"Slide {slide_number + 1}:")

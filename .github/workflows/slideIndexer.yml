@@ -1,4 +1,4 @@
-on: push
+on: [push]
 
 jobs:
   index-slides:
@@ -9,7 +9,14 @@ jobs:
         working-directory: ./database
     steps:
       - name: Check out the repository to the runner
-        uses: actions/checkout@v4  
+        uses: actions/checkout@v4 
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Make the indexer executable
+        run: chmod +x indexer.sh
       - name: Run indexer script
-        run: py _indexer.py
-        shell: sh
+        run: ./indexer.sh

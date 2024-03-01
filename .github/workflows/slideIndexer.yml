@@ -12,8 +12,8 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v42
-      # NOTE: `since_last_remote_commit: true` is implied by default and falls back to the previous local commit.
-
+        with:
+          files: database/**
       - name: List all changed files
         env:
           ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
@@ -22,7 +22,7 @@ jobs:
             echo "$file was changed"
           done
           
-  index-slides:
+  index_slides:
     name: Slide Indexer
     runs-on: ubuntu-latest
     defaults:

@@ -1,29 +1,24 @@
 on: [push]
 
 jobs:
-  changed_files:
+  check-db-modified:
     runs-on: ubuntu-latest
-    name: Test changed-files
+    name: Test if database modified
 
     steps:
       - uses: actions/checkout@v4
         with:
-          fetch-depth: 0  # OR "2" -> To retrieve the preceding commit.
-      # -----------------------------------------------------------------------------------------------------------
-      # Example 1
-      # -----------------------------------------------------------------------------------------------------------
+          fetch-depth: 0 
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v42
         with:
-          files: database/slides/**
-        # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
-        # with:
-        #   since_last_remote_commit: true 
+          files: database/** # if slides or index or indexer changed 
 
       - name: List all changed files
         env:
-          ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{ steps.check-db-modified.outputs.all_changed_files }}
         run: |
           for file in ${ALL_CHANGED_FILES}; do
             echo "$file was changed"
@@ -38,13 +33,17 @@ jobs:
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4 
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
+
       - name: Install dependencies
         run: pip install -r requirements.txt
+
       - name: Make the indexer executable
         run: chmod +x indexer.sh
+        
       - name: Run indexer script
         run: ./indexer.sh

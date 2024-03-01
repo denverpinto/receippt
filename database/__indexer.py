@@ -22,7 +22,7 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 	if root == rootDir : # top level directory containing folder tag names
 		for file in files:
 			updatedIndex[file] = {}
-			updatedIndex[file]["name"] = file
+			updatedIndex[file]["path"] = root + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			texts = []
 			for slide_number, slide in enumerate(prs.slides):

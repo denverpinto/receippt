@@ -24,30 +24,4 @@ jobs:
 
       - name: Prevent from running
         if: steps.slides-modified-check.outputs.any_changed != 'true'
-        run: exit 1        
-
-  slides-indexer:
-    name: Run indexer script on slides
-    runs-on: ubuntu-latest
-    needs: [slides-modified-check]
-    defaults:
-      run:
-        working-directory: ./database
-
-    steps:
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4 
-        
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.9'
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Make the indexer executable
-        run: chmod +x indexer.sh
-
-      - name: Run indexer script
-        run: indexer.sh
+        run: exit 1

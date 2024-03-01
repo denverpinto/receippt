@@ -11,10 +11,9 @@ jobs:
           fetch-depth: 0 
 
       - name: Get changed files
-        id: changed-files
         uses: tj-actions/changed-files@v42
         with:
-          files: database/** # if slides or index or indexer changed 
+          files: database/slides/**
 
       - name: List all changed files
         env:

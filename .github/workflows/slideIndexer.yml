@@ -4,28 +4,32 @@ jobs:
   check_database_updated:
     runs-on: ubuntu-latest 
     name: Test if database was updated in any form
+    # Expose step outputs as job outputs
+    outputs:
+      all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
       - name: Get all changed and modified files
-        id: check-database-updated
+        id: changed-files
         uses: tj-actions/changed-files@v42
         with:
           files: database/**
       - name: List all modified files
         env:
-          ALL_CHANGED_MODIFIED_FILES: ${{ steps.check-database-updated.outputs.all_changed_and_modified_files }}
+          ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
         run: |
-          for file in ${ALL_CHANGED_MODIFIED_FILES}; do
-            echo "$file was changed or modified"
-          done
+          ${ALL_CHANGED_MODIFIED_FILES_COUNT}
           
-  index_slides:
-    name: Slide Indexer
-    runs-on: ubuntu-latest
+  index_database_slides:
+    name: Database Slides Indexer
     needs: [check_database_updated]
+    if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
+
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./database

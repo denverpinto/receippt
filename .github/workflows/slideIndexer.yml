@@ -22,7 +22,7 @@ jobs:
         env:
           ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
         run: |
-          ${ALL_CHANGED_MODIFIED_FILES_COUNT}
+          echo ${ALL_CHANGED_MODIFIED_FILES_COUNT}
           
   index_database_slides:
     name: Database Slides Indexer

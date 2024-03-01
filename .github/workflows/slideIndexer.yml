@@ -4,6 +4,9 @@ jobs:
   changed_files:
     runs-on: ubuntu-latest  # windows-latest || macos-latest
     name: Test changed-files
+    defaults:
+      run:
+        working-directory: ./database
     steps:
       - uses: actions/checkout@v4
         with:

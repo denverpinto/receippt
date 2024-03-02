@@ -50,3 +50,8 @@ jobs:
         
       - name: Run indexer script
         run: ./indexer.sh
+      
+      - name: Push Index Changes
+        run: |
+          git config --local user.name actions-user
+          git config --local user.email "actions@github.com"

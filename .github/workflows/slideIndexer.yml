@@ -53,4 +53,4 @@ jobs:
 
       - name: Commit Index
         run: |
-        git diff --exit-code
+        echo ${needs.check_database_updated.outputs.all_changed_and_modified_files_count}

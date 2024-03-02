@@ -49,7 +49,7 @@ jobs:
         run: chmod +x indexer.sh
         
       - name: Run indexer script
-        run: ./indexer.sh
+        run: python __indexer.py
       
       - name: Push Index Changes
         run: |

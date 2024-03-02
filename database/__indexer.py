@@ -5,6 +5,9 @@ from pptx import Presentation
 # index created for directory -
 rootDir = "./slides"
 
+# tagLabel added to the first note before csv tags
+noteTagLabel = "RECEIPPT-TAGS:"
+
 # retrieve existing index if it exists
 try:
 	with open( './index.json','r') as f:
@@ -31,7 +34,12 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 					if hasattr(shape, "text"):
 						texts.append(shape.text)
 				if slide_number == 0:
-					updatedIndex[file]["tags"] = slide.notes_slide.notes_text_frame.text
+					noteText = slide.notes_slide.notes_text_frame.text
+					if noteText.strip().startswith(noteTagLabel):
+						tags = noteText.strip().split(noteTagLabel)[1].strip().split(",")
+						tags = [ tag.strip().upper() for tag in tags]
+						tags = list(filter(lambda tag:tag!='', tags))
+						updatedIndex[file]["tags"] = tags
 			updatedIndex[file]["text"] = "\n".join(texts)
 
 # display updated stats

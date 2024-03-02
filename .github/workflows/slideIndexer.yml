@@ -3,29 +3,30 @@ on: [push]
 jobs:
   check_database_updated:
     runs-on: ubuntu-latest 
-    name: Test if database was updated in any form
+    name: Check For Database Updates
     # Expose step outputs as job outputs
     outputs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
 
     steps:
+      - name: Check out the repository to the runner
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Get all changed and modified files
+      - name: Find all changed and modified files
         id: changed-files
         uses: tj-actions/changed-files@v42
         with:
           files: database/**
-      - name: List all modified files
+      - name: List all changed and modified files
         env:
-          ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
+          ALL_CHANGED_MODIFIED_FILES: ${{ steps.changed-files.outputs.all_changed_and_modified_files}}
         run: |
-          echo ${ALL_CHANGED_MODIFIED_FILES_COUNT}
+          echo ${ALL_CHANGED_MODIFIED_FILES}
           
   index_database_slides:
-    name: Database Slides Indexer
+    name: Index Database Slides
     needs: [check_database_updated]
     if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
 
@@ -50,3 +51,14 @@ jobs:
         
       - name: Run indexer script
         run: ./indexer.sh
+
+      - name: Commit Index
+        id: commit-index  
+        run: |
+          git config --local user.name actions-user
+          git config --local user.email "actions@github.com"
+          if ! git diff --exit-code; then
+              git add ./index.json
+              git commit -am "Indexing Slides via Github Action"
+              git push -f origin main
+          fi

@@ -26,11 +26,10 @@ jobs:
           echo ${ALL_CHANGED_MODIFIED_FILES}
           
   index_database_slides:
+    runs-on: ubuntu-latest
     name: Index Database Slides
     needs: [check_database_updated]
     if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
-
-    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./database
@@ -53,12 +52,5 @@ jobs:
         run: ./indexer.sh
 
       - name: Commit Index
-        id: commit-index  
         run: |
-          git config --local user.name actions-user
-          git config --local user.email "actions@github.com"
-          if ! git diff --exit-code; then
-              git add ./index.json
-              git commit -am "Indexing Slides via Github Action"
-              git push -f origin main
-          fi
+        echo git diff --exit-code

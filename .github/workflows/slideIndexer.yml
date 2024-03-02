@@ -55,3 +55,6 @@ jobs:
         run: |
           git config --local user.name actions-user
           git config --local user.email "actions@github.com"
+          git add .
+          git commit -am "Updating Index Through Github Action"
+          git push  -f origin main

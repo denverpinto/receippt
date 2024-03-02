@@ -56,6 +56,6 @@ jobs:
           if ! git diff --exit-code
           then
             git add .
-            git commit -am "Updating Index Through Github Action"
+            git commit -am "Updating Index[GITHUB ACTION]"
             git push  -f origin main
           fi

@@ -5,7 +5,7 @@ from pptx import Presentation
 # index created for directory -
 rootDir = "./slides"
 
-# tagLabel added to the first note before csv tags
+# tagLabel added to the slides' first slide note followed by comma separated tags
 noteTagLabel = "RECEIPPT-TAGS:"
 
 # retrieve existing index if it exists

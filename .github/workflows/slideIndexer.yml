@@ -44,9 +44,6 @@ jobs:
 
       - name: Install dependencies
         run: pip install -r requirements.txt
-
-      - name: Make the indexer executable
-        run: chmod +x indexer.sh
         
       - name: Run indexer script
         run: python __indexer.py

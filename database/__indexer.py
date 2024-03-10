@@ -4,8 +4,6 @@ from pptx import Presentation
 
 # index created for directory -
 rootDir = "./slides"
-
-# tagLabel added to the slides' first slide note followed by comma separated tags, ex- "RECEIPPT-TAGS:ENTRANCE,PRAISE"
 noteTagLabel = "RECEIPPT-TAGS:"
 
 # retrieve existing index if it exists
@@ -24,8 +22,9 @@ updatedIndex = {}
 for (root,dirs,files) in os.walk(rootDir, topdown=False):
 	if root == rootDir : # top level directory containing folder tag names
 		for file in files:
-			updatedIndex[file] = {}
-			updatedIndex[file]["path"] = root + "/" + file
+			updatedFileName = " ".join(file.split("_"))
+			updatedIndex[updatedFileName] = {}
+			updatedIndex[updatedFileName]["path"] = root + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			texts = []
 			for slide_number, slide in enumerate(prs.slides):
@@ -39,8 +38,8 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 						tags = noteText.strip().split(noteTagLabel)[1].strip().split(",")
 						tags = [ tag.strip().upper() for tag in tags]
 						tags = list(filter(lambda tag:tag!='', tags))
-						updatedIndex[file]["tags"] = tags
-			updatedIndex[file]["text"] = "\n".join(texts)
+						updatedIndex[updatedFileName]["tags"] = tags
+			updatedIndex[updatedFileName]["text"] = "\n".join(texts)
 
 # display updated stats
 print("Updated Index Has {} Slides \n".format(len(updatedIndex)))

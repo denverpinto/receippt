@@ -75,7 +75,7 @@ jobs:
       - name: Sync with S3
         uses: jakejarvis/s3-sync-action@master
         with:
-            args: --follow-symlinks --delete  --dryrun --exclude "./__indexer.py" --exclude "./requirements.txt"
+            args: --follow-symlinks --delete  --dryrun --exclude "__indexer.py" --exclude "requirements.txt"
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

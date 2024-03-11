@@ -59,7 +59,7 @@ jobs:
 
           git add .
   
-          if ! git diff --exit-code
+          if [[ -n "$(git diff --name-only --diff-filter=AM)" ]];
           then
             git commit -am "Updating Index [GITHUB ACTION]"
             git push  -f origin main
@@ -79,7 +79,7 @@ jobs:
       - name: Sync with S3
         uses: jakejarvis/s3-sync-action@master
         with:
-            args: --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt"
+            args: --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun
         env:
           AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}

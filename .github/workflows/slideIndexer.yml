@@ -54,11 +54,11 @@ jobs:
       
       - name: Push Index Changes
         run: |
-          echo $(git status)
+          echo "$(git diff --name-only --diff-filter=UM HEAD^)
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
   
-          if git diff --exit-code
+          if ! git diff --exit-code
           then
             git add .
             git commit -am "Updating Index [GITHUB ACTION]"

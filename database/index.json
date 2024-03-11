@@ -1,12 +1,4 @@
 {
-  " BLANK.pptx": {
-    "path": "./slides/_BLANK.pptx",
-    "tags": [
-      "TAG1",
-      "TAG2"
-    ],
-    "text": "Slide 1:\nSLIDE TITLE\nSLIDE TEXT\ncontd.."
-  },
   "A LAMP FOR OUR STEPS.pptx": {
     "path": "./slides/A_LAMP_FOR_OUR_STEPS.pptx",
     "tags": [

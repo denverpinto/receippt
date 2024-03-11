@@ -57,10 +57,13 @@ jobs:
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
 
+          git add .
+
           if ! git diff --exit-code
+          if [[ -n "$(git diff --name-only --diff-filter=AM --staged)" ]];
           then
             git add .
-            git commit -am "Updating Index [GITHUB ACTION]"
+            git commit -am "Slides Indexer [GITHUB ACTION]"
             git push  -f origin main
           fi
 

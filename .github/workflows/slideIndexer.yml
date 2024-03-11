@@ -54,7 +54,7 @@ jobs:
       
       - name: Push Index Changes
         run: |
-          echo "$(git diff --name-only --diff-filter=AM)"
+          echo $(git diff --name-only --diff-filter=AM)
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
   

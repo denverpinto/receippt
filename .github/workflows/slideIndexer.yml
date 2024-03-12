@@ -7,7 +7,8 @@ jobs:
     # Expose step outputs as job outputs
     outputs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
-      all_changed_and_modified_files : ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+      all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+      index_exists: ${{steps.check_index_exists.outputs.exists}}
 
     steps:
       - uses: actions/checkout@v4
@@ -19,6 +20,19 @@ jobs:
         uses: tj-actions/changed-files@v42
         with:
           files: database/**
+
+      - name: Check index existence
+        id: check_index_exists
+        uses: thebinaryfelix/check-file-existence-action@v1
+        with:
+          files: 'database/index.json'
+
+      - name: Log index existence
+        env:
+          INDEX_EXISTS: ${{ steps.check_index_exists.outputs.exists }}
+        if: steps.check_index_exists.outputs.exists == 'true'
+        run: echo "Index Exists? $INDEX_EXISTS"
+
       - name: List all modified files
         env:
           ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
@@ -27,7 +41,7 @@ jobs:
           for file in ${ALL_CHANGED_MODIFIED_FILES}; do
             echo "$file was changed or modified"
           done
-          
+    
   index_slides:
     name: Slides Indexer
     needs: [check_database_updated]
@@ -66,24 +80,3 @@ jobs:
             git push  -f origin main
           fi
 
-  s3_database_sync:
-    name: Sync Database To S3
-    needs: [index_slides]
-    
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./database
-    steps:
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4
-      - name: Sync with S3
-        uses: jakejarvis/s3-sync-action@master
-        with:
-            args: --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun
-        env:
-          AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          AWS_REGION: 'ap-south-1'
-          SOURCE_DIR: './database'

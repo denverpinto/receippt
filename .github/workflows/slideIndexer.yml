@@ -8,7 +8,7 @@ jobs:
     outputs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
       all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
-      index_exists: ${{steps.check_index_exists.outputs.exists}}
+      index_exists: ${{steps.check_index_exists.outputs.files_exists}}
 
     steps:
       - uses: actions/checkout@v4
@@ -23,14 +23,14 @@ jobs:
 
       - name: Check index existence
         id: check_index_exists
-        uses: thebinaryfelix/check-file-existence-action@v1
+        uses: andstor/file-existence-action@v3
         with:
           files: 'database/index.json'
 
       - name: Log index existence
         env:
-          INDEX_EXISTS: ${{ steps.check_index_exists.outputs.exists }}
-        if: steps.check_index_exists.outputs.exists == 'true'
+          INDEX_EXISTS: ${{ steps.check_index_exists.outputs.files_exists }}
+        if: steps.check_index_exists.outputs.files_exists == 'true'
         run: echo "Index Exists? $INDEX_EXISTS"
 
       - name: List all modified files

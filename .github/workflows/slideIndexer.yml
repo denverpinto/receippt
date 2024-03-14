@@ -129,5 +129,5 @@ jobs:
           for i in "${ALL_CHANGED_MODIFIED_FILES}"; do
             CMDS+=("--include=$i")
           done
-          #echo "${CMDS[@]}"
+          echo "${CMDS[@]}"
           aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete --dryrun

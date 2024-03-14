@@ -8,9 +8,6 @@ jobs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
       all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
       index_exists: ${{steps.check_index_exists.outputs.files_exists}}
-    defaults:
-      run:
-        working-directory: ./database
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
@@ -20,6 +17,8 @@ jobs:
       - name: Get all changed and modified files
         id: changed-files
         uses: tj-actions/changed-files@v42
+        with:
+          files: database/**
       
       - name: List all modified files
         env:
@@ -34,7 +33,7 @@ jobs:
         id: check_index_exists
         uses: andstor/file-existence-action@v3
         with:
-          files: 'index.json'
+          files: 'database/index.json'
 
       - name: Log index existence
         env:
@@ -94,9 +93,6 @@ jobs:
     needs: [check_database_updated,index_slides]
 
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ./database
     steps:
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v1
@@ -118,7 +114,7 @@ jobs:
 
       - name: Complete Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'false'
-        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete
+        run: aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete
         
       - name: Creating --include paths
         id: include-paths
@@ -139,8 +135,4 @@ jobs:
         env:
           INCLUDED_PATHS: ${{ steps.include-paths.outputs.paths }}
         run: |
-          #echo aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete
-          #aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete
-
-          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include "database/slides/ABBA_INTO_YOUR_HANDS.pptx" --exclude "scripts/*" --delete
-          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=database/slides/ABBA_INTO_YOUR_HANDS.pptx --exclude "scripts/*" --delete
+          aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete

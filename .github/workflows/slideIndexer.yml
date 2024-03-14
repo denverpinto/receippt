@@ -8,7 +8,9 @@ jobs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
       all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
       index_exists: ${{steps.check_index_exists.outputs.files_exists}}
-
+    defaults:
+      run:
+        working-directory: ./database
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
@@ -18,8 +20,6 @@ jobs:
       - name: Get all changed and modified files
         id: changed-files
         uses: tj-actions/changed-files@v42
-        with:
-          files: database/**
       
       - name: List all modified files
         env:
@@ -34,7 +34,7 @@ jobs:
         id: check_index_exists
         uses: andstor/file-existence-action@v3
         with:
-          files: 'database/index.json'
+          files: 'index.json'
 
       - name: Log index existence
         env:

@@ -124,7 +124,12 @@ jobs:
         run: |
           CMDS=()
           for i in "${ALL_CHANGED_MODIFIED_FILES}"; do
-            CMDS+=("--include=$i")
+            if [[ $i == database/* ]]; then
+              modifiedPath="${i#database/}"
+              CMDS+=("--include=$modifiedPath")
+            else
+              CMDS+=("--include=$i")
+            fi
           done
           echo "${CMDS[@]}"
           echo "::set-output name=paths::${CMDS[@]}"
@@ -135,5 +140,5 @@ jobs:
         env:
           INCLUDED_PATHS: ${{ steps.include-paths.outputs.paths }}
         run: |
-          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete
-          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
+          aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete
+          aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete

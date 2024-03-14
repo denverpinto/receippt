@@ -92,7 +92,7 @@ jobs:
   s3_database_sync:
     name: Sync Database To S3
     needs: [check_database_updated,index_slides]
-        
+
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -118,9 +118,10 @@ jobs:
 
       - name: Complete Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'false'
-        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete 
-
-      - name: Diff Sync with S3
+        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete
+        
+      - name: Creating --include paths
+        id: include-paths
         if: needs.check_database_updated.outputs.index_exists == 'true'
         env:
           ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
@@ -130,4 +131,9 @@ jobs:
             CMDS+=("--include=$i")
           done
           echo "${CMDS[@]}"
-          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete
+          echo "::set-output name=paths::${CMDS[@]}"
+
+
+      - name: Diff Sync with S3s
+        if: needs.check_database_updated.outputs.index_exists == 'true'
+        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${steps.include-paths.outputs.paths[@]}" --exclude "scripts/*" --delete

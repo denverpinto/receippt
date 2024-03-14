@@ -117,11 +117,11 @@ jobs:
           ls
 
       - name: Complete Sync with S3
-        if: !needs.check_database_updated.outputs.index_exists
+        if: needs.check_database_updated.outputs.index_exists == 'false'
         run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "scripts/*" --dryrun
 
       - name: Diff Sync with S3
-        if: needs.check_database_updated.outputs.index_exists
+        if: needs.check_database_updated.outputs.index_exists == 'true'
         run: |
           CMDS=()
           for i in "${needs.check_database_updated.outputs.all_changed_and_modified_files}"; do

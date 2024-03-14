@@ -22,7 +22,7 @@ updatedIndex = {}
 for (root,dirs,files) in os.walk(rootDir, topdown=False):
 	if root == rootDir : # top level directory containing folder tag names
 		for file in files:
-			updatedFileName = " ".join(file.split("_"))
+			updatedFileName = " ".join(file.split("_")).upper()
 			updatedIndex[updatedFileName] = {}
 			updatedIndex[updatedFileName]["path"] = root + "/" + file
 			prs = prs = Presentation(root+"/"+file)
@@ -34,7 +34,7 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 						texts.append(shape.text)
 				if slide_number == 0:
 					noteText = slide.notes_slide.notes_text_frame.text
-					if noteText.strip().startswith(noteTagLabel):
+					if noteText.strip().upper().startswith(noteTagLabel):
 						tags = noteText.strip().split(noteTagLabel)[1].strip().split(",")
 						tags = [ tag.strip().upper() for tag in tags]
 						tags = list(filter(lambda tag:tag!='', tags))

@@ -1,5 +1,5 @@
 {
-  " BLANK.pptx": {
+  " BLANK.PPTX": {
     "path": "./slides/_BLANK.pptx",
     "tags": [
       "TAG1",
@@ -7,7 +7,7 @@
     ],
     "text": "Slide 1:\nSLIDE TITLE\nSLIDE TEXT\ncontd.."
   },
-  "A LAMP FOR OUR STEPS.pptx": {
+  "A LAMP FOR OUR STEPS.PPTX": {
     "path": "./slides/A_LAMP_FOR_OUR_STEPS.pptx",
     "tags": [
       "ENTRANCE"

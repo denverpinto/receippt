@@ -118,7 +118,7 @@ jobs:
 
       - name: Complete Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'false'
-        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "scripts/*" --dryrun
+        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete --dryrun
 
       - name: Diff Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'true'
@@ -127,6 +127,7 @@ jobs:
         run: |
           CMDS=()
           for i in "${ALL_CHANGED_MODIFIED_FILES}"; do
-            CMDS+=("--include=$i""*")
+            CMDS+=("--include=$i")
           done
-          echo "${CMDS[@]}"
+          #echo "${CMDS[@]}"
+          aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete --dryrun

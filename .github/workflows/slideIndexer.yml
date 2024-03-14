@@ -122,9 +122,11 @@ jobs:
 
       - name: Diff Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'true'
+        env:
+          ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
         run: |
           CMDS=()
-          for i in "${needs.check_database_updated.outputs.all_changed_and_modified_files}"; do
+          for i in "${ALL_CHANGED_MODIFIED_FILES}"; do
             CMDS+=("--include=$i""*")
           done
           echo "${CMDS[@]}"

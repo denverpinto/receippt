@@ -30,7 +30,6 @@ jobs:
       - name: Log index existence
         env:
           INDEX_EXISTS: ${{ steps.check_index_exists.outputs.files_exists }}
-        if: steps.check_index_exists.outputs.files_exists == 'true'
         run: echo "Index Exists? $INDEX_EXISTS"
 
       - name: List all modified files
@@ -100,4 +99,4 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Sync with S3
-        run: aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun
+        run: aws s3 sync .database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun

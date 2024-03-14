@@ -88,8 +88,7 @@ jobs:
             sha_new=$(git rev-parse HEAD)
             echo $sha_new
             echo "::set-output name=SHA::$sha_new"
-
-          
+    
   s3_database_sync:
     name: Sync Database To S3
     needs: [check_database_updated,index_slides]
@@ -117,5 +116,15 @@ jobs:
           pwd
           ls
 
-      - name: Sync with S3
+      - name: Complete Sync with S3
+        if: !needs.check_database_updated.outputs.index_exists
         run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "scripts/*" --dryrun
+
+      - name: Diff Sync with S3
+        if: needs.check_database_updated.outputs.index_exists
+        run: |
+          CMDS=()
+          for i in "${needs.check_database_updated.outputs.all_changed_and_modified_files}"; do
+            CMDS+=("--include=$i""*")
+          done
+          echo "${CMDS[@]}"

@@ -136,4 +136,6 @@ jobs:
 
       - name: Diff Sync with S3s
         if: needs.check_database_updated.outputs.index_exists == 'true'
-        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${steps.include-paths.outputs.paths[@]}" --exclude "scripts/*" --delete
+        env:
+          INCLUDED_PATHS: ${{ steps.include-paths.outputs.paths }}
+        run: aws s3 sync . s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete

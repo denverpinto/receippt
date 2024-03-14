@@ -4,14 +4,14 @@ jobs:
   check_database_updated:
     runs-on: ubuntu-latest 
     name: Test if database was updated in any form
-    # Expose step outputs as job outputs
     outputs:
       all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
       all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
       index_exists: ${{steps.check_index_exists.outputs.files_exists}}
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
@@ -63,10 +63,10 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install -r requirements.txt
+        run: pip install -r scripts/requirements.txt
         
       - name: Run indexer script
-        run: python __indexer.py
+        run: python scripts/__indexer.py
       
       - name: Push Index Changes
         run: |
@@ -88,8 +88,6 @@ jobs:
             sha_new=$(git rev-parse HEAD)
             echo $sha_new
             echo "::set-output name=SHA::$sha_new"
-      - run:
-              echo ${{ steps.sha.outputs.SHA }}
 
           
   s3_database_sync:

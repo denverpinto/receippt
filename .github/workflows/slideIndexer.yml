@@ -80,3 +80,24 @@ jobs:
             git push  -f origin main
           fi
 
+  s3_database_sync:
+    name: Sync Database To S3
+    needs: [check_database_updated,index_slides]
+        
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./database
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'ap-south-1'
+
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+
+      - name: Sync with S3
+        run: aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun

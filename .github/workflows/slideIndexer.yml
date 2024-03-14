@@ -97,6 +97,11 @@ jobs:
 
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
+      
+      - name: Listing contents after checkout
+        run: |
+          pwd
+          ls
 
       - name: Sync with S3
         run: aws s3 sync .database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --delete  --exclude "*.py" --exclude "requirements.txt" --dryrun

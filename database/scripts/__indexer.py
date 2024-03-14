@@ -20,7 +20,7 @@ except IOError:
 updatedIndex = {}
 
 for (root,dirs,files) in os.walk(rootDir, topdown=False):
-	if root == rootDir : # top level directory containing folder tag names
+	if root == rootDir : # top level directory containing files with tags
 		for file in files:
 			updatedFileName = " ".join(file.split("_")).upper()
 			updatedIndex[updatedFileName] = {}

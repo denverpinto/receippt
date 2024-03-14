@@ -20,6 +20,15 @@ jobs:
         uses: tj-actions/changed-files@v42
         with:
           files: database/**
+      
+      - name: List all modified files
+        env:
+          ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
+          ALL_CHANGED_MODIFIED_FILES: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
+        run: |
+          for file in ${ALL_CHANGED_MODIFIED_FILES}; do
+            echo "$file was changed or modified"
+          done     
 
       - name: Check index existence
         id: check_index_exists
@@ -31,19 +40,13 @@ jobs:
         env:
           INDEX_EXISTS: ${{ steps.check_index_exists.outputs.files_exists }}
         run: echo "Index Exists? $INDEX_EXISTS"
-
-      - name: List all modified files
-        env:
-          ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
-          ALL_CHANGED_MODIFIED_FILES: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
-        run: |
-          for file in ${ALL_CHANGED_MODIFIED_FILES}; do
-            echo "$file was changed or modified"
-          done
     
   index_slides:
     name: Slides Indexer
     needs: [check_database_updated]
+    outputs:
+      new_sha: ${{ steps.sha.outputs.SHA }}
+
     if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
 
     runs-on: ubuntu-latest
@@ -79,6 +82,16 @@ jobs:
             git push  -f origin main
           fi
 
+      - name: get sha
+        id: sha
+        run: |
+            sha_new=$(git rev-parse HEAD)
+            echo $sha_new
+            echo "::set-output name=SHA::$sha_new"
+      - run:
+              echo ${{ steps.sha.outputs.SHA }}
+
+          
   s3_database_sync:
     name: Sync Database To S3
     needs: [check_database_updated,index_slides]
@@ -97,6 +110,9 @@ jobs:
 
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.index_slides.outputs.new_sha }}
+          fetch-depth: 0
       
       - name: Listing contents after checkout
         run: |

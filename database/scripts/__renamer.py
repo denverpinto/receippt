@@ -1,7 +1,7 @@
 import os
 import json
 
-# index created for directory -
+# index created for directory
 slidesPath = "/Users/Denver/Desktop/RECEIPPT/receippt-flat-db/slides"
 
 files = os.listdir(slidesPath)

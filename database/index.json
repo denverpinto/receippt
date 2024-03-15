@@ -1,1 +1,47 @@
-{}
+{
+  " BLANK.PPTX": {
+    "path": "./slides/_BLANK.pptx",
+    "tags": [
+      "TAG1",
+      "TAG2"
+    ],
+    "text": "Slide 1:\nSLIDE TITLE\nSLIDE TEXT\ncontd.."
+  },
+  "A LAMP FOR OUR STEPS.PPTX": {
+    "path": "./slides/A_LAMP_FOR_OUR_STEPS.pptx",
+    "tags": [
+      "ENTRANCE"
+    ],
+    "text": "Slide 1:\nA LAMP FOR OUR STEPS\nA lamp for our steps has been given,\nA light has been set on a hill.\nGod\u2019s word in its truth may be trusted,\nBy all who surrender their will.\nTo order the chaos of darkness;\nGive hope in the midst of despair;\nTo make of our lives new creations;\nAnd lighten the burdens we bear.\ncontd..\nSlide 2:\nA LAMP FOR OUR STEPS\nLord, grant to us eyes ever watchful,\nAnd ears ever open to hear.\nThe word that is love You are speaking,\nThe word that dispels all our fear.\nYour death-resurrection has claimed us,\nBut pardon our flesh that is weak.\nYou know that our spirits are willing,\nGive strength with the word that You speak.\n"
+  },
+  "A NEW COMMANDMENT.PPTX": {
+    "path": "./slides/A_NEW_COMMANDMENT.pptx",
+    "tags": [
+      "ACCLAMATION",
+      "COMMUNION",
+      "MAUNDY THURSDAY"
+    ],
+    "text": "Slide 1:\nA NEW COMMANDMENT\nA new commandment, I give unto you\nThat you love one another, as I have loved you (2)\n"
+  },
+  "ABBA FATHER WE LOVE YOU.PPTX": {
+    "path": "./slides/ABBA_FATHER_WE_LOVE_YOU.pptx",
+    "tags": [
+      "COMMUNION"
+    ],
+    "text": "Slide 1:\nABBA FATHER, WE LOVE YOU\nAbba Father (3) we love you.\n\nYou sent your son to save the world (3)\nWe thank you.\nYou know our needs before we ask (3)\nWe praise you.\nIn you we see our destiny (3)\nWe need you.\n"
+  },
+  "ABBA FATHER.PPTX": {
+    "path": "./slides/ABBA_FATHER.pptx",
+    "tags": [
+      "OFFERTORY"
+    ],
+    "text": "Slide 1:\nABBA FATHER\nAbba Father let us be yours and yours alone.\nSet our hearts and spirits free,\nMake us, Lord your own.\n\nThrough our goodness, Lord, we bring,\nBread of our labour and wine to cheer the heart,\nWhich will soon be filled for us, with the life of your Son.\ncontd..\nSlide 2:\nABBA FATHER\nAbba Father let us be yours and yours alone.\nSet our hearts and spirits free,\nMake us, Lord your own.\n\nTake this drop of water, too,\nSign of our weakness, yet symbol of our love,\nBy its mingling may we share, your divinity.\n"
+  },
+  "ABBA INTO YOUR HANDS.PPTX": {
+    "path": "./slides/ABBA_INTO_YOUR_HANDS.pptx",
+    "tags": [
+      "COMMUNION"
+    ],
+    "text": "Slide 1:\nABBA INTO YOUR HANDS\nAbba, into your hands we come,\nAbba, into your heart we come,\nAbba, we are returning home,\nWe want to live the love that you call your own.\n\nWhen Israel was still a babe, I loved to have him near,\nAnd from afar I called to my child,\nThe more I beckoned him to come,\nThe more he turned away,\nHe did not want to taste my love.\ncontd..\nSlide 2:\nABBA INTO YOUR HANDS\nAbba, into your hands we come,\nAbba, into your heart we come,\nAbba, we are returning home,\nWe want to live the love that you call your own.\n\nAnd it was I who lifted him, who taught him how to walk,\nI carried him with love in my arms,\nI drew him closer to my cheeks;\nI nurtured him with care,\nBut then he went along his way.\ncontd..\nSlide 3:\nABBA INTO YOUR HANDS\nAbba, into your hands we come,\nAbba, into your heart we come,\nAbba, we are returning home,\nWe want to live the love that you call your own.\n\nOh, how can I refuse to love what I could ever do\nTo win you to myself, little while,\nIf I abandoned you my child,\nMy heart would soon recoil,\nMy love for you is burning me.\n"
+  }
+}

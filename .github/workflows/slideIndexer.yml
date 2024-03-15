@@ -123,9 +123,9 @@ jobs:
           ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
         run: |
           CMDS=()
-          for i in "${ALL_CHANGED_MODIFIED_FILES}"; do
-            if [[ $i == database/* ]]; then
-              modifiedPath="${i#database/}"
+          for file in "${ALL_CHANGED_MODIFIED_FILES}"; do
+            if [[ $file == database/* ]]; then
+              modifiedPath="${file#database/}"
               CMDS+=("--include=$modifiedPath")
               echo "${CMDS[@]}"
             fi

@@ -122,8 +122,9 @@ jobs:
         env:
           ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
         run: |
+          IFS=' ' read -r -a files_array <<< "$ALL_CHANGED_MODIFIED_FILES"
           CMDS=()
-          for file in "${ALL_CHANGED_MODIFIED_FILES}"; do
+          for file in "${files_array[@]}"; do
             if [[ $file == database/* ]]; then
               modifiedPath="${file#database/}"
               CMDS+=("--include=$modifiedPath")

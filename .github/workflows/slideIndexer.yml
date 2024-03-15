@@ -127,8 +127,6 @@ jobs:
             if [[ $i == database/* ]]; then
               modifiedPath="${i#database/}"
               CMDS+=("--include=$modifiedPath")
-            else
-              CMDS+=("--include=$i")
             fi
           done
           echo "${CMDS[@]}"

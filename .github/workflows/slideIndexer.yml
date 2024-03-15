@@ -127,7 +127,7 @@ jobs:
           for file in "${files_array[@]}"; do
             if [[ $file == database/* ]]; then
               modifiedPath="${file#database/}"
-              CMDS+=("--include=$modifiedPath")
+              CMDS+=("--include $modifiedPath")
               echo "${CMDS[@]}"
             fi
           done

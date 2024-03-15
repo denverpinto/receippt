@@ -140,5 +140,6 @@ jobs:
         env:
           INCLUDED_PATHS: ${{ steps.include-paths.outputs.paths }}
         run: |
+          echo "${INCLUDED_PATHS[@]}"
           aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${INCLUDED_PATHS[@]}" --exclude "scripts/*" --delete
           aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete

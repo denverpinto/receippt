@@ -132,6 +132,6 @@ jobs:
           echo "${CMDS[@]}"
 
           aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete
-          if [[ "${IS_INDEX_MODIFIED}" == 'true' ]]; then
+          if [[ "${{needs.index_slides.outputs.is_index_modifed}}" == "true" ]]; then
             aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
           fi

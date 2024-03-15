@@ -106,11 +106,6 @@ jobs:
         with:
           ref: ${{ needs.index_slides.outputs.new_sha }}
           fetch-depth: 0
-      
-      - name: Listing contents after checkout
-        run: |
-          pwd
-          ls
 
       - name: Complete Sync with S3
         if: needs.check_database_updated.outputs.index_exists == 'false'
@@ -128,7 +123,6 @@ jobs:
             if [[ $file == database/* ]]; then
               modifiedPath="${file#database/}"
               CMDS+=("--include=$modifiedPath")
-              echo "${CMDS[@]}"
             fi
           done
           echo "${CMDS[@]}"

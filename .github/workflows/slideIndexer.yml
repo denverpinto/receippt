@@ -45,7 +45,7 @@ jobs:
     needs: [check_database_updated]
     outputs:
       latest_sha: ${{ steps.sha.outputs.latest_sha }}
-      is_index_modifed: ${{ steps.push-index.outputs.is_index_modifed }}
+      is_index_modified: ${{ steps.push-index.outputs.is_index_modified }}
 
     if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
 
@@ -119,7 +119,7 @@ jobs:
         if: needs.check_database_updated.outputs.index_exists == 'true'
         env:
           ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
-          IS_INDEX_MODIFED: ${{ needs.index_slides.outputs.is_index_modifed}}
+          IS_INDEX_MODIFIED: ${{ needs.index_slides.outputs.is_index_modified}}
         run: |
           IFS=' ' read -r -a files_array <<< "$ALL_CHANGED_MODIFIED_FILES"
           CMDS=()
@@ -133,7 +133,7 @@ jobs:
 
           aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete
 
-          echo "${{needs.index_slides.outputs.is_index_modifed}}"
-          if [[ "${{needs.index_slides.outputs.is_index_modifed}}" == "true" ]]; then
+          echo "${IS_INDEX_MODIFIED}"
+          if [[ "${IS_INDEX_MODIFIED}" == "true" ]]; then
             aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
           fi

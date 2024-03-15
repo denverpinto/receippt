@@ -1,1 +1,10 @@
-{}
+{
+  " BLANK": {
+    "path": "./slides/_BLANK.pptx",
+    "tags": [
+      "TAG1",
+      "TAG2"
+    ],
+    "text": "Slide 1:\nSLIDE TITLE\nSLIDE TEXT\ncontd.."
+  }
+}

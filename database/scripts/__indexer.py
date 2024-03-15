@@ -6,7 +6,7 @@ from pptx import Presentation
 rootDir = "./slides"
 noteTagLabel = "RECEIPPT-TAGS:"
 
-# retrieve existing index if it exists
+# retrieve preexisting index
 try:
 	with open( './index.json','r') as f:
 		currentIndex = json.load(f)

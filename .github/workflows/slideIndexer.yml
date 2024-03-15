@@ -44,7 +44,8 @@ jobs:
     name: Slides Indexer
     needs: [check_database_updated]
     outputs:
-      new_sha: ${{ steps.sha.outputs.SHA }}
+      latest_sha: ${{ steps.sha.outputs.latest_sha }}
+      is_index_modifed: ${{ steps.push-index.outputs.is_index_modifed }}
 
     if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
 
@@ -68,15 +69,17 @@ jobs:
         run: python scripts/__indexer.py
       
       - name: Push Index Changes
+        id: push-index
         run: |
           git config --local user.name "${GITHUB_ACTOR}"
           git config --local user.email "${GITHUB_ACTOR_ID}+${GITHUB_ACTOR}@users.noreply.github.com"
 
           git add .
+          echo "is_index_modified=false" >> $GITHUB_OUTPUT
 
           if [[ -n "$(git diff --name-only --diff-filter=AM --staged)" ]];
           then
-            git add .
+            echo "is_index_modified=true" >> $GITHUB_OUTPUT
             git commit -am "Slides Indexer [GITHUB ACTION]"
             git push  -f origin main
           fi
@@ -86,8 +89,7 @@ jobs:
         run: |
             sha_new=$(git rev-parse HEAD)
             echo $sha_new
-            #echo "::set-output name=SHA::$sha_new"
-            echo "SHA=$sha_new" >> $GITHUB_OUTPUT
+            echo "latest_sha=$sha_new" >> $GITHUB_OUTPUT
     
   s3_database_sync:
     name: Sync Database To S3
@@ -105,7 +107,7 @@ jobs:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.index_slides.outputs.new_sha }}
+          ref: ${{ needs.index_slides.outputs.latest_sha }}
           fetch-depth: 0
 
       - name: Complete Sync with S3
@@ -117,6 +119,7 @@ jobs:
         if: needs.check_database_updated.outputs.index_exists == 'true'
         env:
           ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
+          IS_INDEX_MODIFED: ${{ needs.index_slides.outputs.is_index_modifed}}
         run: |
           IFS=' ' read -r -a files_array <<< "$ALL_CHANGED_MODIFIED_FILES"
           CMDS=()
@@ -129,4 +132,6 @@ jobs:
           echo "${CMDS[@]}"
 
           aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete
-          aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
+          if [[ "${IS_INDEX_MODIFIED}" == 'true' ]]; then
+            aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
+          fi

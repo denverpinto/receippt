@@ -3,7 +3,7 @@ import json
 from pptx import Presentation 
 
 # index created for directory -
-rootDir = "/slides"
+rootDir = "./slides"
 noteTagLabel = "RECEIPPT-TAGS:"
 
 # retrieve preexisting index
@@ -24,7 +24,7 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 		for file in files:
 			updatedFileName = " ".join(file.split("_")).split(".pptx")[0].upper()
 			updatedIndex[updatedFileName] = {}
-			updatedIndex[updatedFileName]["path"] = root + "/" + file
+			updatedIndex[updatedFileName]["path"] = root[2:] + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			texts = []
 			for slide_number, slide in enumerate(prs.slides):

@@ -3,7 +3,7 @@ import json
 from pptx import Presentation 
 
 # index created for directory -
-rootDir = "./slides"
+rootDir = "/slides"
 noteTagLabel = "RECEIPPT-TAGS:"
 
 # retrieve preexisting index

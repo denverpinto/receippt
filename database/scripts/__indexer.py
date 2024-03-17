@@ -6,25 +6,25 @@ from pptx import Presentation
 rootDir = "./slides"
 noteTagLabel = "RECEIPPT-TAGS:"
 
-# retrieve preexisting index
+# retrieve existing index if it exists
 try:
 	with open( './index.json','r') as f:
 		currentIndex = json.load(f)
-		print("Found Existing Index With {} Slides ".format(len(currentIndex)))
+		print("Found Existing Index With {} Slides ".format(len(currentIndex["slides"])))
 except IOError:
-	currentIndex = {}
+	currentIndex = { "slides": [] }
 	print("No Index Found, Creating Index From Scratch")
 
 
 # create updated index from scratch
-updatedIndex = {}
+updatedIndex = { "slides": [] }
 
 for (root,dirs,files) in os.walk(rootDir, topdown=False):
 	if root == rootDir : # top level directory containing files with tags
 		for file in files:
-			updatedFileName = " ".join(file.split("_")).split(".pptx")[0].upper()
-			updatedIndex[updatedFileName] = {}
-			updatedIndex[updatedFileName]["path"] = root[2:] + "/" + file
+			entry = {}
+			entry["name"] = " ".join(file.split("_"))
+			entry["path"] = root + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			texts = []
 			for slide_number, slide in enumerate(prs.slides):
@@ -38,11 +38,12 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 						tags = noteText.strip().split(noteTagLabel)[1].strip().split(",")
 						tags = [ tag.strip().upper() for tag in tags]
 						tags = list(filter(lambda tag:tag!='', tags))
-						updatedIndex[updatedFileName]["tags"] = tags
-			updatedIndex[updatedFileName]["text"] = "\n".join(texts)
+						entry["tags"] = tags
+			entry["text"] = "\n".join(texts)
+			updatedIndex["slides"].append(entry)
 
 # display updated stats
-print("Updated Index Has {} Slides \n".format(len(updatedIndex)))
+print("Updated Index Has {} Slides \n".format(len(updatedIndex["slides"])))
 
 
 # persist index to file

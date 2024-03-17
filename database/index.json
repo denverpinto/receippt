@@ -2,7 +2,7 @@
   "slides": [
     {
       "name": "KUM BA YAH",
-      "path": "./slides/KUM_BA_YAH.pptx",
+      "path": "slides/KUM_BA_YAH.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -10,7 +10,7 @@
     },
     {
       "name": "ABIDE WITH ME",
-      "path": "./slides/ABIDE_WITH_ME.pptx",
+      "path": "slides/ABIDE_WITH_ME.pptx",
       "tags": [
         "FUNERAL"
       ],
@@ -18,7 +18,7 @@
     },
     {
       "name": "GLORY TO YOU O CHRIST",
-      "path": "./slides/GLORY_TO_YOU_O_CHRIST.pptx",
+      "path": "slides/GLORY_TO_YOU_O_CHRIST.pptx",
       "tags": [
         "ACCLAMATION",
         "LENT"
@@ -27,7 +27,7 @@
     },
     {
       "name": "GENTLE WOMAN",
-      "path": "./slides/GENTLE_WOMAN.pptx",
+      "path": "slides/GENTLE_WOMAN.pptx",
       "tags": [
         "MARY"
       ],
@@ -35,7 +35,7 @@
     },
     {
       "name": "IT TAKES COURAGE",
-      "path": "./slides/IT_TAKES_COURAGE.pptx",
+      "path": "slides/IT_TAKES_COURAGE.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -43,7 +43,7 @@
     },
     {
       "name": "KYRIE (INVERTED)",
-      "path": "./slides/KYRIE_(INVERTED).pptx",
+      "path": "slides/KYRIE_(INVERTED).pptx",
       "tags": [
         "LORD HAVE MERCY"
       ],
@@ -51,7 +51,7 @@
     },
     {
       "name": "IN BREAD WE BRING YOU LORD",
-      "path": "./slides/IN_BREAD_WE_BRING_YOU_LORD.pptx",
+      "path": "slides/IN_BREAD_WE_BRING_YOU_LORD.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -59,7 +59,7 @@
     },
     {
       "name": "FOLLOW ME",
-      "path": "./slides/FOLLOW_ME.pptx",
+      "path": "slides/FOLLOW_ME.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -67,7 +67,7 @@
     },
     {
       "name": "JESUS IS COMING",
-      "path": "./slides/JESUS_IS_COMING.pptx",
+      "path": "slides/JESUS_IS_COMING.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -75,7 +75,7 @@
     },
     {
       "name": "I SING A SONG",
-      "path": "./slides/I_SING_A_SONG.pptx",
+      "path": "slides/I_SING_A_SONG.pptx",
       "tags": [
         "ENTRANCE",
         "PRAISE"
@@ -84,7 +84,7 @@
     },
     {
       "name": "JUST LIKE A CHILD",
-      "path": "./slides/JUST_LIKE_A_CHILD.pptx",
+      "path": "slides/JUST_LIKE_A_CHILD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -92,7 +92,7 @@
     },
     {
       "name": "IN MEMORY OF JESUS",
-      "path": "./slides/IN_MEMORY_OF_JESUS.pptx",
+      "path": "slides/IN_MEMORY_OF_JESUS.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -100,7 +100,7 @@
     },
     {
       "name": "BREAD THAT WAS SOWN",
-      "path": "./slides/BREAD_THAT_WAS_SOWN.pptx",
+      "path": "slides/BREAD_THAT_WAS_SOWN.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -108,7 +108,7 @@
     },
     {
       "name": "HERE I AM TO WORSHIP",
-      "path": "./slides/HERE_I_AM_TO_WORSHIP.pptx",
+      "path": "slides/HERE_I_AM_TO_WORSHIP.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -116,7 +116,7 @@
     },
     {
       "name": "CAUSE ME TO COME",
-      "path": "./slides/CAUSE_ME_TO_COME.pptx",
+      "path": "slides/CAUSE_ME_TO_COME.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -124,7 +124,7 @@
     },
     {
       "name": "DOXOLOGY",
-      "path": "./slides/DOXOLOGY.pptx",
+      "path": "slides/DOXOLOGY.pptx",
       "tags": [
         "MASS RESPONSE"
       ],
@@ -132,7 +132,7 @@
     },
     {
       "name": "HOLY (CHILDREN'S)",
-      "path": "./slides/HOLY_(CHILDREN'S).pptx",
+      "path": "slides/HOLY_(CHILDREN'S).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -140,7 +140,7 @@
     },
     {
       "name": "HOLY (RESPONSORIAL)",
-      "path": "./slides/HOLY_(RESPONSORIAL).pptx",
+      "path": "slides/HOLY_(RESPONSORIAL).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -148,7 +148,7 @@
     },
     {
       "name": "BLESSED ARE THEY",
-      "path": "./slides/BLESSED_ARE_THEY.pptx",
+      "path": "slides/BLESSED_ARE_THEY.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -156,7 +156,7 @@
     },
     {
       "name": "GREAT APOSTLE (A)",
-      "path": "./slides/GREAT_APOSTLE_(A).pptx",
+      "path": "slides/GREAT_APOSTLE_(A).pptx",
       "tags": [
         "VINCENT PALLOTTI",
         "SAINTS"
@@ -165,7 +165,7 @@
     },
     {
       "name": "CHRIST BECAME OBEDIENT UNTO DEATH ON THE CROSS",
-      "path": "./slides/CHRIST_BECAME_OBEDIENT_UNTO_DEATH_ON_THE_CROSS.pptx",
+      "path": "slides/CHRIST_BECAME_OBEDIENT_UNTO_DEATH_ON_THE_CROSS.pptx",
       "tags": [
         "ACCLAMATION",
         "PALM SUNDAY"
@@ -174,7 +174,7 @@
     },
     {
       "name": "HERE WE ARE",
-      "path": "./slides/HERE_WE_ARE.pptx",
+      "path": "slides/HERE_WE_ARE.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -182,7 +182,7 @@
     },
     {
       "name": "CALLED TO WALK IN THE WAY",
-      "path": "./slides/CALLED_TO_WALK_IN_THE_WAY.pptx",
+      "path": "slides/CALLED_TO_WALK_IN_THE_WAY.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -190,7 +190,7 @@
     },
     {
       "name": "FATHER SO LOVING",
-      "path": "./slides/FATHER_SO_LOVING.pptx",
+      "path": "slides/FATHER_SO_LOVING.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -198,7 +198,7 @@
     },
     {
       "name": "AH LORD GOD",
-      "path": "./slides/AH_LORD_GOD.pptx",
+      "path": "slides/AH_LORD_GOD.pptx",
       "tags": [
         "COMMUNION",
         "EASTER"
@@ -207,7 +207,7 @@
     },
     {
       "name": "EVERY MORNING WHEN",
-      "path": "./slides/EVERY_MORNING_WHEN.pptx",
+      "path": "slides/EVERY_MORNING_WHEN.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -215,7 +215,7 @@
     },
     {
       "name": "BLESSED ASSURANCE",
-      "path": "./slides/BLESSED_ASSURANCE.pptx",
+      "path": "slides/BLESSED_ASSURANCE.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -223,7 +223,7 @@
     },
     {
       "name": "LAMB OF GOD (ISRALIE)",
-      "path": "./slides/LAMB_OF_GOD_(ISRALIE).pptx",
+      "path": "slides/LAMB_OF_GOD_(ISRALIE).pptx",
       "tags": [
         "LAMB OF GOD"
       ],
@@ -231,7 +231,7 @@
     },
     {
       "name": "I WILL NEVER FORGET YOU",
-      "path": "./slides/I_WILL_NEVER_FORGET_YOU.pptx",
+      "path": "slides/I_WILL_NEVER_FORGET_YOU.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -239,7 +239,7 @@
     },
     {
       "name": "HE IS ALIVE",
-      "path": "./slides/HE_IS_ALIVE.pptx",
+      "path": "slides/HE_IS_ALIVE.pptx",
       "tags": [
         "ACCLAMATION",
         "EASTER"
@@ -248,7 +248,7 @@
     },
     {
       "name": "DEEP CALLS TO DEEP",
-      "path": "./slides/DEEP_CALLS_TO_DEEP.pptx",
+      "path": "slides/DEEP_CALLS_TO_DEEP.pptx",
       "tags": [
         "LENT",
         "COMMUNION"
@@ -257,7 +257,7 @@
     },
     {
       "name": "BLEST ARE YOU LORD",
-      "path": "./slides/BLEST_ARE_YOU_LORD.pptx",
+      "path": "slides/BLEST_ARE_YOU_LORD.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -265,7 +265,7 @@
     },
     {
       "name": "GOD WILL MAKE A WAY",
-      "path": "./slides/GOD_WILL_MAKE_A_WAY.pptx",
+      "path": "slides/GOD_WILL_MAKE_A_WAY.pptx",
       "tags": [
         "COMMUNION",
         "PRAISE"
@@ -274,7 +274,7 @@
     },
     {
       "name": "GREATER LOVE AND FRIENDSHIP",
-      "path": "./slides/GREATER_LOVE_AND_FRIENDSHIP.pptx",
+      "path": "slides/GREATER_LOVE_AND_FRIENDSHIP.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -282,7 +282,7 @@
     },
     {
       "name": "ALL OVER THE WORLD",
-      "path": "./slides/ALL_OVER_THE_WORLD.pptx",
+      "path": "slides/ALL_OVER_THE_WORLD.pptx",
       "tags": [
         "ENTRANCE",
         "SPIRIT"
@@ -291,7 +291,7 @@
     },
     {
       "name": "GOD OF MERCY",
-      "path": "./slides/GOD_OF_MERCY.pptx",
+      "path": "slides/GOD_OF_MERCY.pptx",
       "tags": [
         "LENT"
       ],
@@ -299,7 +299,7 @@
     },
     {
       "name": "INTO YOUR HANDS",
-      "path": "./slides/INTO_YOUR_HANDS.pptx",
+      "path": "slides/INTO_YOUR_HANDS.pptx",
       "tags": [
         "PSALM",
         "LENT"
@@ -308,7 +308,7 @@
     },
     {
       "name": "HOLY (MASS OF GOD'S PEOPLE)",
-      "path": "./slides/HOLY_(MASS_OF_GOD'S_PEOPLE).pptx",
+      "path": "slides/HOLY_(MASS_OF_GOD'S_PEOPLE).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -316,7 +316,7 @@
     },
     {
       "name": "IN HIS TIME",
-      "path": "./slides/IN_HIS_TIME.pptx",
+      "path": "slides/IN_HIS_TIME.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -324,7 +324,7 @@
     },
     {
       "name": "CHRIST BECAME OBEDIENT UNTO DEATH UNTO DEATH",
-      "path": "./slides/CHRIST_BECAME_OBEDIENT_UNTO_DEATH_UNTO_DEATH.pptx",
+      "path": "slides/CHRIST_BECAME_OBEDIENT_UNTO_DEATH_UNTO_DEATH.pptx",
       "tags": [
         "ACCLAMATION",
         "PALM SUNDAY"
@@ -333,7 +333,7 @@
     },
     {
       "name": "HE IS LORD",
-      "path": "./slides/HE_IS_LORD.pptx",
+      "path": "slides/HE_IS_LORD.pptx",
       "tags": [
         "EASTER"
       ],
@@ -341,7 +341,7 @@
     },
     {
       "name": "IT CAME UPON A MIDNIGHT CLEAR",
-      "path": "./slides/IT_CAME_UPON_A_MIDNIGHT_CLEAR.pptx",
+      "path": "slides/IT_CAME_UPON_A_MIDNIGHT_CLEAR.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -349,7 +349,7 @@
     },
     {
       "name": "CAST YOUR BURDEN",
-      "path": "./slides/CAST_YOUR_BURDEN.pptx",
+      "path": "slides/CAST_YOUR_BURDEN.pptx",
       "tags": [
         "LENT"
       ],
@@ -357,7 +357,7 @@
     },
     {
       "name": "HOLY (SHOUT O JERUSALEM)",
-      "path": "./slides/HOLY_(SHOUT_O_JERUSALEM).pptx",
+      "path": "slides/HOLY_(SHOUT_O_JERUSALEM).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -365,7 +365,7 @@
     },
     {
       "name": "I HAVE DECIDED",
-      "path": "./slides/I_HAVE_DECIDED.pptx",
+      "path": "slides/I_HAVE_DECIDED.pptx",
       "tags": [
         "LENT",
         "RECESSIONAL"
@@ -374,7 +374,7 @@
     },
     {
       "name": "CHRISTMAS IS A CALL",
-      "path": "./slides/CHRISTMAS_IS_A_CALL.pptx",
+      "path": "slides/CHRISTMAS_IS_A_CALL.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -382,7 +382,7 @@
     },
     {
       "name": "HOW LOVELY IS YOUR DWELLING PLACE",
-      "path": "./slides/HOW_LOVELY_IS_YOUR_DWELLING_PLACE.pptx",
+      "path": "slides/HOW_LOVELY_IS_YOUR_DWELLING_PLACE.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -390,7 +390,7 @@
     },
     {
       "name": "LET ME SING",
-      "path": "./slides/LET_ME_SING.pptx",
+      "path": "slides/LET_ME_SING.pptx",
       "tags": [
         "PSALM"
       ],
@@ -398,7 +398,7 @@
     },
     {
       "name": "COME TO THE TABLE",
-      "path": "./slides/COME_TO_THE_TABLE.pptx",
+      "path": "slides/COME_TO_THE_TABLE.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -406,7 +406,7 @@
     },
     {
       "name": "HAIL HOLY QUEEN ENTHRONED ABOVE",
-      "path": "./slides/HAIL_HOLY_QUEEN_ENTHRONED_ABOVE.pptx",
+      "path": "slides/HAIL_HOLY_QUEEN_ENTHRONED_ABOVE.pptx",
       "tags": [
         "MARY"
       ],
@@ -414,7 +414,7 @@
     },
     {
       "name": "BLESS THE LORD MY SOUL",
-      "path": "./slides/BLESS_THE_LORD_MY_SOUL.pptx",
+      "path": "slides/BLESS_THE_LORD_MY_SOUL.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -422,7 +422,7 @@
     },
     {
       "name": "GOD REST YE MERRY GENTLEMEN",
-      "path": "./slides/GOD_REST_YE_MERRY_GENTLEMEN.pptx",
+      "path": "slides/GOD_REST_YE_MERRY_GENTLEMEN.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -430,7 +430,7 @@
     },
     {
       "name": "COME HOLY SPIRIT",
-      "path": "./slides/COME_HOLY_SPIRIT.pptx",
+      "path": "slides/COME_HOLY_SPIRIT.pptx",
       "tags": [
         "SPIRIT"
       ],
@@ -438,7 +438,7 @@
     },
     {
       "name": "ABBA FATHER WE LOVE YOU",
-      "path": "./slides/ABBA_FATHER_WE_LOVE_YOU.pptx",
+      "path": "slides/ABBA_FATHER_WE_LOVE_YOU.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -446,7 +446,7 @@
     },
     {
       "name": "BLEST BE THE LORD",
-      "path": "./slides/BLEST_BE_THE_LORD.pptx",
+      "path": "slides/BLEST_BE_THE_LORD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -454,7 +454,7 @@
     },
     {
       "name": "ALL THINGS BRIGHT AND BEAUTIFUL",
-      "path": "./slides/ALL_THINGS_BRIGHT_AND_BEAUTIFUL.pptx",
+      "path": "slides/ALL_THINGS_BRIGHT_AND_BEAUTIFUL.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -462,7 +462,7 @@
     },
     {
       "name": "JESUS HAS A TABLE SPREAD",
-      "path": "./slides/JESUS_HAS_A_TABLE_SPREAD.pptx",
+      "path": "slides/JESUS_HAS_A_TABLE_SPREAD.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -470,7 +470,7 @@
     },
     {
       "name": "IT ONLY TAKES A SPARK",
-      "path": "./slides/IT_ONLY_TAKES_A_SPARK.pptx",
+      "path": "slides/IT_ONLY_TAKES_A_SPARK.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -478,7 +478,7 @@
     },
     {
       "name": "CHANGE MY HEART O LORD",
-      "path": "./slides/CHANGE_MY_HEART_O_LORD.pptx",
+      "path": "slides/CHANGE_MY_HEART_O_LORD.pptx",
       "tags": [
         "COMMUNION",
         "PRAISE"
@@ -487,7 +487,7 @@
     },
     {
       "name": "FROM THE DEPTHS",
-      "path": "./slides/FROM_THE_DEPTHS.pptx",
+      "path": "slides/FROM_THE_DEPTHS.pptx",
       "tags": [
         "LENT"
       ],
@@ -495,7 +495,7 @@
     },
     {
       "name": "HOLY (MASS OF THANKSGIVING)",
-      "path": "./slides/HOLY_(MASS_OF_THANKSGIVING).pptx",
+      "path": "slides/HOLY_(MASS_OF_THANKSGIVING).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -503,7 +503,7 @@
     },
     {
       "name": "GLORY AND HONOUR TO MARY",
-      "path": "./slides/GLORY_AND_HONOUR_TO_MARY.pptx",
+      "path": "slides/GLORY_AND_HONOUR_TO_MARY.pptx",
       "tags": [
         "MARY"
       ],
@@ -511,7 +511,7 @@
     },
     {
       "name": "ARGAM TUKA",
-      "path": "./slides/ARGAM_TUKA.pptx",
+      "path": "slides/ARGAM_TUKA.pptx",
       "tags": [
         "KONKANI",
         "COMMUNION"
@@ -520,7 +520,7 @@
     },
     {
       "name": "HOLY (WEDDING)",
-      "path": "./slides/HOLY_(WEDDING).pptx",
+      "path": "slides/HOLY_(WEDDING).pptx",
       "tags": [
         "SANCTUS",
         "NUPTIAL"
@@ -529,7 +529,7 @@
     },
     {
       "name": "HIS WERE THE WOUNDS",
-      "path": "./slides/HIS_WERE_THE_WOUNDS.pptx",
+      "path": "slides/HIS_WERE_THE_WOUNDS.pptx",
       "tags": [
         "LENT"
       ],
@@ -537,7 +537,7 @@
     },
     {
       "name": "I AM THE BREAD OF LIFE",
-      "path": "./slides/I_AM_THE_BREAD_OF_LIFE.pptx",
+      "path": "slides/I_AM_THE_BREAD_OF_LIFE.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -545,7 +545,7 @@
     },
     {
       "name": "ADESTE FIDELES",
-      "path": "./slides/ADESTE_FIDELES.pptx",
+      "path": "slides/ADESTE_FIDELES.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -553,7 +553,7 @@
     },
     {
       "name": "ALL I ASK OF YOU",
-      "path": "./slides/ALL_I_ASK_OF_YOU.pptx",
+      "path": "slides/ALL_I_ASK_OF_YOU.pptx",
       "tags": [
         "COMMUNION",
         "NUPTIAL"
@@ -562,7 +562,7 @@
     },
     {
       "name": "COME AND WORSHIP",
-      "path": "./slides/COME_AND_WORSHIP.pptx",
+      "path": "slides/COME_AND_WORSHIP.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -570,7 +570,7 @@
     },
     {
       "name": "GO TELL IT ON THE MOUNTAINS",
-      "path": "./slides/GO_TELL_IT_ON_THE_MOUNTAINS.pptx",
+      "path": "slides/GO_TELL_IT_ON_THE_MOUNTAINS.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -578,7 +578,7 @@
     },
     {
       "name": "BESTIR THY POWER",
-      "path": "./slides/BESTIR_THY_POWER.pptx",
+      "path": "slides/BESTIR_THY_POWER.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -586,7 +586,7 @@
     },
     {
       "name": "COME IN PILGRIM",
-      "path": "./slides/COME_IN_PILGRIM.pptx",
+      "path": "slides/COME_IN_PILGRIM.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -594,7 +594,7 @@
     },
     {
       "name": "GLORIA (ON WE GO)",
-      "path": "./slides/GLORIA_(ON_WE_GO).pptx",
+      "path": "slides/GLORIA_(ON_WE_GO).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -602,7 +602,7 @@
     },
     {
       "name": "I JUST KEEP TRUSTING",
-      "path": "./slides/I_JUST_KEEP_TRUSTING.pptx",
+      "path": "slides/I_JUST_KEEP_TRUSTING.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -610,7 +610,7 @@
     },
     {
       "name": "JESUS IS LIFE",
-      "path": "./slides/JESUS_IS_LIFE.pptx",
+      "path": "slides/JESUS_IS_LIFE.pptx",
       "tags": [
         "COMMUNION",
         "EASTER"
@@ -619,7 +619,7 @@
     },
     {
       "name": "BLEST BE THE TIE",
-      "path": "./slides/BLEST_BE_THE_TIE.pptx",
+      "path": "slides/BLEST_BE_THE_TIE.pptx",
       "tags": [
         "ENTRANCE",
         "NUPTIAL"
@@ -628,7 +628,7 @@
     },
     {
       "name": "IN MOMENTS LIKE THESE",
-      "path": "./slides/IN_MOMENTS_LIKE_THESE.pptx",
+      "path": "slides/IN_MOMENTS_LIKE_THESE.pptx",
       "tags": [
         "COMMUNION",
         "PRAISE"
@@ -637,7 +637,7 @@
     },
     {
       "name": "I'VE GOT SOMETHING",
-      "path": "./slides/I'VE_GOT_SOMETHING.pptx",
+      "path": "slides/I'VE_GOT_SOMETHING.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -645,7 +645,7 @@
     },
     {
       "name": "HOLY (SWEDISH)",
-      "path": "./slides/HOLY_(SWEDISH).pptx",
+      "path": "slides/HOLY_(SWEDISH).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -653,7 +653,7 @@
     },
     {
       "name": "JESUS I BELIEVE WHAT YOU SAY",
-      "path": "./slides/JESUS_I_BELIEVE_WHAT_YOU_SAY.pptx",
+      "path": "slides/JESUS_I_BELIEVE_WHAT_YOU_SAY.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -661,7 +661,7 @@
     },
     {
       "name": "AMAZING GRACE",
-      "path": "./slides/AMAZING_GRACE.pptx",
+      "path": "slides/AMAZING_GRACE.pptx",
       "tags": [
         "FUNERAL",
         "LENT"
@@ -670,7 +670,7 @@
     },
     {
       "name": "HOW I REJOICED",
-      "path": "./slides/HOW_I_REJOICED.pptx",
+      "path": "slides/HOW_I_REJOICED.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -678,7 +678,7 @@
     },
     {
       "name": "ARISE AND SHINE",
-      "path": "./slides/ARISE_AND_SHINE.pptx",
+      "path": "slides/ARISE_AND_SHINE.pptx",
       "tags": [
         "CHRISTMAS",
         "ENTRANCE"
@@ -687,7 +687,7 @@
     },
     {
       "name": "HOLY (SING HOSANNA)",
-      "path": "./slides/HOLY_(SING_HOSANNA).pptx",
+      "path": "slides/HOLY_(SING_HOSANNA).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -695,7 +695,7 @@
     },
     {
       "name": "GLORIA (MASS OF CREATION)",
-      "path": "./slides/GLORIA_(MASS_OF_CREATION).pptx",
+      "path": "slides/GLORIA_(MASS_OF_CREATION).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -703,7 +703,7 @@
     },
     {
       "name": "ENTER REJOICE",
-      "path": "./slides/ENTER_REJOICE.pptx",
+      "path": "slides/ENTER_REJOICE.pptx",
       "tags": [
         "ENTRANCE",
         "PRAISE"
@@ -712,7 +712,7 @@
     },
     {
       "name": "COME FOLLOW ME",
-      "path": "./slides/COME_FOLLOW_ME.pptx",
+      "path": "slides/COME_FOLLOW_ME.pptx",
       "tags": [
         "LENT",
         "RECESSIONAL"
@@ -721,7 +721,7 @@
     },
     {
       "name": "BLESS NOW O HEAVENLY FATHER",
-      "path": "./slides/BLESS_NOW_O_HEAVENLY_FATHER.pptx",
+      "path": "slides/BLESS_NOW_O_HEAVENLY_FATHER.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -729,7 +729,7 @@
     },
     {
       "name": "KYRIE",
-      "path": "./slides/KYRIE.pptx",
+      "path": "slides/KYRIE.pptx",
       "tags": [
         "LORD HAVE MERCY"
       ],
@@ -737,7 +737,7 @@
     },
     {
       "name": "HOW GREAT IS OUR GOD",
-      "path": "./slides/HOW_GREAT_IS_OUR_GOD.pptx",
+      "path": "slides/HOW_GREAT_IS_OUR_GOD.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -745,7 +745,7 @@
     },
     {
       "name": "AS WE GATHER",
-      "path": "./slides/AS_WE_GATHER.pptx",
+      "path": "slides/AS_WE_GATHER.pptx",
       "tags": [
         "SPIRIT",
         "ENTRANCE"
@@ -754,7 +754,7 @@
     },
     {
       "name": "GOD AND MAN AT TABLE",
-      "path": "./slides/GOD_AND_MAN_AT_TABLE.pptx",
+      "path": "slides/GOD_AND_MAN_AT_TABLE.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -762,7 +762,7 @@
     },
     {
       "name": "HOLY (MASS OF PEACE)",
-      "path": "./slides/HOLY_(MASS_OF_PEACE).pptx",
+      "path": "slides/HOLY_(MASS_OF_PEACE).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -770,7 +770,7 @@
     },
     {
       "name": "HERE I AM LORD",
-      "path": "./slides/HERE_I_AM_LORD.pptx",
+      "path": "slides/HERE_I_AM_LORD.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -778,7 +778,7 @@
     },
     {
       "name": "BIND US TOGETHER",
-      "path": "./slides/BIND_US_TOGETHER.pptx",
+      "path": "slides/BIND_US_TOGETHER.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -786,7 +786,7 @@
     },
     {
       "name": "LET THERE BE PEACE ON EARTH",
-      "path": "./slides/LET_THERE_BE_PEACE_ON_EARTH.pptx",
+      "path": "slides/LET_THERE_BE_PEACE_ON_EARTH.pptx",
       "tags": [
         "PEACE"
       ],
@@ -794,7 +794,7 @@
     },
     {
       "name": "KYRIE (NEW)",
-      "path": "./slides/KYRIE_(NEW).pptx",
+      "path": "slides/KYRIE_(NEW).pptx",
       "tags": [
         "LORD HAVE MERCY"
       ],
@@ -802,7 +802,7 @@
     },
     {
       "name": "I GIVE MY HANDS",
-      "path": "./slides/I_GIVE_MY_HANDS.pptx",
+      "path": "slides/I_GIVE_MY_HANDS.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -810,7 +810,7 @@
     },
     {
       "name": "ALL PEOPLES OF THE UNIVERSE",
-      "path": "./slides/ALL_PEOPLES_OF_THE_UNIVERSE.pptx",
+      "path": "slides/ALL_PEOPLES_OF_THE_UNIVERSE.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -818,7 +818,7 @@
     },
     {
       "name": "GOD BLESS THIS COUPLE",
-      "path": "./slides/GOD_BLESS_THIS_COUPLE.pptx",
+      "path": "slides/GOD_BLESS_THIS_COUPLE.pptx",
       "tags": [
         "NUPTIAL",
         "RECESSIONAL",
@@ -828,7 +828,7 @@
     },
     {
       "name": "COME ON AND CELEBRATE",
-      "path": "./slides/COME_ON_AND_CELEBRATE.pptx",
+      "path": "slides/COME_ON_AND_CELEBRATE.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -836,7 +836,7 @@
     },
     {
       "name": "COME AND GO WITH ME",
-      "path": "./slides/COME_AND_GO_WITH_ME.pptx",
+      "path": "slides/COME_AND_GO_WITH_ME.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -844,7 +844,7 @@
     },
     {
       "name": "JOHN MARIE VIANNEY",
-      "path": "./slides/JOHN_MARIE_VIANNEY.pptx",
+      "path": "slides/JOHN_MARIE_VIANNEY.pptx",
       "tags": [
         "SAINTS"
       ],
@@ -852,7 +852,7 @@
     },
     {
       "name": "ALL THAT I AM",
-      "path": "./slides/ALL_THAT_I_AM.pptx",
+      "path": "slides/ALL_THAT_I_AM.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -860,7 +860,7 @@
     },
     {
       "name": "DEEP WITHIN",
-      "path": "./slides/DEEP_WITHIN.pptx",
+      "path": "slides/DEEP_WITHIN.pptx",
       "tags": [
         "COMMUNION",
         "LENT"
@@ -869,7 +869,7 @@
     },
     {
       "name": "BRAZILIAN CHRISTMAS CAROL",
-      "path": "./slides/BRAZILIAN_CHRISTMAS_CAROL.pptx",
+      "path": "slides/BRAZILIAN_CHRISTMAS_CAROL.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -877,7 +877,7 @@
     },
     {
       "name": "DO YOU WANT MY HANDS LORD",
-      "path": "./slides/DO_YOU_WANT_MY_HANDS_LORD.pptx",
+      "path": "slides/DO_YOU_WANT_MY_HANDS_LORD.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -885,7 +885,7 @@
     },
     {
       "name": "JESUS YOU ARE MY SALVATION",
-      "path": "./slides/JESUS_YOU_ARE_MY_SALVATION.pptx",
+      "path": "slides/JESUS_YOU_ARE_MY_SALVATION.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -893,7 +893,7 @@
     },
     {
       "name": "HOLY GOD WE PRAISE THY NAME",
-      "path": "./slides/HOLY_GOD_WE_PRAISE_THY_NAME.pptx",
+      "path": "slides/HOLY_GOD_WE_PRAISE_THY_NAME.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -901,7 +901,7 @@
     },
     {
       "name": "HOLY (FESTIVE)",
-      "path": "./slides/HOLY_(FESTIVE).pptx",
+      "path": "slides/HOLY_(FESTIVE).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -909,7 +909,7 @@
     },
     {
       "name": "JOY IS THE FLAG",
-      "path": "./slides/JOY_IS_THE_FLAG.pptx",
+      "path": "slides/JOY_IS_THE_FLAG.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -917,7 +917,7 @@
     },
     {
       "name": "ALABARE",
-      "path": "./slides/ALABARE.pptx",
+      "path": "slides/ALABARE.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -925,7 +925,7 @@
     },
     {
       "name": "LET THERE BE LOVE",
-      "path": "./slides/LET_THERE_BE_LOVE.pptx",
+      "path": "slides/LET_THERE_BE_LOVE.pptx",
       "tags": [
         "PEACE"
       ],
@@ -933,7 +933,7 @@
     },
     {
       "name": "AWAY IN A MANGER",
-      "path": "./slides/AWAY_IN_A_MANGER.pptx",
+      "path": "slides/AWAY_IN_A_MANGER.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -941,7 +941,7 @@
     },
     {
       "name": "AT THE CROSS",
-      "path": "./slides/AT_THE_CROSS.pptx",
+      "path": "slides/AT_THE_CROSS.pptx",
       "tags": [
         "LENT"
       ],
@@ -949,7 +949,7 @@
     },
     {
       "name": "LAMB OF GOD (MASS OF THANKSGIVING)",
-      "path": "./slides/LAMB_OF_GOD_(MASS_OF_THANKSGIVING).pptx",
+      "path": "slides/LAMB_OF_GOD_(MASS_OF_THANKSGIVING).pptx",
       "tags": [
         "LAMB OF GOD"
       ],
@@ -957,7 +957,7 @@
     },
     {
       "name": "ANGELS WE HAVE HEARD ON HIGH",
-      "path": "./slides/ANGELS_WE_HAVE_HEARD_ON_HIGH.pptx",
+      "path": "slides/ANGELS_WE_HAVE_HEARD_ON_HIGH.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -965,7 +965,7 @@
     },
     {
       "name": "JESUS IN MY HEART",
-      "path": "./slides/JESUS_IN_MY_HEART.pptx",
+      "path": "slides/JESUS_IN_MY_HEART.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -973,7 +973,7 @@
     },
     {
       "name": "GOD'S LOVE",
-      "path": "./slides/GOD'S_LOVE.pptx",
+      "path": "slides/GOD'S_LOVE.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -981,7 +981,7 @@
     },
     {
       "name": "HE BROUGHT ME TO",
-      "path": "./slides/HE_BROUGHT_ME_TO.pptx",
+      "path": "slides/HE_BROUGHT_ME_TO.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -989,7 +989,7 @@
     },
     {
       "name": "GOD IS GOOD ALL THE TIME",
-      "path": "./slides/GOD_IS_GOOD_ALL_THE_TIME.pptx",
+      "path": "slides/GOD_IS_GOOD_ALL_THE_TIME.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -997,7 +997,7 @@
     },
     {
       "name": "COME BACK MY LOVE",
-      "path": "./slides/COME_BACK_MY_LOVE.pptx",
+      "path": "slides/COME_BACK_MY_LOVE.pptx",
       "tags": [
         "COMMUNION",
         "LENT"
@@ -1006,7 +1006,7 @@
     },
     {
       "name": "GLORY AND PRAISE",
-      "path": "./slides/GLORY_AND_PRAISE.pptx",
+      "path": "slides/GLORY_AND_PRAISE.pptx",
       "tags": [
         "ACCLAMATION",
         "ENTRANCE",
@@ -1016,7 +1016,7 @@
     },
     {
       "name": "HEAR THE WORD",
-      "path": "./slides/HEAR_THE_WORD.pptx",
+      "path": "slides/HEAR_THE_WORD.pptx",
       "tags": [
         "ACCLAMATION"
       ],
@@ -1024,7 +1024,7 @@
     },
     {
       "name": "HEVENU SHALOM",
-      "path": "./slides/HEVENU_SHALOM.pptx",
+      "path": "slides/HEVENU_SHALOM.pptx",
       "tags": [
         "PEACE"
       ],
@@ -1032,7 +1032,7 @@
     },
     {
       "name": "BECAUSE HE LIVES",
-      "path": "./slides/BECAUSE_HE_LIVES.pptx",
+      "path": "slides/BECAUSE_HE_LIVES.pptx",
       "tags": [
         "EASTER"
       ],
@@ -1040,7 +1040,7 @@
     },
     {
       "name": "AS WE GATHER ROUND THE ALTAR",
-      "path": "./slides/AS_WE_GATHER_ROUND_THE_ALTAR.pptx",
+      "path": "slides/AS_WE_GATHER_ROUND_THE_ALTAR.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1048,7 +1048,7 @@
     },
     {
       "name": "COME HOLY GHOST",
-      "path": "./slides/COME_HOLY_GHOST.pptx",
+      "path": "slides/COME_HOLY_GHOST.pptx",
       "tags": [
         "SPIRIT"
       ],
@@ -1056,7 +1056,7 @@
     },
     {
       "name": "ALL THE ENDS OF THE EARTH",
-      "path": "./slides/ALL_THE_ENDS_OF_THE_EARTH.pptx",
+      "path": "slides/ALL_THE_ENDS_OF_THE_EARTH.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1064,7 +1064,7 @@
     },
     {
       "name": "GIVE ME OIL",
-      "path": "./slides/GIVE_ME_OIL.pptx",
+      "path": "slides/GIVE_ME_OIL.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1072,7 +1072,7 @@
     },
     {
       "name": "HOLY (VAKOLA)",
-      "path": "./slides/HOLY_(VAKOLA).pptx",
+      "path": "slides/HOLY_(VAKOLA).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1080,7 +1080,7 @@
     },
     {
       "name": "BE WITH US MARY",
-      "path": "./slides/BE_WITH_US_MARY.pptx",
+      "path": "slides/BE_WITH_US_MARY.pptx",
       "tags": [
         "MARY"
       ],
@@ -1088,7 +1088,7 @@
     },
     {
       "name": "CALVARY COVERS IT ALL",
-      "path": "./slides/CALVARY_COVERS_IT_ALL.pptx",
+      "path": "slides/CALVARY_COVERS_IT_ALL.pptx",
       "tags": [
         "LENT"
       ],
@@ -1096,7 +1096,7 @@
     },
     {
       "name": "JESUS MY LORD BEHOLD AT LENGTH",
-      "path": "./slides/JESUS_MY_LORD_BEHOLD_AT_LENGTH.pptx",
+      "path": "slides/JESUS_MY_LORD_BEHOLD_AT_LENGTH.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -1104,7 +1104,7 @@
     },
     {
       "name": "JESUS IS THE JOY OF LIVING",
-      "path": "./slides/JESUS_IS_THE_JOY_OF_LIVING.pptx",
+      "path": "slides/JESUS_IS_THE_JOY_OF_LIVING.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1112,7 +1112,7 @@
     },
     {
       "name": "HAVE YOU BEEN TO JESUS",
-      "path": "./slides/HAVE_YOU_BEEN_TO_JESUS.pptx",
+      "path": "slides/HAVE_YOU_BEEN_TO_JESUS.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1120,7 +1120,7 @@
     },
     {
       "name": "HOLY (YOUTH JOY)",
-      "path": "./slides/HOLY_(YOUTH_JOY).pptx",
+      "path": "slides/HOLY_(YOUTH_JOY).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1128,7 +1128,7 @@
     },
     {
       "name": "HOLY (SHOWERS)",
-      "path": "./slides/HOLY_(SHOWERS).pptx",
+      "path": "slides/HOLY_(SHOWERS).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1136,7 +1136,7 @@
     },
     {
       "name": "GIVE THANKS",
-      "path": "./slides/GIVE_THANKS.pptx",
+      "path": "slides/GIVE_THANKS.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1144,7 +1144,7 @@
     },
     {
       "name": "BE THOU MY VISION",
-      "path": "./slides/BE_THOU_MY_VISION.pptx",
+      "path": "slides/BE_THOU_MY_VISION.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -1152,7 +1152,7 @@
     },
     {
       "name": "HAIL MARY",
-      "path": "./slides/HAIL_MARY.pptx",
+      "path": "slides/HAIL_MARY.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1160,7 +1160,7 @@
     },
     {
       "name": "CHAPLET OF ST VINCENT PALLOTTI",
-      "path": "./slides/CHAPLET_OF_ST_VINCENT_PALLOTTI.pptx",
+      "path": "slides/CHAPLET_OF_ST_VINCENT_PALLOTTI.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1168,7 +1168,7 @@
     },
     {
       "name": "IF WE COULD SEE",
-      "path": "./slides/IF_WE_COULD_SEE.pptx",
+      "path": "slides/IF_WE_COULD_SEE.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1176,7 +1176,7 @@
     },
     {
       "name": "CREATE IN ME",
-      "path": "./slides/CREATE_IN_ME.pptx",
+      "path": "slides/CREATE_IN_ME.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1184,7 +1184,7 @@
     },
     {
       "name": "IF WE EAT OF THE LORD",
-      "path": "./slides/IF_WE_EAT_OF_THE_LORD.pptx",
+      "path": "slides/IF_WE_EAT_OF_THE_LORD.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1192,7 +1192,7 @@
     },
     {
       "name": "ABBA FATHER",
-      "path": "./slides/ABBA_FATHER.pptx",
+      "path": "slides/ABBA_FATHER.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1200,7 +1200,7 @@
     },
     {
       "name": "LAMB OF GOD (MASS OF PEACE)",
-      "path": "./slides/LAMB_OF_GOD_(MASS_OF_PEACE).pptx",
+      "path": "slides/LAMB_OF_GOD_(MASS_OF_PEACE).pptx",
       "tags": [
         "LAMB OF GOD"
       ],
@@ -1208,7 +1208,7 @@
     },
     {
       "name": "COME MY BROTHERS",
-      "path": "./slides/COME_MY_BROTHERS.pptx",
+      "path": "slides/COME_MY_BROTHERS.pptx",
       "tags": [
         "ENTRANCE",
         "PRAISE"
@@ -1217,7 +1217,7 @@
     },
     {
       "name": "HIDE ME",
-      "path": "./slides/HIDE_ME.pptx",
+      "path": "slides/HIDE_ME.pptx",
       "tags": [
         "LENT",
         "COMMUNION"
@@ -1226,7 +1226,7 @@
     },
     {
       "name": "GLORIA (COMMUNITY GLORY)",
-      "path": "./slides/GLORIA_(COMMUNITY_GLORY).pptx",
+      "path": "slides/GLORIA_(COMMUNITY_GLORY).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -1234,7 +1234,7 @@
     },
     {
       "name": "AS WE PREPARE TO CELEBRATE",
-      "path": "./slides/AS_WE_PREPARE_TO_CELEBRATE.pptx",
+      "path": "slides/AS_WE_PREPARE_TO_CELEBRATE.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -1242,7 +1242,7 @@
     },
     {
       "name": "JUBILEE PRAYER",
-      "path": "./slides/JUBILEE_PRAYER.pptx",
+      "path": "slides/JUBILEE_PRAYER.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1250,7 +1250,7 @@
     },
     {
       "name": "HAIL HOLY QUEEN",
-      "path": "./slides/HAIL_HOLY_QUEEN.pptx",
+      "path": "slides/HAIL_HOLY_QUEEN.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1258,7 +1258,7 @@
     },
     {
       "name": "BEGINNING TODAY",
-      "path": "./slides/BEGINNING_TODAY.pptx",
+      "path": "slides/BEGINNING_TODAY.pptx",
       "tags": [
         "ENTRANCE",
         "NUPTIAL"
@@ -1267,7 +1267,7 @@
     },
     {
       "name": "I'VE GOT A RIVER OF LIFE",
-      "path": "./slides/I'VE_GOT_A_RIVER_OF_LIFE.pptx",
+      "path": "slides/I'VE_GOT_A_RIVER_OF_LIFE.pptx",
       "tags": [
         "COMMUNION",
         "EASTER"
@@ -1276,7 +1276,7 @@
     },
     {
       "name": "CHRIST HAS DIED ALLELUIA",
-      "path": "./slides/CHRIST_HAS_DIED_ALLELUIA.pptx",
+      "path": "slides/CHRIST_HAS_DIED_ALLELUIA.pptx",
       "tags": [
         "EASTER",
         "PROCLAMATION"
@@ -1285,7 +1285,7 @@
     },
     {
       "name": "COME JESUS COME INTO THIS HEART",
-      "path": "./slides/COME_JESUS_COME_INTO_THIS_HEART.pptx",
+      "path": "slides/COME_JESUS_COME_INTO_THIS_HEART.pptx",
       "tags": [
         "LENT",
         "COMMUNION"
@@ -1294,7 +1294,7 @@
     },
     {
       "name": "BRING FLOWERS OF THE RAREST",
-      "path": "./slides/BRING_FLOWERS_OF_THE_RAREST.pptx",
+      "path": "slides/BRING_FLOWERS_OF_THE_RAREST.pptx",
       "tags": [
         "MARY"
       ],
@@ -1302,7 +1302,7 @@
     },
     {
       "name": "I ACCEPT YOU",
-      "path": "./slides/I_ACCEPT_YOU.pptx",
+      "path": "slides/I_ACCEPT_YOU.pptx",
       "tags": [
         "NUPTIAL",
         "POST NUPTIAL"
@@ -1311,7 +1311,7 @@
     },
     {
       "name": "LAMB OF GOD (MASS OF GOD'S PEOPLE)",
-      "path": "./slides/LAMB_OF_GOD_(MASS_OF_GOD'S_PEOPLE).pptx",
+      "path": "slides/LAMB_OF_GOD_(MASS_OF_GOD'S_PEOPLE).pptx",
       "tags": [
         "LAMB OF GOD"
       ],
@@ -1319,7 +1319,7 @@
     },
     {
       "name": "HOLY (COMMON)",
-      "path": "./slides/HOLY_(COMMON).pptx",
+      "path": "slides/HOLY_(COMMON).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1327,7 +1327,7 @@
     },
     {
       "name": "ALL FOR YOU",
-      "path": "./slides/ALL_FOR_YOU.pptx",
+      "path": "slides/ALL_FOR_YOU.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1335,7 +1335,7 @@
     },
     {
       "name": "I REJOICED WHEN I HEARD",
-      "path": "./slides/I_REJOICED_WHEN_I_HEARD.pptx",
+      "path": "slides/I_REJOICED_WHEN_I_HEARD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1343,7 +1343,7 @@
     },
     {
       "name": "I WILL SING OF THE MERCIES",
-      "path": "./slides/I_WILL_SING_OF_THE_MERCIES.pptx",
+      "path": "slides/I_WILL_SING_OF_THE_MERCIES.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1351,7 +1351,7 @@
     },
     {
       "name": "GOD'S SPIRIT IS IN MY HEART",
-      "path": "./slides/GOD'S_SPIRIT_IS_IN_MY_HEART.pptx",
+      "path": "slides/GOD'S_SPIRIT_IS_IN_MY_HEART.pptx",
       "tags": [
         "SPIRIT"
       ],
@@ -1359,7 +1359,7 @@
     },
     {
       "name": "GOD'S LOVE IS SO WONDERFUL",
-      "path": "./slides/GOD'S_LOVE_IS_SO_WONDERFUL.pptx",
+      "path": "slides/GOD'S_LOVE_IS_SO_WONDERFUL.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1367,7 +1367,7 @@
     },
     {
       "name": "ALLELUIA WITH JOY",
-      "path": "./slides/ALLELUIA_WITH_JOY.pptx",
+      "path": "slides/ALLELUIA_WITH_JOY.pptx",
       "tags": [
         "ACCLAMATION",
         "NUPTIAL"
@@ -1376,7 +1376,7 @@
     },
     {
       "name": "ALL GOD'S PEOPLE WANT TO SING",
-      "path": "./slides/ALL_GOD'S_PEOPLE_WANT_TO_SING.pptx",
+      "path": "slides/ALL_GOD'S_PEOPLE_WANT_TO_SING.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1384,7 +1384,7 @@
     },
     {
       "name": "HOLY (ISRALIE)",
-      "path": "./slides/HOLY_(ISRALIE).pptx",
+      "path": "slides/HOLY_(ISRALIE).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1392,7 +1392,7 @@
     },
     {
       "name": "A NEW COMMANDMENT",
-      "path": "./slides/A_NEW_COMMANDMENT.pptx",
+      "path": "slides/A_NEW_COMMANDMENT.pptx",
       "tags": [
         "ACCLAMATION",
         "COMMUNION",
@@ -1402,7 +1402,7 @@
     },
     {
       "name": "HAVE THINE OWN WAY",
-      "path": "./slides/HAVE_THINE_OWN_WAY.pptx",
+      "path": "slides/HAVE_THINE_OWN_WAY.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1410,7 +1410,7 @@
     },
     {
       "name": "I'M REJOICING NIGHT AND DAY",
-      "path": "./slides/I'M_REJOICING_NIGHT_AND_DAY.pptx",
+      "path": "slides/I'M_REJOICING_NIGHT_AND_DAY.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1418,7 +1418,7 @@
     },
     {
       "name": "HOLY VIRGIN",
-      "path": "./slides/HOLY_VIRGIN.pptx",
+      "path": "slides/HOLY_VIRGIN.pptx",
       "tags": [
         "MARY"
       ],
@@ -1426,7 +1426,7 @@
     },
     {
       "name": "INVITATION TO HOLY COMMUNION",
-      "path": "./slides/INVITATION_TO_HOLY_COMMUNION.pptx",
+      "path": "slides/INVITATION_TO_HOLY_COMMUNION.pptx",
       "tags": [
         "MASS RESPONSE"
       ],
@@ -1434,7 +1434,7 @@
     },
     {
       "name": "FOR THE LORD IS MY TOWER",
-      "path": "./slides/FOR_THE_LORD_IS_MY_TOWER.pptx",
+      "path": "slides/FOR_THE_LORD_IS_MY_TOWER.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1442,7 +1442,7 @@
     },
     {
       "name": "GO!",
-      "path": "./slides/GO!.pptx",
+      "path": "slides/GO!.pptx",
       "tags": [
         "SPIRIT"
       ],
@@ -1450,7 +1450,7 @@
     },
     {
       "name": "A LAMP FOR OUR STEPS",
-      "path": "./slides/A_LAMP_FOR_OUR_STEPS.pptx",
+      "path": "slides/A_LAMP_FOR_OUR_STEPS.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1458,7 +1458,7 @@
     },
     {
       "name": "LET US BOW IN ADORATION",
-      "path": "./slides/LET_US_BOW_IN_ADORATION.pptx",
+      "path": "slides/LET_US_BOW_IN_ADORATION.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -1466,7 +1466,7 @@
     },
     {
       "name": "LET ALL THAT IS WITHIN ME",
-      "path": "./slides/LET_ALL_THAT_IS_WITHIN_ME.pptx",
+      "path": "slides/LET_ALL_THAT_IS_WITHIN_ME.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1474,7 +1474,7 @@
     },
     {
       "name": "IN THE NAME OF JESUS",
-      "path": "./slides/IN_THE_NAME_OF_JESUS.pptx",
+      "path": "slides/IN_THE_NAME_OF_JESUS.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1482,7 +1482,7 @@
     },
     {
       "name": "CHRIST IS THE LORD",
-      "path": "./slides/CHRIST_IS_THE_LORD.pptx",
+      "path": "slides/CHRIST_IS_THE_LORD.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1490,7 +1490,7 @@
     },
     {
       "name": "JESUS IS RISEN",
-      "path": "./slides/JESUS_IS_RISEN.pptx",
+      "path": "slides/JESUS_IS_RISEN.pptx",
       "tags": [
         "EASTER"
       ],
@@ -1498,7 +1498,7 @@
     },
     {
       "name": "HE IS MY EVERYTHING",
-      "path": "./slides/HE_IS_MY_EVERYTHING.pptx",
+      "path": "slides/HE_IS_MY_EVERYTHING.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1506,7 +1506,7 @@
     },
     {
       "name": "GOD IS GOOD TO ME",
-      "path": "./slides/GOD_IS_GOOD_TO_ME.pptx",
+      "path": "slides/GOD_IS_GOOD_TO_ME.pptx",
       "tags": [
         "SPIRIT"
       ],
@@ -1514,7 +1514,7 @@
     },
     {
       "name": "HOLY (MASS OF GOD'S MERCY)",
-      "path": "./slides/HOLY_(MASS_OF_GOD'S_MERCY).pptx",
+      "path": "slides/HOLY_(MASS_OF_GOD'S_MERCY).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1522,7 +1522,7 @@
     },
     {
       "name": "FATHER FORGIVE THEM",
-      "path": "./slides/FATHER_FORGIVE_THEM.pptx",
+      "path": "slides/FATHER_FORGIVE_THEM.pptx",
       "tags": [
         "LENT"
       ],
@@ -1530,7 +1530,7 @@
     },
     {
       "name": "HAIL MARY FULL OF GRACE",
-      "path": "./slides/HAIL_MARY_FULL_OF_GRACE.pptx",
+      "path": "slides/HAIL_MARY_FULL_OF_GRACE.pptx",
       "tags": [
         "MARY"
       ],
@@ -1538,7 +1538,7 @@
     },
     {
       "name": "LEAVE IT IN THE HANDS",
-      "path": "./slides/LEAVE_IT_IN_THE_HANDS.pptx",
+      "path": "slides/LEAVE_IT_IN_THE_HANDS.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1546,7 +1546,7 @@
     },
     {
       "name": "GLORIA (VATICAN CHIMES)",
-      "path": "./slides/GLORIA_(VATICAN_CHIMES).pptx",
+      "path": "slides/GLORIA_(VATICAN_CHIMES).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -1554,7 +1554,7 @@
     },
     {
       "name": "GO THE MASS IS ENDED",
-      "path": "./slides/GO_THE_MASS_IS_ENDED.pptx",
+      "path": "slides/GO_THE_MASS_IS_ENDED.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1562,7 +1562,7 @@
     },
     {
       "name": "COME FILL MY WORLD",
-      "path": "./slides/COME_FILL_MY_WORLD.pptx",
+      "path": "slides/COME_FILL_MY_WORLD.pptx",
       "tags": [
         "COMMUNION",
         "NUPTIAL"
@@ -1571,7 +1571,7 @@
     },
     {
       "name": "COME TO THE LORD",
-      "path": "./slides/COME_TO_THE_LORD.pptx",
+      "path": "slides/COME_TO_THE_LORD.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1579,7 +1579,7 @@
     },
     {
       "name": "ACCEPT ALMIGHTY FATHER",
-      "path": "./slides/ACCEPT_ALMIGHTY_FATHER.pptx",
+      "path": "slides/ACCEPT_ALMIGHTY_FATHER.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1587,7 +1587,7 @@
     },
     {
       "name": "IN THIS SACRED MYSTERY",
-      "path": "./slides/IN_THIS_SACRED_MYSTERY.pptx",
+      "path": "slides/IN_THIS_SACRED_MYSTERY.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1595,7 +1595,7 @@
     },
     {
       "name": "HEAR MY CRY",
-      "path": "./slides/HEAR_MY_CRY.pptx",
+      "path": "slides/HEAR_MY_CRY.pptx",
       "tags": [
         "LENT"
       ],
@@ -1603,7 +1603,7 @@
     },
     {
       "name": "ANGELUS",
-      "path": "./slides/ANGELUS.pptx",
+      "path": "slides/ANGELUS.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1611,7 +1611,7 @@
     },
     {
       "name": "GLORY TO GOD ON HIGH",
-      "path": "./slides/GLORY_TO_GOD_ON_HIGH.pptx",
+      "path": "slides/GLORY_TO_GOD_ON_HIGH.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1619,7 +1619,7 @@
     },
     {
       "name": "BLEST INDEED ARE THOSE",
-      "path": "./slides/BLEST_INDEED_ARE_THOSE.pptx",
+      "path": "slides/BLEST_INDEED_ARE_THOSE.pptx",
       "tags": [
         "NUPTIAL",
         "PSALM"
@@ -1628,7 +1628,7 @@
     },
     {
       "name": "COME LORD JESUS",
-      "path": "./slides/COME_LORD_JESUS.pptx",
+      "path": "slides/COME_LORD_JESUS.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -1636,7 +1636,7 @@
     },
     {
       "name": "BETHLEMA SHERANTH",
-      "path": "./slides/BETHLEMA_SHERANTH.pptx",
+      "path": "slides/BETHLEMA_SHERANTH.pptx",
       "tags": [
         "KONKANI"
       ],
@@ -1644,7 +1644,7 @@
     },
     {
       "name": "JUST TO FIX OUR EYES",
-      "path": "./slides/JUST_TO_FIX_OUR_EYES.pptx",
+      "path": "slides/JUST_TO_FIX_OUR_EYES.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1652,7 +1652,7 @@
     },
     {
       "name": "JESUS COME INTO MY HEART",
-      "path": "./slides/JESUS_COME_INTO_MY_HEART.pptx",
+      "path": "slides/JESUS_COME_INTO_MY_HEART.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -1660,7 +1660,7 @@
     },
     {
       "name": "APOSTLE OF THE INDIAN LAND",
-      "path": "./slides/APOSTLE_OF_THE_INDIAN_LAND.pptx",
+      "path": "slides/APOSTLE_OF_THE_INDIAN_LAND.pptx",
       "tags": [
         "SAINTS"
       ],
@@ -1668,7 +1668,7 @@
     },
     {
       "name": "HAIL REDEEMER",
-      "path": "./slides/HAIL_REDEEMER.pptx",
+      "path": "slides/HAIL_REDEEMER.pptx",
       "tags": [
         "RECESSIONAL",
         "PRAISE"
@@ -1677,7 +1677,7 @@
     },
     {
       "name": "HIS NAME IS WONDERFUL",
-      "path": "./slides/HIS_NAME_IS_WONDERFUL.pptx",
+      "path": "slides/HIS_NAME_IS_WONDERFUL.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1685,7 +1685,7 @@
     },
     {
       "name": "HOW MANY BRANCHES",
-      "path": "./slides/HOW_MANY_BRANCHES.pptx",
+      "path": "slides/HOW_MANY_BRANCHES.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1693,7 +1693,7 @@
     },
     {
       "name": "COME TO THE WATERS",
-      "path": "./slides/COME_TO_THE_WATERS.pptx",
+      "path": "slides/COME_TO_THE_WATERS.pptx",
       "tags": [
         "COMMUNION",
         "EASTER"
@@ -1702,7 +1702,7 @@
     },
     {
       "name": "LAMB OF GOD (SWEDISH)",
-      "path": "./slides/LAMB_OF_GOD_(SWEDISH).pptx",
+      "path": "slides/LAMB_OF_GOD_(SWEDISH).pptx",
       "tags": [
         "LAMB OF GOD"
       ],
@@ -1710,7 +1710,7 @@
     },
     {
       "name": "DIVINE PRAISES",
-      "path": "./slides/DIVINE_PRAISES.pptx",
+      "path": "slides/DIVINE_PRAISES.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1718,7 +1718,7 @@
     },
     {
       "name": "HAIL FATHER PALLOTTI",
-      "path": "./slides/HAIL_FATHER_PALLOTTI.pptx",
+      "path": "slides/HAIL_FATHER_PALLOTTI.pptx",
       "tags": [
         "VINCENT PALLOTTI",
         "SAINTS"
@@ -1727,7 +1727,7 @@
     },
     {
       "name": " BLANK",
-      "path": "./slides/_BLANK.pptx",
+      "path": "slides/_BLANK.pptx",
       "tags": [
         "TAG1",
         "TAG2"
@@ -1736,7 +1736,7 @@
     },
     {
       "name": "ENTER O PEOPLE OF GOD",
-      "path": "./slides/ENTER_O_PEOPLE_OF_GOD.pptx",
+      "path": "slides/ENTER_O_PEOPLE_OF_GOD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1744,7 +1744,7 @@
     },
     {
       "name": "APOSTLES CREED",
-      "path": "./slides/APOSTLES_CREED.pptx",
+      "path": "slides/APOSTLES_CREED.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -1752,7 +1752,7 @@
     },
     {
       "name": "HOLY (WALTZ)",
-      "path": "./slides/HOLY_(WALTZ).pptx",
+      "path": "slides/HOLY_(WALTZ).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -1760,7 +1760,7 @@
     },
     {
       "name": "GLORIFY THE LORD",
-      "path": "./slides/GLORIFY_THE_LORD.pptx",
+      "path": "slides/GLORIFY_THE_LORD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1768,7 +1768,7 @@
     },
     {
       "name": "GLORIA (YOUTH GLORY)",
-      "path": "./slides/GLORIA_(YOUTH_GLORY).pptx",
+      "path": "slides/GLORIA_(YOUTH_GLORY).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -1776,7 +1776,7 @@
     },
     {
       "name": "GLORIA (CHRIST THE SAVIOUR)",
-      "path": "./slides/GLORIA_(CHRIST_THE_SAVIOUR).pptx",
+      "path": "slides/GLORIA_(CHRIST_THE_SAVIOUR).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -1784,7 +1784,7 @@
     },
     {
       "name": "IF YOU WISH TO BE MY DISCIPLE",
-      "path": "./slides/IF_YOU_WISH_TO_BE_MY_DISCIPLE.pptx",
+      "path": "slides/IF_YOU_WISH_TO_BE_MY_DISCIPLE.pptx",
       "tags": [
         "COMMUNION",
         "LENT"
@@ -1793,7 +1793,7 @@
     },
     {
       "name": "DAILY DAILY SING TO MARY",
-      "path": "./slides/DAILY_DAILY_SING_TO_MARY.pptx",
+      "path": "slides/DAILY_DAILY_SING_TO_MARY.pptx",
       "tags": [
         "MARY"
       ],
@@ -1801,7 +1801,7 @@
     },
     {
       "name": "EVERYDAY IS CHRISTMAS",
-      "path": "./slides/EVERYDAY_IS_CHRISTMAS.pptx",
+      "path": "slides/EVERYDAY_IS_CHRISTMAS.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -1809,7 +1809,7 @@
     },
     {
       "name": "FATHER TAKE THE GIFTS",
-      "path": "./slides/FATHER_TAKE_THE_GIFTS.pptx",
+      "path": "slides/FATHER_TAKE_THE_GIFTS.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -1817,7 +1817,7 @@
     },
     {
       "name": "HARK THE HERALD",
-      "path": "./slides/HARK_THE_HERALD.pptx",
+      "path": "slides/HARK_THE_HERALD.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -1825,7 +1825,7 @@
     },
     {
       "name": "HE'S GOT THE WHOLE WORLD",
-      "path": "./slides/HE'S_GOT_THE_WHOLE_WORLD.pptx",
+      "path": "slides/HE'S_GOT_THE_WHOLE_WORLD.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1833,7 +1833,7 @@
     },
     {
       "name": "GOD OUR FATHER",
-      "path": "./slides/GOD_OUR_FATHER.pptx",
+      "path": "slides/GOD_OUR_FATHER.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1841,7 +1841,7 @@
     },
     {
       "name": "GREAT THINGS HAPPEN",
-      "path": "./slides/GREAT_THINGS_HAPPEN.pptx",
+      "path": "slides/GREAT_THINGS_HAPPEN.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1849,7 +1849,7 @@
     },
     {
       "name": "I'LL TURN MY STEPS",
-      "path": "./slides/I'LL_TURN_MY_STEPS.pptx",
+      "path": "slides/I'LL_TURN_MY_STEPS.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1857,7 +1857,7 @@
     },
     {
       "name": "GOD STILL LOVES THE WORLD",
-      "path": "./slides/GOD_STILL_LOVES_THE_WORLD.pptx",
+      "path": "slides/GOD_STILL_LOVES_THE_WORLD.pptx",
       "tags": [
         "COMMUNION",
         "NUPTIAL"
@@ -1866,7 +1866,7 @@
     },
     {
       "name": "GOD HAS SPOKEN",
-      "path": "./slides/GOD_HAS_SPOKEN.pptx",
+      "path": "slides/GOD_HAS_SPOKEN.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1874,7 +1874,7 @@
     },
     {
       "name": "BLEST ARE THEY WHO DELIGHT",
-      "path": "./slides/BLEST_ARE_THEY_WHO_DELIGHT.pptx",
+      "path": "slides/BLEST_ARE_THEY_WHO_DELIGHT.pptx",
       "tags": [
         "PSALM"
       ],
@@ -1882,7 +1882,7 @@
     },
     {
       "name": "GOD IS SO GOOD",
-      "path": "./slides/GOD_IS_SO_GOOD.pptx",
+      "path": "slides/GOD_IS_SO_GOOD.pptx",
       "tags": [
         "LENT"
       ],
@@ -1890,7 +1890,7 @@
     },
     {
       "name": "JESUS MY LORD",
-      "path": "./slides/JESUS_MY_LORD.pptx",
+      "path": "slides/JESUS_MY_LORD.pptx",
       "tags": [
         "BLESSED SACRAMENT"
       ],
@@ -1898,7 +1898,7 @@
     },
     {
       "name": "COMFORT COMFORT MY PEOPLE",
-      "path": "./slides/COMFORT_COMFORT_MY_PEOPLE.pptx",
+      "path": "slides/COMFORT_COMFORT_MY_PEOPLE.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -1906,7 +1906,7 @@
     },
     {
       "name": "COME BACK TO ME",
-      "path": "./slides/COME_BACK_TO_ME.pptx",
+      "path": "slides/COME_BACK_TO_ME.pptx",
       "tags": [
         "COMMUNION",
         "LENT"
@@ -1915,7 +1915,7 @@
     },
     {
       "name": "GREAT INDEED",
-      "path": "./slides/GREAT_INDEED.pptx",
+      "path": "slides/GREAT_INDEED.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1923,7 +1923,7 @@
     },
     {
       "name": "I LIFT MY EYES",
-      "path": "./slides/I_LIFT_MY_EYES.pptx",
+      "path": "slides/I_LIFT_MY_EYES.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1931,7 +1931,7 @@
     },
     {
       "name": "JOY TO THE WORLD (PSALM)",
-      "path": "./slides/JOY_TO_THE_WORLD_(PSALM).pptx",
+      "path": "slides/JOY_TO_THE_WORLD_(PSALM).pptx",
       "tags": [
         "PSALM",
         "CHRISTMAS"
@@ -1940,7 +1940,7 @@
     },
     {
       "name": "JOY TO THE WORLD",
-      "path": "./slides/JOY_TO_THE_WORLD.pptx",
+      "path": "slides/JOY_TO_THE_WORLD.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -1948,7 +1948,7 @@
     },
     {
       "name": "JOYFUL JOYFUL (ODE TO JOY)",
-      "path": "./slides/JOYFUL_JOYFUL_(ODE_TO_JOY).pptx",
+      "path": "slides/JOYFUL_JOYFUL_(ODE_TO_JOY).pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -1956,7 +1956,7 @@
     },
     {
       "name": "COLOURS OF DAY",
-      "path": "./slides/COLOURS_OF_DAY.pptx",
+      "path": "slides/COLOURS_OF_DAY.pptx",
       "tags": [
         "RECESSIONAL",
         "EASTER"
@@ -1965,7 +1965,7 @@
     },
     {
       "name": "DEEEP DEEP IN THE HUMAN HEART",
-      "path": "./slides/DEEEP_DEEP_IN_THE_HUMAN_HEART.pptx",
+      "path": "slides/DEEEP_DEEP_IN_THE_HUMAN_HEART.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -1973,7 +1973,7 @@
     },
     {
       "name": "JUBILATE",
-      "path": "./slides/JUBILATE.pptx",
+      "path": "slides/JUBILATE.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -1981,7 +1981,7 @@
     },
     {
       "name": "HIS NAME IS HIGHER",
-      "path": "./slides/HIS_NAME_IS_HIGHER.pptx",
+      "path": "slides/HIS_NAME_IS_HIGHER.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -1989,7 +1989,7 @@
     },
     {
       "name": "I DARE NOT SING",
-      "path": "./slides/I_DARE_NOT_SING.pptx",
+      "path": "slides/I_DARE_NOT_SING.pptx",
       "tags": [
         "LENT"
       ],
@@ -1997,7 +1997,7 @@
     },
     {
       "name": "GLORIA (MASS OF JOYFUL HEART)",
-      "path": "./slides/GLORIA_(MASS_OF_JOYFUL_HEART).pptx",
+      "path": "slides/GLORIA_(MASS_OF_JOYFUL_HEART).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -2005,7 +2005,7 @@
     },
     {
       "name": "JOYFULLY COME",
-      "path": "./slides/JOYFULLY_COME.pptx",
+      "path": "slides/JOYFULLY_COME.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2013,7 +2013,7 @@
     },
     {
       "name": "ALL THE EARTH",
-      "path": "./slides/ALL_THE_EARTH.pptx",
+      "path": "slides/ALL_THE_EARTH.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2021,7 +2021,7 @@
     },
     {
       "name": "BLESSED BE GOD FOREVER",
-      "path": "./slides/BLESSED_BE_GOD_FOREVER.pptx",
+      "path": "slides/BLESSED_BE_GOD_FOREVER.pptx",
       "tags": [
         "OFFERTORY",
         "PRAISE"
@@ -2030,7 +2030,7 @@
     },
     {
       "name": "COME TO THE MANGER",
-      "path": "./slides/COME_TO_THE_MANGER.pptx",
+      "path": "slides/COME_TO_THE_MANGER.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -2038,7 +2038,7 @@
     },
     {
       "name": "ARE YOU TIRED OF CHASING",
-      "path": "./slides/ARE_YOU_TIRED_OF_CHASING.pptx",
+      "path": "slides/ARE_YOU_TIRED_OF_CHASING.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2046,7 +2046,7 @@
     },
     {
       "name": "GLORIA (POLKA GLORY)",
-      "path": "./slides/GLORIA_(POLKA_GLORY).pptx",
+      "path": "slides/GLORIA_(POLKA_GLORY).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -2054,7 +2054,7 @@
     },
     {
       "name": "ASSUMPTION HYMN",
-      "path": "./slides/ASSUMPTION_HYMN.pptx",
+      "path": "slides/ASSUMPTION_HYMN.pptx",
       "tags": [
         "MARY"
       ],
@@ -2062,7 +2062,7 @@
     },
     {
       "name": "JESUS ALWAYS LOVED HIS OWN",
-      "path": "./slides/JESUS_ALWAYS_LOVED_HIS_OWN.pptx",
+      "path": "slides/JESUS_ALWAYS_LOVED_HIS_OWN.pptx",
       "tags": [
         "LENT"
       ],
@@ -2070,7 +2070,7 @@
     },
     {
       "name": "HOLY (2 VOICES)",
-      "path": "./slides/HOLY_(2_VOICES).pptx",
+      "path": "slides/HOLY_(2_VOICES).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -2078,7 +2078,7 @@
     },
     {
       "name": "IF WE LIVE",
-      "path": "./slides/IF_WE_LIVE.pptx",
+      "path": "slides/IF_WE_LIVE.pptx",
       "tags": [
         "COMMUNION",
         "EASTER"
@@ -2087,7 +2087,7 @@
     },
     {
       "name": "GOD WILL TAKE CARE OF YOU",
-      "path": "./slides/GOD_WILL_TAKE_CARE_OF_YOU.pptx",
+      "path": "slides/GOD_WILL_TAKE_CARE_OF_YOU.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2095,7 +2095,7 @@
     },
     {
       "name": "I'VE WANDERED FAR AWAY",
-      "path": "./slides/I'VE_WANDERED_FAR_AWAY.pptx",
+      "path": "slides/I'VE_WANDERED_FAR_AWAY.pptx",
       "tags": [
         "FUNERAL",
         "LENT"
@@ -2104,7 +2104,7 @@
     },
     {
       "name": "ENTER HIS GATES",
-      "path": "./slides/ENTER_HIS_GATES.pptx",
+      "path": "slides/ENTER_HIS_GATES.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2112,7 +2112,7 @@
     },
     {
       "name": "COME O LORD TO MY HEART TODAY",
-      "path": "./slides/COME_O_LORD_TO_MY_HEART_TODAY.pptx",
+      "path": "slides/COME_O_LORD_TO_MY_HEART_TODAY.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2120,7 +2120,7 @@
     },
     {
       "name": "EMMANUEL",
-      "path": "./slides/EMMANUEL.pptx",
+      "path": "slides/EMMANUEL.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -2128,7 +2128,7 @@
     },
     {
       "name": "GOD IS DWELLING IN MY HEART",
-      "path": "./slides/GOD_IS_DWELLING_IN_MY_HEART.pptx",
+      "path": "slides/GOD_IS_DWELLING_IN_MY_HEART.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2136,7 +2136,7 @@
     },
     {
       "name": "ALL THINGS ARE THINE",
-      "path": "./slides/ALL_THINGS_ARE_THINE.pptx",
+      "path": "slides/ALL_THINGS_ARE_THINE.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -2144,7 +2144,7 @@
     },
     {
       "name": "ANIMA CHRISTI",
-      "path": "./slides/ANIMA_CHRISTI.pptx",
+      "path": "slides/ANIMA_CHRISTI.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -2152,7 +2152,7 @@
     },
     {
       "name": "EACH FOR EACH OTHER",
-      "path": "./slides/EACH_FOR_EACH_OTHER.pptx",
+      "path": "slides/EACH_FOR_EACH_OTHER.pptx",
       "tags": [
         "NUPTIAL",
         "POST NUPTIAL"
@@ -2161,7 +2161,7 @@
     },
     {
       "name": "JOY WAS IN MY HEART",
-      "path": "./slides/JOY_WAS_IN_MY_HEART.pptx",
+      "path": "slides/JOY_WAS_IN_MY_HEART.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2169,7 +2169,7 @@
     },
     {
       "name": "AS I KNEEL BEFORE YOU",
-      "path": "./slides/AS_I_KNEEL_BEFORE_YOU.pptx",
+      "path": "slides/AS_I_KNEEL_BEFORE_YOU.pptx",
       "tags": [
         "MARY"
       ],
@@ -2177,7 +2177,7 @@
     },
     {
       "name": "HAND IN HAND WITH CHRIST",
-      "path": "./slides/HAND_IN_HAND_WITH_CHRIST.pptx",
+      "path": "slides/HAND_IN_HAND_WITH_CHRIST.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -2185,7 +2185,7 @@
     },
     {
       "name": "I WILL GREATLY REJOICE",
-      "path": "./slides/I_WILL_GREATLY_REJOICE.pptx",
+      "path": "slides/I_WILL_GREATLY_REJOICE.pptx",
       "tags": [
         "MARY"
       ],
@@ -2193,7 +2193,7 @@
     },
     {
       "name": "ALL TO JESUS I SURRENDER",
-      "path": "./slides/ALL_TO_JESUS_I_SURRENDER.pptx",
+      "path": "slides/ALL_TO_JESUS_I_SURRENDER.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2201,7 +2201,7 @@
     },
     {
       "name": "HAPPINESS IS",
-      "path": "./slides/HAPPINESS_IS.pptx",
+      "path": "slides/HAPPINESS_IS.pptx",
       "tags": [
         "RECESSIONAL",
         "NUPTIAL"
@@ -2210,7 +2210,7 @@
     },
     {
       "name": "I WILL PRAISE YOU LORD",
-      "path": "./slides/I_WILL_PRAISE_YOU_LORD.pptx",
+      "path": "slides/I_WILL_PRAISE_YOU_LORD.pptx",
       "tags": [
         "PSALM"
       ],
@@ -2218,7 +2218,7 @@
     },
     {
       "name": "GREAT APOSTLE (B)",
-      "path": "./slides/GREAT_APOSTLE_(B).pptx",
+      "path": "slides/GREAT_APOSTLE_(B).pptx",
       "tags": [
         "VINCENT PALLOTTI",
         "SAINTS"
@@ -2227,7 +2227,7 @@
     },
     {
       "name": "HAIL QUEEN OF HEAVEN",
-      "path": "./slides/HAIL_QUEEN_OF_HEAVEN.pptx",
+      "path": "slides/HAIL_QUEEN_OF_HEAVEN.pptx",
       "tags": [
         "MARY"
       ],
@@ -2235,7 +2235,7 @@
     },
     {
       "name": "BREAKING THE BREAD",
-      "path": "./slides/BREAKING_THE_BREAD.pptx",
+      "path": "slides/BREAKING_THE_BREAD.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2243,7 +2243,7 @@
     },
     {
       "name": "AS THE DEER",
-      "path": "./slides/AS_THE_DEER.pptx",
+      "path": "slides/AS_THE_DEER.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2251,7 +2251,7 @@
     },
     {
       "name": "I HAVE LOVED YOU",
-      "path": "./slides/I_HAVE_LOVED_YOU.pptx",
+      "path": "slides/I_HAVE_LOVED_YOU.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2259,7 +2259,7 @@
     },
     {
       "name": "ARISE COME TO YOUR GOD",
-      "path": "./slides/ARISE_COME_TO_YOUR_GOD.pptx",
+      "path": "slides/ARISE_COME_TO_YOUR_GOD.pptx",
       "tags": [
         "PSALM"
       ],
@@ -2267,7 +2267,7 @@
     },
     {
       "name": "HAPPY THE HEART",
-      "path": "./slides/HAPPY_THE_HEART.pptx",
+      "path": "slides/HAPPY_THE_HEART.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2275,7 +2275,7 @@
     },
     {
       "name": "BE STILL AND KNOW",
-      "path": "./slides/BE_STILL_AND_KNOW.pptx",
+      "path": "slides/BE_STILL_AND_KNOW.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -2283,7 +2283,7 @@
     },
     {
       "name": "EMBOLISM",
-      "path": "./slides/EMBOLISM.pptx",
+      "path": "slides/EMBOLISM.pptx",
       "tags": [
         "MASS RESPONSE"
       ],
@@ -2291,7 +2291,7 @@
     },
     {
       "name": "I NOW NO LONGER LIVE",
-      "path": "./slides/I_NOW_NO_LONGER_LIVE.pptx",
+      "path": "slides/I_NOW_NO_LONGER_LIVE.pptx",
       "tags": [
         "EASTER",
         "COMMUNION"
@@ -2300,7 +2300,7 @@
     },
     {
       "name": "COME O LORD OUR HUNGER TO RELIEVE",
-      "path": "./slides/COME_O_LORD_OUR_HUNGER_TO_RELIEVE.pptx",
+      "path": "slides/COME_O_LORD_OUR_HUNGER_TO_RELIEVE.pptx",
       "tags": [
         "ADVENT",
         "COMMUNION"
@@ -2309,7 +2309,7 @@
     },
     {
       "name": "GOOD NEWS GOOD NEWS",
-      "path": "./slides/GOOD_NEWS_GOOD_NEWS.pptx",
+      "path": "slides/GOOD_NEWS_GOOD_NEWS.pptx",
       "tags": [
         "EASTER",
         "RECESSIONAL"
@@ -2318,7 +2318,7 @@
     },
     {
       "name": "LAY YOUR HANDS",
-      "path": "./slides/LAY_YOUR_HANDS.pptx",
+      "path": "slides/LAY_YOUR_HANDS.pptx",
       "tags": [
         "COMMUNION"
       ],
@@ -2326,7 +2326,7 @@
     },
     {
       "name": "JESUS COME",
-      "path": "./slides/JESUS_COME.pptx",
+      "path": "slides/JESUS_COME.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -2334,7 +2334,7 @@
     },
     {
       "name": "DEEPER DEEPER",
-      "path": "./slides/DEEPER_DEEPER.pptx",
+      "path": "slides/DEEPER_DEEPER.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -2342,7 +2342,7 @@
     },
     {
       "name": "CELEBRATE GOD",
-      "path": "./slides/CELEBRATE_GOD.pptx",
+      "path": "slides/CELEBRATE_GOD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2350,7 +2350,7 @@
     },
     {
       "name": "GOD SO LOVED THE WORLD",
-      "path": "./slides/GOD_SO_LOVED_THE_WORLD.pptx",
+      "path": "slides/GOD_SO_LOVED_THE_WORLD.pptx",
       "tags": [
         "COMMUNION",
         "LENT"
@@ -2359,7 +2359,7 @@
     },
     {
       "name": "HOLY (YOUTH ALIVE)",
-      "path": "./slides/HOLY_(YOUTH_ALIVE).pptx",
+      "path": "slides/HOLY_(YOUTH_ALIVE).pptx",
       "tags": [
         "SANCTUS"
       ],
@@ -2367,7 +2367,7 @@
     },
     {
       "name": "JESUS TOOK MY BURDENS",
-      "path": "./slides/JESUS_TOOK_MY_BURDENS.pptx",
+      "path": "slides/JESUS_TOOK_MY_BURDENS.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -2375,7 +2375,7 @@
     },
     {
       "name": "FATHER I THANK YOU FOR",
-      "path": "./slides/FATHER_I_THANK_YOU_FOR.pptx",
+      "path": "slides/FATHER_I_THANK_YOU_FOR.pptx",
       "tags": [
         "RECESSIONAL"
       ],
@@ -2383,7 +2383,7 @@
     },
     {
       "name": "CHAPLET OF DIVINE MERCY",
-      "path": "./slides/CHAPLET_OF_DIVINE_MERCY.pptx",
+      "path": "slides/CHAPLET_OF_DIVINE_MERCY.pptx",
       "tags": [
         "PRAYER"
       ],
@@ -2391,7 +2391,7 @@
     },
     {
       "name": "HOW GREAT THOU ART",
-      "path": "./slides/HOW_GREAT_THOU_ART.pptx",
+      "path": "slides/HOW_GREAT_THOU_ART.pptx",
       "tags": [
         "LENT",
         "COMMUNION"
@@ -2400,7 +2400,7 @@
     },
     {
       "name": "GREAT AND MIGHTY",
-      "path": "./slides/GREAT_AND_MIGHTY.pptx",
+      "path": "slides/GREAT_AND_MIGHTY.pptx",
       "tags": [
         "PRAISE"
       ],
@@ -2408,7 +2408,7 @@
     },
     {
       "name": "BREAD AND WINE WE BRING TO YOU",
-      "path": "./slides/BREAD_AND_WINE_WE_BRING_TO_YOU.pptx",
+      "path": "slides/BREAD_AND_WINE_WE_BRING_TO_YOU.pptx",
       "tags": [
         "OFFERTORY"
       ],
@@ -2416,7 +2416,7 @@
     },
     {
       "name": "GLORY TO THE FATHER",
-      "path": "./slides/GLORY_TO_THE_FATHER.pptx",
+      "path": "slides/GLORY_TO_THE_FATHER.pptx",
       "tags": [
         "TRINITY"
       ],
@@ -2424,7 +2424,7 @@
     },
     {
       "name": "ENTER THE HOUSE OF THE LORD",
-      "path": "./slides/ENTER_THE_HOUSE_OF_THE_LORD.pptx",
+      "path": "slides/ENTER_THE_HOUSE_OF_THE_LORD.pptx",
       "tags": [
         "ENTRANCE"
       ],
@@ -2432,7 +2432,7 @@
     },
     {
       "name": "GLORIA (FESTIVE GLORY)",
-      "path": "./slides/GLORIA_(FESTIVE_GLORY).pptx",
+      "path": "slides/GLORIA_(FESTIVE_GLORY).pptx",
       "tags": [
         "GLORIA"
       ],
@@ -2440,7 +2440,7 @@
     },
     {
       "name": "HARK A HERALD VOICE IS CALLING",
-      "path": "./slides/HARK_A_HERALD_VOICE_IS_CALLING.pptx",
+      "path": "slides/HARK_A_HERALD_VOICE_IS_CALLING.pptx",
       "tags": [
         "ADVENT"
       ],
@@ -2448,7 +2448,7 @@
     },
     {
       "name": "DRUMMER BOY",
-      "path": "./slides/DRUMMER_BOY.pptx",
+      "path": "slides/DRUMMER_BOY.pptx",
       "tags": [
         "CHRISTMAS"
       ],
@@ -2456,7 +2456,7 @@
     },
     {
       "name": "BE EXALTED O GOD",
-      "path": "./slides/BE_EXALTED_O_GOD.pptx",
+      "path": "slides/BE_EXALTED_O_GOD.pptx",
       "tags": [
         "PRAISE",
         "COMMUNION"
@@ -2465,7 +2465,7 @@
     },
     {
       "name": "ABBA INTO YOUR HANDS",
-      "path": "./slides/ABBA_INTO_YOUR_HANDS.pptx",
+      "path": "slides/ABBA_INTO_YOUR_HANDS.pptx",
       "tags": [
         "COMMUNION"
       ],

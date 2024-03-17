@@ -23,7 +23,7 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 	if root == rootDir : # top level directory containing files with tags
 		for file in files:
 			entry = {}
-			entry["name"] = " ".join(file.split("_"))
+			entry["name"] = " ".join(file.split("_")).split(".pptx")[0].upper()
 			entry["path"] = root + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			texts = []

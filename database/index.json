@@ -1,15 +1,6 @@
 {
   "slides": [
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>SLIDE TITLE</h3></br>SLIDE TEXT</br>contd..",
-      "name": " BLANK",
-      "path": "slides/_BLANK.pptx",
-      "tags": [
-        "TAG1",
-        "TAG2"
-      ]
-    },
-    {
       "html": "<hr></br><b><i>Slide 1/2</b></i></br><h3>A LAMP FOR OUR STEPS</h3></br>A lamp for our steps has been given,</br>A light has been set on a hill.</br>God\u2019s word in its truth may be trusted,</br>By all who surrender their will.</br>To order the chaos of darkness;</br>Give hope in the midst of despair;</br>To make of our lives new creations;</br>And lighten the burdens we bear.</br>contd..</br><hr></br><b><i>Slide 2/2</b></i></br><h3>A LAMP FOR OUR STEPS</h3></br>Lord, grant to us eyes ever watchful,</br>And ears ever open to hear.</br>The word that is love You are speaking,</br>The word that dispels all our fear.</br>Your death-resurrection has claimed us,</br>But pardon our flesh that is weak.</br>You know that our spirits are willing,</br>Give strength with the word that You speak.</br>",
       "name": "A LAMP FOR OUR STEPS",
       "path": "slides/A_LAMP_FOR_OUR_STEPS.pptx",
@@ -411,6 +402,15 @@
       "path": "slides/BIND_US_TOGETHER.pptx",
       "tags": [
         "RECESSIONAL"
+      ]
+    },
+    {
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>SLIDE TITLE</h3></br>SLIDE TEXT</br>contd..",
+      "name": "BLANK",
+      "path": "slides/_BLANK.pptx",
+      "tags": [
+        "TAG1",
+        "TAG2"
       ]
     },
     {

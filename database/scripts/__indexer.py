@@ -43,7 +43,7 @@ for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
 	if root == slidesRootDir : # top level directory containing files with tags
 		for file in files:
 			entry = {}
-			entry["name"] = " ".join(file.split("_")).split(".pptx")[0].upper()
+			entry["name"] = " ".join(" ".join(file.split("_")).split()).split(".pptx")[0].upper()
 			entry["path"] = root[2:] + "/" + file
 			prs = prs = Presentation(root+"/"+file)
 			for slide_number, slide in enumerate(prs.slides):

@@ -1,0 +1,15 @@
+{
+    "id": "BLANK TEMPLATE",
+    "tag": "DEFAULT",
+    "saveAsFileName": "",
+    "textColor": "#ffffff",
+    "highlightedTextColor": "#ffff00",
+    "backgroundColor": "#000000",
+    "massparts": [
+        {
+            "label": "BLANK MASSPART",
+            "addLabelToTitle": true,
+            "slides": []
+        }
+    ]
+}

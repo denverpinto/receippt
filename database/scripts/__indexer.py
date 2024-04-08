@@ -2,36 +2,51 @@ import os
 import json
 from pptx import Presentation 
 
-# index created for directory -
-rootDir = "./slides"
+# index created for directories -
+slidesRootDir = "./slides"
 noteTagLabel = "RECEIPPT-TAGS:"
+templatesRootDir = "./templates"
+
+#function to return all slides' text
+def getSlidesText(path):
+	prs = Presentation(path)
+	texts = []
+	totalSlides = len(prs.slides)
+	for slide_number, slide in enumerate(prs.slides):
+		texts.append("<hr>")
+		texts.append(f"<b><i>Slide {slide_number + 1}/{totalSlides}</b></i>")
+		firstSlide = True
+		for shape in slide.shapes: 
+			if hasattr(shape, "text"):
+				if firstSlide:
+					texts.append(f"<h3>{shape.text}</h3>")
+					firstSlide = False
+				else:
+					texts.append(f"{shape.text}")
+	return "</br>".join(texts).replace("\n","</br>")
 
 # retrieve existing index if it exists
 try:
 	with open( './index.json','r') as f:
 		currentIndex = json.load(f)
-		print("Found Existing Index With {} Slides ".format(len(currentIndex["slides"])))
+		print("Found Existing Index With {} Slides and {} Templates ".format(len(currentIndex["slides"]),len(currentIndex["templates"])))
 except IOError:
-	currentIndex = { "slides": [] }
+	currentIndex = {"slides": [], "templates": [] }
 	print("No Index Found, Creating Index From Scratch")
 
 
 # create updated index from scratch
-updatedIndex = { "slides": [] }
+updatedIndex = { "slides": [], "templates": [] }
 
-for (root,dirs,files) in os.walk(rootDir, topdown=False):
-	if root == rootDir : # top level directory containing files with tags
+
+for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
+	if root == slidesRootDir : # top level directory containing files with tags
 		for file in files:
 			entry = {}
 			entry["name"] = " ".join(file.split("_")).split(".pptx")[0].upper()
 			entry["path"] = root[2:] + "/" + file
 			prs = prs = Presentation(root+"/"+file)
-			texts = []
 			for slide_number, slide in enumerate(prs.slides):
-				texts.append(f"Slide {slide_number + 1}:")
-				for shape in slide.shapes: 
-					if hasattr(shape, "text"):
-						texts.append(shape.text)
 				if slide_number == 0:
 					noteText = slide.notes_slide.notes_text_frame.text
 					if noteText.strip().upper().startswith(noteTagLabel):
@@ -39,12 +54,28 @@ for (root,dirs,files) in os.walk(rootDir, topdown=False):
 						tags = [ tag.strip().upper() for tag in tags]
 						tags = list(filter(lambda tag:tag!='', tags))
 						entry["tags"] = tags
-			entry["text"] = "\n".join(texts)
+			entry["html"] = getSlidesText(entry["path"])
 			updatedIndex["slides"].append(entry)
 
-# display updated stats
-print("Updated Index Has {} Slides \n".format(len(updatedIndex["slides"])))
+# add templates 
+for (root,dirs,files) in os.walk(templatesRootDir, topdown=False):
+	if root == templatesRootDir : # top level directory containing files with tags
+		for file in files:
+			try:
+				with open(root+"/"+file,'r') as f:
+					currentTemplate = json.load(f)
+					updatedIndex["templates"].append(currentTemplate)
+			except IOError:
+				print("{} couldn't be loaded".format(root+"/"+file))
 
+# sort index.slides alphabetically
+def sortFn(e):
+  return e['name']
+
+updatedIndex["slides"].sort(key=sortFn)
+
+# display updated stats
+print("Updated Index Has {} Slides and {} Templates \n".format(len(updatedIndex["slides"]),len(updatedIndex["templates"])))
 
 # persist index to file
 with open('./index.json', 'w') as f:

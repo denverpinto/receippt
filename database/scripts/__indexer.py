@@ -7,7 +7,10 @@ slidesRootDir = "./slides"
 noteTagLabel = "RECEIPPT-TAGS:"
 templatesRootDir = "./templates"
 
-#function to return all slides' text
+# create updated index from scratch
+updatedIndex = { "slides": [], "templates": [] }
+
+# function to return all slides' text
 def getSlidesText(path):
 	prs = Presentation(path)
 	texts = []
@@ -25,18 +28,21 @@ def getSlidesText(path):
 					texts.append(f"{shape.text}")
 	return "</br>".join(texts).replace("\n","</br>")
 
+# function to remove unknown slides from templates 
+def scrubTemplate(template):
+	knownSlides = [slideDetails["name"] for slideDetails in updatedIndex["slides"] ]
+	for masspart in template["massparts"]:
+		masspart["slides"] = [ slide for slide in masspart["slides"] if slide in knownSlides]
+	return template
+
+
 # retrieve existing index if it exists
 try:
 	with open( './index.json','r') as f:
 		currentIndex = json.load(f)
 		print("Found Existing Index With {} Slides and {} Templates ".format(len(currentIndex["slides"]),len(currentIndex["templates"])))
 except IOError:
-	currentIndex = {"slides": [], "templates": [] }
 	print("No Index Found, Creating Index From Scratch")
-
-
-# create updated index from scratch
-updatedIndex = { "slides": [], "templates": [] }
 
 
 for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
@@ -64,7 +70,7 @@ for (root,dirs,files) in os.walk(templatesRootDir, topdown=False):
 			try:
 				with open(root+"/"+file,'r') as f:
 					currentTemplate = json.load(f)
-					updatedIndex["templates"].append(currentTemplate)
+					updatedIndex["templates"].append(scrubTemplate(currentTemplate))
 			except IOError:
 				print("{} couldn't be loaded".format(root+"/"+file))
 

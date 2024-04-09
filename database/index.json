@@ -2501,9 +2501,7 @@
         {
           "addLabelToTitle": false,
           "label": "PRAYER BEFORE MASS",
-          "slides": [
-            "SILENT PRAYER BEFORE MASS"
-          ]
+          "slides": []
         },
         {
           "addLabelToTitle": true,
@@ -2513,9 +2511,7 @@
         {
           "addLabelToTitle": false,
           "label": "PENITENTIAL ACT",
-          "slides": [
-            "PENITENTIAL ACT (THE CONFITEOR)"
-          ]
+          "slides": []
         },
         {
           "addLabelToTitle": true,
@@ -2541,7 +2537,6 @@
           "addLabelToTitle": false,
           "label": "CREED",
           "slides": [
-            "NICENE CREED",
             "APOSTLES CREED"
           ]
         },
@@ -2588,9 +2583,7 @@
         {
           "addLabelToTitle": false,
           "label": "PRAYER BEFORE MASS",
-          "slides": [
-            "SILENT PRAYER BEFORE MASS"
-          ]
+          "slides": []
         },
         {
           "addLabelToTitle": true,
@@ -2600,9 +2593,7 @@
         {
           "addLabelToTitle": false,
           "label": "PENITENTIAL ACT",
-          "slides": [
-            "PENITENTIAL ACT (THE CONFITEOR)"
-          ]
+          "slides": []
         },
         {
           "addLabelToTitle": true,
@@ -2628,7 +2619,6 @@
           "addLabelToTitle": false,
           "label": "CREED",
           "slides": [
-            "NICENE CREED",
             "APOSTLES CREED"
           ]
         },

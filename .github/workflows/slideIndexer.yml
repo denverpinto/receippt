@@ -1,6 +1,47 @@
 on: [push]
 
 jobs:
+  deploy_frontend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    name: Build and deploy angular ui
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18.17.1'
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Update environments.ts with secrets
+        env:
+          RECEIPPT_API_URL: ${{ secrets.RECEIPPT_API_URL }}
+          RECEIPPT_API_INDEX_ENDPOINT: ${{ secrets.RECEIPPT_API_INDEX_ENDPOINT }}
+          RECEIPPT_API_DOWNLOAD_ENDPOINT: ${{ secrets.RECEIPPT_API_DOWNLOAD_ENDPOINT }}
+        run: node config-environment.ts RECEIPPT_API_URL RECEIPPT_API_INDEX_ENDPOINT RECEIPPT_API_DOWNLOAD_ENDPOINT
+
+      - name: Build ui
+        run: npm run build
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4.0.2
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: 'ap-south-1'
+
+      - name: Deploy build to S3 static website endpoint
+        run: aws s3 sync build/receippt-frontend/ s3://${{ secrets.RECEIPPT_UI_S3_BUCKET}} --follow-symlinks  --delete
+      
+
   check_database_updated:
     runs-on: ubuntu-latest 
     name: Test if database was updated in any form

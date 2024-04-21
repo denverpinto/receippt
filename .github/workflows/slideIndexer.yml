@@ -31,9 +31,9 @@ jobs:
       - name: Build ui
         run: npm run build
 
-      - name: Check build folder
+      - name: Check dist folder
         run: |
-          cd build/
+          cd dist/
           ls 
 
 
@@ -45,7 +45,7 @@ jobs:
           aws-region: 'ap-south-1'
 
       - name: Deploy build to S3 static website endpoint
-        run: aws s3 sync build/receippt-frontend/ s3://${{ secrets.RECEIPPT_UI_S3_BUCKET}} --follow-symlinks  --delete
+        run: aws s3 sync dist/receippt-frontend/ s3://${{ secrets.RECEIPPT_UI_S3_BUCKET}} --follow-symlinks  --delete
       
 
   check_database_updated:

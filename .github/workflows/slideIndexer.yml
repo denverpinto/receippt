@@ -31,6 +31,12 @@ jobs:
       - name: Build ui
         run: npm run build
 
+      - name: Check build folder
+        run: |
+          cd build/
+          ls 
+
+
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:

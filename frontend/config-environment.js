@@ -22,12 +22,10 @@ if (secretPropertyArgs.length > 0) {
         if (matches.length > 0) {
             try {
                 envObject = JSON.parse(matches[0]);
-                console.log(envObject);
                 /* add all existing env values */
                 for (let property in envObject) {
                     overiddenProperties[property] = envObject[property];
                 }
-                console.log(overiddenProperties);
             }
             catch (err) {
                 console.log(err);
@@ -46,15 +44,12 @@ if (secretPropertyArgs.length > 0) {
         }
     }
 
-    console.log(overiddenProperties);
 
     /* create `environment.ts` file structure */
     let envConfigProperties = [];
     for(let property in overiddenProperties){
         envConfigProperties.push(`"${property}":"${overiddenProperties[property]}"`);
     }
-
-    console.log(envConfigProperties);
 
     const envConfigFile = `export const environment = {\n${envConfigProperties.join(',\n')}\n};`;
 

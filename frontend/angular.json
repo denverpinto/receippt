@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/receippt-frontend-only",
+            "outputPath": "dist/receippt-frontend",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": [
@@ -61,10 +61,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "receippt-frontend-only:build:production"
+              "browserTarget": "receippt-frontend:build:production"
             },
             "development": {
-              "browserTarget": "receippt-frontend-only:build:development"
+              "browserTarget": "receippt-frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -72,7 +72,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "receippt-frontend-only:build"
+            "browserTarget": "receippt-frontend:build"
           }
         },
         "test": {

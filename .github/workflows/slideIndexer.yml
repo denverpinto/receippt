@@ -26,7 +26,7 @@ jobs:
           RECEIPPT_API_URL: ${{ secrets.RECEIPPT_API_URL }}
           RECEIPPT_API_INDEX_ENDPOINT: ${{ secrets.RECEIPPT_API_INDEX_ENDPOINT }}
           RECEIPPT_API_DOWNLOAD_ENDPOINT: ${{ secrets.RECEIPPT_API_DOWNLOAD_ENDPOINT }}
-        run: node config-environment.ts RECEIPPT_API_URL RECEIPPT_API_INDEX_ENDPOINT RECEIPPT_API_DOWNLOAD_ENDPOINT
+        run: node config-environment.js RECEIPPT_API_URL RECEIPPT_API_INDEX_ENDPOINT RECEIPPT_API_DOWNLOAD_ENDPOINT
 
       - name: Build ui
         run: npm run build

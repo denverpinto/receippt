@@ -1,0 +1,33 @@
+<div *ngIf ="loadingState || state.currentMasspartIndex != -1; else addMasspartPrompt">
+    <h2 class="title">
+        <ng-container *skeleton="loadingState; height: 'var(--s2)'">
+            {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].label}}
+        </ng-container>
+    </h2>
+
+    <div class = "mode-tabs">
+        <button type = "button" class = "button" [ngClass]= "{'chosen' : !loadingState && mode == 'catalogued' }" 
+        (click) = "mode='catalogued'" [disabled] = "loadingState">
+        <ng-container *skeleton="loadingState; width: '6ch'; height: 'var(--s0)'">
+            {{state.slides.length}} 
+            {{ "SLIDE" | plural: state.slides.length }}
+        </ng-container> 
+            CATALOGUED
+        </button>
+        <button type = "button" class = "button" [ngClass]="{'chosen' : !loadingState && mode == 'chosen' }" 
+        (click) = "mode='chosen'" [disabled] = "loadingState">
+        <ng-container *skeleton="loadingState; width: '6ch'; height: 'var(--s0)'">
+            {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides.length}}
+            {{ "SLIDE" | plural: state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides.length}} 
+        </ng-container> 
+            CHOSEN
+        </button>
+    </div>
+
+    <app-catalogued-slides *ngIf="loadingState || mode =='catalogued'" [masspartExists] = "true"></app-catalogued-slides>
+    <app-chosen-slides *ngIf="mode =='chosen'"></app-chosen-slides>
+</div>
+<ng-template #addMasspartPrompt>
+    <h3 class="title">ADD A MASSPART TO GET STARTED</h3>
+    <app-catalogued-slides [masspartExists] = "false"></app-catalogued-slides>
+</ng-template>

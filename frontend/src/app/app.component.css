@@ -1,0 +1,25 @@
+/* Main Page Container */
+.sidebar.page {
+    min-height: 100vh;
+    background-color: var(--background-color);
+    color: var(--text-color);
+}
+
+/* Main Page Nav */
+.sidebar.page>:first-child {
+    flex-basis: 40ch;
+    outline: var(--border-thinner) solid var(--highlighted-text-color);
+    outline-offset: var(--s-5);
+}
+
+/* Main Page Content */
+.sidebar.page>:last-child {
+    min-width: 55%;
+    min-height: 60vh;
+}
+
+.sidebar.page>:first-child,
+.sidebar.page>:last-child {
+    padding: var(--s0);
+}
+

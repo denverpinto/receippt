@@ -1,0 +1,81 @@
+.guide {
+    font-size: var(--s-1);
+    font-weight: 600;
+    text-align: center;
+}
+
+.checkbox-list{
+    margin: var(--s0);
+    padding-bottom: var(--s-5);
+}
+
+.checkbox-list > .checkbox-list{
+    border-bottom: var(--border-thinner) solid var(--text-color);
+}
+
+.checkbox-list>*+*{
+    margin-top: var(--s-2);
+}
+
+.checkbox-control {
+    font-size: var(--s-1);
+    font-style: italic;
+    line-height: var(--line-height-small);
+    display: grid;
+    grid-template-columns: var(--s-1) auto;
+    gap: var(--s-3);
+}
+
+.checkbox-control.masspart{
+    font-weight: 600;
+    font-size: var(--s0);
+}
+
+input[type="checkbox"] {
+    /* Add if not using autoprefixer */
+    -webkit-appearance: none;
+    appearance: none;
+    /* For iOS < 15 to remove gradient background */
+    background-color: var(--background-color);
+    /* Not removed via appearance */
+    margin: 0;
+
+    font: inherit;
+    color: currentColor;
+    width: var(--s0);
+    height: var(--s0);
+    border: var(--border-thinner) solid currentColor;
+    transform: translateY(calc(-1/2*var(--border-thinner)));
+
+    display: grid;
+    place-content: center;
+}
+
+input[type="checkbox"]::before {
+    content: "";
+    width: var(--s-3);
+    height: var(--s-3);
+    transform: scale(0);
+    transition: 120ms transform ease-in-out;
+    box-shadow: inset var(--s0) var(--s0) var(--highlighted-text-color);
+
+    transform-origin: bottom left;
+  clip-path: polygon(14% 44%, 0 65%, 50% 100%, 100% 16%, 80% 0%, 43% 62%);
+
+    /* Windows High Contrast Mode */
+    background-color: CanvasText;
+}
+
+input[type="checkbox"]:checked::before {
+    transform: scale(1);
+}
+
+input[type="checkbox"]:checked{
+    border-color: var(--highlighted-text-color);
+}
+
+input[type="checkbox"]:focus {
+    border-color: var(--highlighted-text-color);
+    border-width: var(--border-thin);
+    outline:none;
+  }

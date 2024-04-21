@@ -1,0 +1,129 @@
+.filename {
+    width: 100%
+}
+
+.filename>span {
+    font-size: var(--s-1);
+}
+
+.title {
+    text-align: center;
+    font-size: var(--s0);
+    font-weight: bolder;
+    margin-bottom: var(--s-5);
+}
+
+.masspart,
+.slide {
+    font-style: italic;
+    margin-left: var(--s0);
+}
+
+.masspart {
+    font-weight: 600;
+    font-size: var(--s0);
+    padding: var(--s-5);
+    border-bottom: var(--border-thinner) solid var(--text-color);
+    margin-bottom: var(--s-3);
+}
+
+.slide {
+    font-weight: 500;
+    font-size: var(--s-1);
+    margin-bottom: var(--s-4);
+}
+
+.slide::before {
+    content: "-- ";
+}
+
+.dialog-header>:first-child {
+    flex-grow: 999;
+    font-size: var(--s-1);
+    font-weight: 600;
+}
+
+.dialog-header .label {
+    font-size: var(--s-1);
+    font-weight: 600;
+}
+
+.progress-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.progress-bar {
+    background-color: var(--highlighted-text-color);
+    border: var(--border-thinner) solid var(--highlighted-text-color);
+    width: 100%;
+}
+
+.progress-text {
+    font-size: var(--s-1);
+    text-align: center;
+}
+
+.progress-bar.error {
+    background-color: var(--disabled-color);
+    border: var(--border-thinner) solid var(--disabled-color);
+}
+
+.color-panel{
+    display: flex;
+    justify-content: stretch;
+    align-items: stretch;
+}
+
+.swatch {
+    background: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+}
+
+.swatch span {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: var(--s-2);
+    margin: 0;
+}
+
+input[type="color"] {
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    height: 2vh;
+    width: 100%;
+    padding: 0;
+    border: var(--border-thinner) solid var(--text-color);
+}
+
+.swatch:focus {
+    border-radius: 0;
+    outline: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: 0;
+    border-radius: 0;
+}
+
+input[type="color"]::-moz-color-swatch,
+input[type="color"]::-moz-focus-inner {
+    border: 0;
+}
+
+input[type="color"]::-moz-focus-inner {
+    padding: 0;
+}

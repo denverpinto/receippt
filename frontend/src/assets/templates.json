@@ -1,0 +1,208 @@
+[
+    {
+        "id": "BLANK TEMPLATE",
+        "tag": "CURRENT",
+        "saveAsFileName": "",
+        "textColor": "#ffffff",
+        "highlightedTextColor": "#ffff00",
+        "backgroundColor": "#000000",
+        "massparts": [
+            {
+                "label": "BLANK MASSPART",
+                "addLabelToTitle": false,
+                "slides": []
+            }
+        ]
+    },
+    {
+        "id": "BLANK TEMPLATE",
+        "tag": "DEFAULT",
+        "saveAsFileName": "",
+        "textColor": "#ffffff",
+        "highlightedTextColor": "#ffff00",
+        "backgroundColor": "#000000",
+        "massparts": [
+            {
+                "label": "BLANK MASSPART",
+                "addLabelToTitle": false,
+                "slides": []
+            }
+        ]
+    },
+    {
+        "id": "REGULAR WEEKEND MASS",
+        "tag": "DEFAULT",
+        "saveAsFileName": "",
+        "textColor": "#ffffff",
+        "highlightedTextColor": "#ffff00",
+        "backgroundColor": "#000000",
+        "massparts": [
+            {
+                "label": "PRAYER BEFORE MASS",
+                "addLabelToTitle": false,
+                "slides": [
+                    "SILENT PRAYER BEFORE MASS"
+                ]
+            },
+            {
+                "label": "ENTRANCE",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "PENITENTIAL ACT",
+                "addLabelToTitle": false,
+                "slides": [
+                    "PENITENTIAL ACT (THE CONFITEOR)"
+                ]
+            },
+            {
+                "label": "LHM",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "GLORIA",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "RESPONSORIAL PSALM",
+                "addLabelToTitle": false,
+                "slides": []
+            },
+            {
+                "label": "GOSPEL ACCLAMATION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "CREED",
+                "addLabelToTitle": false,
+                "slides": [
+                    "NICENE CREED",
+                    "APOSTLES CREED"
+                ]
+            },
+            {
+                "label": "OFFERTORY",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "SANCTUS",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "PROCLAMATION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "COMMUNION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "JUBILEE PRAYER",
+                "addLabelToTitle": false,
+                "slides": [
+                    "JUBILEE PRAYER"
+                ]
+            },
+            {
+                "label": "RECESSIONAL",
+                "addLabelToTitle": true,
+                "slides": []
+            }
+        ]
+    },
+    {
+        "id": "NUPTIALS MASS",
+        "tag": "DEFAULT",
+        "saveAsFileName": "",
+        "textColor": "#ffffff",
+        "highlightedTextColor": "#ffff00",
+        "backgroundColor": "#000000",
+        "massparts": [
+            {
+                "label": "PRAYER BEFORE MASS",
+                "addLabelToTitle": false,
+                "slides": [
+                    "SILENT PRAYER BEFORE MASS"
+                ]
+            },
+            {
+                "label": "ENTRANCE",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "PENITENTIAL ACT",
+                "addLabelToTitle": false,
+                "slides": [
+                    "PENITENTIAL ACT (THE CONFITEOR)"
+                ]
+            },
+            {
+                "label": "LHM",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "GLORIA",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "RESPONSORIAL PSALM",
+                "addLabelToTitle": false,
+                "slides": []
+            },
+            {
+                "label": "GOSPEL ACCLAMATION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "CREED",
+                "addLabelToTitle": false,
+                "slides": [
+                    "NICENE CREED",
+                    "APOSTLES CREED"
+                ]
+            },
+            {
+                "label": "POST NUPTIAL",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "OFFERTORY",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "SANCTUS",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "PROCLAMATION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "COMMUNION",
+                "addLabelToTitle": true,
+                "slides": []
+            },
+            {
+                "label": "RECESSIONAL",
+                "addLabelToTitle": true,
+                "slides": []
+            }
+        ]
+    }
+]

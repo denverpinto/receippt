@@ -1,0 +1,62 @@
+<div cdkDropList class = "slide-draglist" (cdkDropListDropped)="drop($event)"
+*ngIf = "state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides.length > 0; else defaultSlide">
+    <div cdkDrag cdkDragLockAxis="y" *ngFor="let slide of state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides; index as sIdx" class="chosen-slide">
+        <div class="chosen-slide-main">
+            <button type="button" class="button icon-button plain grabber" aria-label="Icon-only Button" cdkDragHandle>
+                <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path xmlns="http://www.w3.org/2000/svg"
+                        d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z" />
+                </svg>
+            </button>
+            <div class="chosen-slide-item-details">
+                <div class="slide-item-info">
+                    <div class="slide-item-info-name">{{sIdx+1}}. {{slide}}</div>
+                </div>
+                <button type ="button" class = "button icon-button plain">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" fill="none" (click) = "openViewSlideDialog(slide)">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6H19V7.5H5V6ZM5 9.5H19V11H5V9.5ZM13 12.5H5V14H13V12.5ZM15.3533 18.9393L17.1287 17.164H5V15.664H17.1287L15.3533 13.8886L16.414 12.8279L20 16.414L16.414 20L15.3533 18.9393Z"/>
+                        </svg>
+                </button>
+                <button type="button" class="button icon-button plain" aria-label="Icon-only Button" (click) = "deleteSlide(sIdx)">
+                    <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class = "tag-details">
+            <span class = "nowrap">TAGS:</span>
+            <div class="reel tags">
+                <div *ngFor = "let tag of getTagsForSlide(slide)">{{tag}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+<ng-template #defaultSlide>
+    <div class="chosen-slide default">
+        <div class="chosen-slide-main">
+            <div class="chosen-slide-item-details">
+                <div class="slide-item-info">
+                    <div class="slide-item-info-name">BLANK SLIDE</div>
+                </div>
+                <button type="button" class="button icon-button plain" aria-label="Icon-only Button" disabled>
+                    <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+                        </path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div class = "tag-details">
+            <span class = "nowrap">TAGS:</span>
+            <div class="reel tags">
+            </div>
+        </div>
+    </div>
+    <div class = "default-guide"> DEFAULT SLIDE WHEN NOTHING IS CHOSEN</div>
+</ng-template>

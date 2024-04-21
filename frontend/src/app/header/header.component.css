@@ -1,0 +1,179 @@
+/* Nav Panel */
+.nav-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--s-2);
+}
+
+.nav-panel>.brand {
+    font-size: var(--s3);
+    font-weight: 700;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+}
+
+.nav-panel>.brand .brand-highlight {
+    color:var(--highlighted-text-color);
+    font-weight: 600;
+    font-style: italic;
+}
+
+.nav-panel>.actions {
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--s-5);
+}
+
+/* Styles for Selection Dropdowns*/
+.selection {
+    width: 100%;
+}
+
+.selection-toggle {
+    margin-top: var(--s-3);
+    justify-content: flex-start;
+    gap: var(--s-2);
+    font-size: var(--s0);
+    width: 100%;
+    padding: var(--s-5);
+}
+
+/* When Expanded Display Dropdown and Change Styles */
+.selection-toggle.chosen~.choices {
+    display: block;
+}
+
+.selection-toggle.chosen>svg>path {
+    d: path("M6 6 L18 6 L12 16 z");
+}
+
+.choices {
+    display: none;
+    background-color: var(--background-color);
+    min-width: 160px;
+    width: 100%;
+    border: var(--border-thin) solid var(--text-color);
+    border-top: none;
+    padding: var(--s-2);
+}
+
+.choice-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    line-height: var(--line-height-small);
+}
+
+.choice-details-subtext {
+    font-size: var(--s-1);
+    font-weight: 700;
+}
+
+.choice-details-text {
+    font-size: var(--s0);
+    font-weight: bolder;
+}
+
+/* Specific styles for template selection */
+.template-choices-title {
+    font-size: var(--s-1);
+    text-transform: uppercase;
+    line-height: var(--line-height);
+}
+
+.template-choices>*:not(:first-child) {
+    /*border: var(--border-thin) solid var(--text-color);*/
+    padding: var(--s-5);
+}
+
+.template-choices>*+* {
+    margin-top: var(--s-4);
+}
+
+/* Specific styles for template selection */
+.masspart-choices-title {
+    font-size: var(--s-1);
+    text-transform: uppercase;
+    line-height: var(--line-height);
+    display: flex;
+    justify-content: flex-start;
+    gap: var(--s-4);
+    align-items: center;
+    margin-bottom: var(--s-4);
+}
+
+.masspart-choices-title>.icon-button {
+    font-size: var(--s1);
+    width: 1em;
+    height: 1em;
+    padding: 0.1em;
+}
+
+/* MassPart Nav Panel List */
+.masspart-choices>.massparts-draglist>*+* {
+    margin-top: var(--s-2)
+}
+
+/* MassPart Nav Panel Index List Item*/
+.massparts-draglist-item {
+    border: var(--border-thin) solid var(--text-color);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    cursor: pointer;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.massparts-draglist-item.chosen {
+    outline-offset: calc(var(--outline-offset)*var(--border-thin));
+    outline: var(--border-thin) solid var(--text-color);
+
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border-color: var(--highlighted-text-color);
+}
+
+.massparts-draglist-item.chosen>button {
+    background-color: var(--text-color);
+    color: var(--background-color);
+    border-color: var(--highlighted-text-color);
+}
+
+.cdk-drag-placeholder {
+    opacity: 0;
+}
+
+.masspart-actions {
+    margin: none;
+    background-color: var(--background-color);
+    min-width: 160px;
+    width: 100%;
+
+    border-top: none;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.masspart-actions>* {
+    flex-grow: 1;
+    font-size: var(--s0);
+}
+
+.masspart-actions>.label-action {
+    flex-grow: 4;
+}
+
+.label-action[aria-selected=false]>svg>path:first-child {
+    d: none;
+}
+
+.masspart-choices-title.standalone {
+    margin-top: var(--s0);
+    justify-content: center;
+}

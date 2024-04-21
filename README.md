@@ -1,1 +1,1 @@
-# receippt
+# RECEIPPT

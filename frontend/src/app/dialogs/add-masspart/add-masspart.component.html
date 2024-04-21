@@ -1,0 +1,50 @@
+<div class="dialog-header">
+    <div>ADD MASSPART?</div>
+    <button type="button" class="button icon-button plain" aria-label="Icon-only Button" (click) ="closeDialog('cancel')">
+        <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+            </path>
+        </svg>
+    </button>
+</div>
+<div class="dialog-title">ENTER NEW MASSPART LABEL</div>
+<div class="dialog-content">
+    <div class="text-input">
+        <input type="text" placeholder="NEW MASSPART LABEL" [formControl]="name" #textInput (focus) = "selectAllOnFocusInput()"/>
+    </div>
+    <div class="hints">
+        <div class="hint" [ngClass] = "{ 'pass': !name.hasError('maxlength') && !name.hasError('required') && !name.hasError('pattern')  , 'fail': name.hasError('maxlength') || name.hasError('required') || name.hasError('pattern')}">
+            <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            *ngIf="name.hasError('maxlength') || name.hasError('required') || name.hasError('pattern')">
+                <path
+                    d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+                </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024" *ngIf="!name.hasError('maxlength') && !name.hasError('required') && !name.hasError('pattern')">
+                <path d="M760 380.4l-61.6-61.6-263.2 263.1-109.6-109.5L264 534l171.2 171.2L760 380.4z" />
+            </svg>
+            <span>SHORT CONCISE LABEL BETWEEN 0 AND 25 CHARACTERS</span>
+        </div>
+        <div class="hint" [ngClass] = "{ 'pass': !name.hasError('used'), 'fail': name.hasError('used')}">
+            <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            *ngIf="name.hasError('used')">
+                <path
+                    d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+                </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024"  *ngIf="!name.hasError('used')">
+                <path d="M760 380.4l-61.6-61.6-263.2 263.1-109.6-109.5L264 534l171.2 171.2L760 380.4z" />
+            </svg>
+            <span>NOT USED CURRENTLY BY ANOTHER MASSPART</span>
+        </div>
+    </div>
+</div>
+<div class="dialog-actions">
+    <button type="button" class="button nowrap" (click) ="closeDialog('add')" [disabled] = "name.invalid">
+        <h5>ADD</h5>
+        <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path d="M14 6 h4 v8 h8 v4 h-8 v8 h-4 v-8 h-8 v-4 h8 v-8z" />
+        </svg>
+    </button>
+</div>

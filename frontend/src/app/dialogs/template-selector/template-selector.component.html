@@ -1,0 +1,47 @@
+<div class = "dialog-header">
+    <div>CUSTOMIZE TEMPLATE</div>
+    <button type="button" class="button icon-button plain" aria-label="Icon-only Button" (click)="closeDialog('cancel')" >
+        <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+            </path>
+        </svg>
+    </button>
+</div>
+<div class = "dialog-title">{{data.selectedTemplate.id}}</div>
+<div class = "dialog-content" *ngIf = "selectionSkeleton.massparts.length > 0">
+    <div class = "guide">MASSPARTS/SLIDES OF THE CURRENT WORK THAT ARE NOT DEFAULTS OF {{"THE SELECTED TEMPLATE"}} ARE UNCHECKED BY DEFAULT. THE ORDER OF MASSPARTS/SLIDES, SLIDE COLOR AND LABEL PREFERENCES WILL RESET TO THAT OF {{"THE SELECTED TEMPLATE"}} .</div>
+    <div class = "checkbox-list">
+        <ng-container *ngFor = "let masspart of selectionSkeleton.massparts">
+            <label class="checkbox-control masspart">
+                <input type="checkbox" name="checkbox" [(ngModel)] = "masspart.selected"
+                (ngModelChange)="updateSelectionForSlidesOf(masspart.label)" />
+                {{masspart.label}}
+              </label>
+              <div class = "checkbox-list">
+                <label class="checkbox-control" *ngFor = "let slide of masspart.slides">
+                    <input type="checkbox" name="checkbox" [(ngModel)]="slide.selected" (ngModelChange)="updateSelectionForMasspart(masspart.label)" />
+                    {{slide.label}}
+                  </label>
+              </div>
+        </ng-container>
+    </div>
+</div>
+<div class = "dialog-content" *ngIf = "selectionSkeleton.massparts.length == 0">
+    <div class = "guide"> NO MASSPARTS AND SLIDES IN  CURRENT WORK AS WELL AS {{"THE SELECTED TEMPLATE"}}. A BLANK TEMPLATE WILL BE CREATED</div>
+</div>
+<div class = "dialog-actions">
+    <button type="button" class="button nowrap" (click)= "resetSelectionSkeleton()">
+        <h5>RESET</h5>
+        <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1920 1920">
+            <path d="M960 0v213.333c411.627 0 746.667 334.934 746.667 746.667S1371.627 1706.667 960 1706.667 213.333 1371.733 213.333 960c0-197.013 78.4-382.507 213.334-520.747v254.08H640V106.667H53.333V320h191.04C88.64 494.08 0 720.96 0 960c0 529.28 430.613 960 960 960s960-430.72 960-960S1489.387 0 960 0" fill-rule="evenodd"/>
+        </svg>
+    </button>
+    <button type="button" class="button nowrap" (click)="closeDialog('create')">
+        <h5>CREATE</h5>
+        <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <path xmlns="http://www.w3.org/2000/svg"
+                d="M6 6 L6 18 L18 12 z" />
+        </svg>
+    </button>
+</div>

@@ -1,0 +1,81 @@
+<div class="dialog-header">
+    <div class="progress-wrapper">
+        <div class="progress-text">
+            <span *ngIf="fileStatus.status == 'start'"> GETTING READY TO</span>
+            <span *ngIf="fileStatus.status == 'progress' ">PREPARING {{fileStatus.percent}}</span>
+            <span *ngIf="fileStatus.status == 'done' ">FINISHING {{fileStatus.percent}}</span>
+            <span *ngIf="fileStatus.status == 'error' ">FAILED TO</span>
+        </div>
+        <div class="progress-bar" [style.width]="fileStatus.status == 'error' ? '50%' : fileStatus.percent"
+            [ngClass]="{'error' : fileStatus.status == 'error' }"></div>
+    </div>
+    <div class="label">DOWNLOAD</div>
+    <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
+        (click)="dialogRef.close('cancel')">
+        <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+            </path>
+        </svg>
+    </button>
+</div>
+<div class="dialog-title">
+    <div class="text-input filename">
+        <input type="text" placeholder="FILE NAME" [formControl]="saveAsFileName" #textInput 
+        (focus) = "selectAllOnFocusInput()" />
+        <span class="nowrap">.pptx</span>
+        <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
+            [disabled]="saveAsFileName.invalid" (click)="downloadReceippt()">
+            <svg width="10px" height="10px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path
+                    d="M853.333 640v170.667c0 11.776-4.736 22.4-12.501 30.165s-18.389 12.501-30.165 12.501h-597.333c-11.776 0-22.4-4.736-30.165-12.501s-12.501-18.389-12.501-30.165v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v170.667c0 35.328 14.379 67.413 37.504 90.496s55.168 37.504 90.496 37.504h597.333c35.328 0 67.413-14.379 90.496-37.504s37.504-55.168 37.504-90.496v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667zM554.667 537.003v-409.003c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v409.003l-140.501-140.501c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c3.925 3.925 8.619 7.083 13.824 9.259s10.795 3.243 16.341 3.243c10.923 0 21.845-4.181 30.165-12.501l213.333-213.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z" />
+            </svg>
+        </button>
+    </div>
+    <div class="hints">
+        <div class="hint"
+            [ngClass]="{ 'pass': !saveAsFileName.hasError('required'), 'fail': saveAsFileName.hasError('required')}">
+            <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                *ngIf="saveAsFileName.hasError('required')">
+                <path
+                    d="M19.587 16.001l6.096 6.096c0.396 0.396 0.396 1.039 0 1.435l-2.151 2.151c-0.396 0.396-1.038 0.396-1.435 0l-6.097-6.096-6.097 6.096c-0.396 0.396-1.038 0.396-1.434 0l-2.152-2.151c-0.396-0.396-0.396-1.038 0-1.435l6.097-6.096-6.097-6.097c-0.396-0.396-0.396-1.039 0-1.435l2.153-2.151c0.396-0.396 1.038-0.396 1.434 0l6.096 6.097 6.097-6.097c0.396-0.396 1.038-0.396 1.435 0l2.151 2.152c0.396 0.396 0.396 1.038 0 1.435l-6.096 6.096z">
+                </path>
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024"
+                *ngIf="!saveAsFileName.hasError('required')">
+                <path d="M760 380.4l-61.6-61.6-263.2 263.1-109.6-109.5L264 534l171.2 171.2L760 380.4z" />
+            </svg>
+            <span>NEEDS FILENAME TO DOWNLOAD</span>
+        </div>
+    </div>
+</div>
+<div class="dialog-content">
+    <div class="title">PPT COLORS</div>
+    <div class="color-panel">
+        <div class="swatch">
+            <input type="color" [formControl]="backgroundColor">
+            <div class="info">
+                <span>BACKGROUND</span>
+            </div>
+        </div>
+        <div class="swatch">
+            <input type="color" [formControl]="textColor">
+            <div class="info">
+                <span>NORMAL TEXT</span>
+            </div>
+        </div>
+        <div class="swatch">
+            <input type="color" [formControl]="highlightedTextColor">
+            <div class="info">
+                <span>HIGHLIGHTED TEXT</span>
+            </div>
+        </div>
+    </div>
+    <div class="title">PPT SLIDES</div>
+    <div *ngFor="let masspart of template.massparts" class="masspart">
+        <span>{{masspart.label}}</span>
+        <div *ngFor="let slide of masspart.slides" class="slide">
+            {{slide}}
+        </div>
+    </div>
+</div>

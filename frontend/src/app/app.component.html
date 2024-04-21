@@ -1,0 +1,8 @@
+<div class="sidebar page" *ngIf="!down;else downScreen"> <!--Main Sidebar That Separates Nav From Content-->
+  <!-- Navigation Panel-->
+    <app-header></app-header>
+    <app-masspart-content></app-masspart-content>
+  </div>
+  <ng-template #downScreen>
+    <app-down-screen></app-down-screen>
+  </ng-template>

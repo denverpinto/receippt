@@ -1,0 +1,24 @@
+
+
+.title {
+    text-align: center;
+    margin-top: var(--s-4);
+    margin-bottom: var(--s0);
+}
+
+.mode-tabs {
+    display: flex;
+    justify-content: stretch;
+    margin-bottom: var(--s0);
+    cursor: pointer;
+}
+
+.mode-tabs > * {
+    flex-grow: 1;
+    text-align: center;
+    font-weight: 600;
+}
+
+.mode-tabs > *.chosen{
+    font-style: italic;
+}

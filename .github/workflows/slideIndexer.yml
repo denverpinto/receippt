@@ -154,7 +154,6 @@ jobs:
         if: needs.check_database_updated.outputs.index_exists == 'false'
         run: aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete
 
-
       - name: Diff Sync with S3s
         if: needs.check_database_updated.outputs.index_exists == 'true'
         env:
@@ -176,3 +175,28 @@ jobs:
           if [[ "${IS_INDEX_MODIFIED}" == "true" ]]; then
             aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
           fi
+  
+  deploy_backend:
+    name: Deploy api and database to ec2
+    needs: [check_database_updated,index_slides]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository to the runner
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.index_slides.outputs.latest_sha }}
+          fetch-depth: 0
+
+      - name: Set up JDK 17 for x64
+        uses: actions/setup-java@v4
+        with:
+            java-version: '17'    
+
+      - name: Create receippt-api.jar 
+        working-directory: ./backend
+        run: mvn clean package
+
+      - name: Check if jar is created
+        working-directory: ./backend/target
+        run: |
+          ls

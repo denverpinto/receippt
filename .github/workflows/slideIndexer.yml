@@ -197,7 +197,7 @@ jobs:
         env:
           RECEIPPT_API_NAME: ${{ secrets.RECEIPPT_API_NAME }}
         working-directory: ./backend
-        run: mvn clean -Djar.finalName=${RECEIPPT_API_NAME} package
+        run: mvn clean package -Djar.finalName="${RECEIPPT_API_NAME}"
 
       - name: Check if jar is created
         working-directory: ./backend/target

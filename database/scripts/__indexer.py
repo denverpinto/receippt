@@ -60,6 +60,8 @@ for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
 						tags = [ tag.strip().upper() for tag in tags]
 						tags = list(filter(lambda tag:tag!='', tags))
 						entry["tags"] = tags
+					else:
+						entry["tags"] = []
 			entry["html"] = getSlidesText(entry["path"])
 			updatedIndex["slides"].append(entry)
 

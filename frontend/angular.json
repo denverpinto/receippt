@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "receippt-frontend-only": {
+    "receippt-frontend": {
       "projectType": "application",
       "schematics": {},
       "root": "",

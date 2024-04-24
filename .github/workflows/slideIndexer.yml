@@ -31,12 +31,6 @@ jobs:
       - name: Build ui
         run: npm run build
 
-      - name: Check dist folder
-        run: |
-          cd dist/
-          ls 
-
-
       - name: Configure AWS Credentials
         uses: aws-actions/configure-aws-credentials@v4.0.2
         with:
@@ -46,7 +40,6 @@ jobs:
 
       - name: Deploy build to S3 static website endpoint
         run: aws s3 sync dist/receippt-frontend/ s3://${{ secrets.RECEIPPT_UI_S3_BUCKET}} --follow-symlinks  --delete
-      
 
   check_database_updated:
     runs-on: ubuntu-latest 

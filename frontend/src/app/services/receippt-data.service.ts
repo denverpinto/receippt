@@ -13,8 +13,8 @@ import { environment } from 'src/environments/environment';
 })
 export class ReceipptDataService {
 
-  private indexUrl = `${environment.RECEIPPT_API_URL}/${environment.RECEIPPT_API_INDEX_ENDPOINT}`;
-  private downloadAttachmentUrl = `${environment.RECEIPPT_API_URL}/${environment.RECEIPPT_API_DOWNLOAD_ENDPOINT}`;
+  private indexUrl = `${environment.RECEIPPT_API_URL}${environment.RECEIPPT_API_INDEX_ENDPOINT}`;
+  private downloadAttachmentUrl = `${environment.RECEIPPT_API_URL}${environment.RECEIPPT_API_DOWNLOAD_ENDPOINT}`;
 
 
   state: ReceipptState = {

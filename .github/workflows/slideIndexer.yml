@@ -209,6 +209,7 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
+            set -x
             pwd
             ls
             # Install java if it doesn't exist
@@ -233,7 +234,7 @@ jobs:
             fi
 
             # Create an empty directory to store jar and slides
-            directory= receippt
+            directory="receippt"
 
             if [ -d "$directory" ]; then
                 rm -rf "$directory"/*

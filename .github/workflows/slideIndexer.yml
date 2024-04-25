@@ -201,7 +201,7 @@ jobs:
         working-directory: ./backend/target
         run: |
           ls
-      - name: Connect to ec2 server
+      - name: Install java in ec2 server
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
@@ -219,16 +219,24 @@ jobs:
               echo "Java is not installed."
               sudo yum install java-17-amazon-corretto
             fi
+            '
+      - name: Create directory in ec2 server
+        env:
+          HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
+          PRIVATE_KEY: |
+            ${{ secrets.EC2_SERVER_PEM }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             # Create an empty directory to store jar and slides
             directory="receippt"
             if [ -d "$directory" ]; then
-                rm -rf "$directory"/*
-                echo "Contents of $directory removed."
+              rm -rf "$directory"/*
+              echo "Contents of $directory removed."
             else
-                echo "Directory $directory does not exist. Creating..."
-                mkdir -p "$directory"
-                echo "Directory $directory created."
+              echo "Directory $directory does not exist. Creating..."
+              mkdir -p "$directory"
+              echo "Directory $directory created."
             fi
-            ls       
-            '   
-
+            ls
+            '

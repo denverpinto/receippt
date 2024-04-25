@@ -259,3 +259,12 @@ jobs:
             fi
             ls
             '
+      - name: Upload new artifacts to server directory
+        env:
+          HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
+          PRIVATE_KEY: |
+            ${{ secrets.EC2_SERVER_PEM }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          scp -i private_key -r ./backend/target/receippt-api.jar ec2-user@${HOSTNAME}:/home/ec2-user/receippt/
+          scp -i private_key -r ./database/ ec2-user@${HOSTNAME}:/home/ec2-user/receippt/database/

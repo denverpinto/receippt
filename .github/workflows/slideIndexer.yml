@@ -234,7 +234,7 @@ jobs:
             if [ -n "$PID" ]; then
               echo "$PID"
               echo "Stopping process with PID $PID"
-              kill -15 "$PID"
+              kill "$PID"
             else
               echo "No process found running for $JAR_FILE"
             fi

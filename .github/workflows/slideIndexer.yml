@@ -211,7 +211,6 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             pwd
             ls
-            # Install java if it doesn't exist
             if [ -x "$(command -v java)" ]; then
               echo "Java is already installed. Version information:"
               java -version
@@ -219,7 +218,7 @@ jobs:
               echo "Java is not installed."
               sudo yum install java-17-amazon-corretto
             fi
-            '
+            ' 
       - name: Create directory in ec2 server
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}

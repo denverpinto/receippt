@@ -233,8 +233,8 @@ jobs:
             PID=$(pgrep -f $JAR_FILE)
             if [ -n "$PID" ]; then
               echo "$PID"
-              kill -15 $PID
-              echo "Stopped process with PID $PID"
+              echo "Stopping process with PID $PID"
+              kill -15 "$PID"
             else
               echo "No process found running for $JAR_FILE"
             fi

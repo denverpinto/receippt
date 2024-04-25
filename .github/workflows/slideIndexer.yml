@@ -203,7 +203,6 @@ jobs:
           ls
       - name: Connect to ec2 server
         env:
-          DIRECTORY: ${{secrets.EC2_SERVER_FOLDER}}
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
             ${{ secrets.EC2_SERVER_PEM }}
@@ -212,6 +211,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             pwd
             ls
+            # Install java if it doesn't exist
             if [ -x "$(command -v java)" ]; then
               echo "Java is already installed. Version information:"
               java -version
@@ -220,7 +220,21 @@ jobs:
               sudo yum install java-17-amazon-corretto
             fi
 
-            directory= ${DIRECTORY}
+            # Stop jar if currently running 
+            JAR_FILE="receippt-api.jar"
+
+            PID=$(pgrep -f $JAR_FILE)
+            if [ -n "$PID" ]; then
+              # Use kill to stop the process
+              kill $PID
+              echo "Stopped process with PID $PID"
+            else
+              echo "No process found running for $JAR_FILE"
+            fi
+
+            # Create an empty directory to store jar and slides
+            directory= receippt
+            
             if [ -d "$directory" ]; then
                 rm -rf "$directory"/*
                 echo "Contents of $directory removed."

@@ -201,6 +201,7 @@ jobs:
         working-directory: ./backend/target
         run: |
           ls
+
       - name: Install java in ec2 server
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
@@ -219,6 +220,26 @@ jobs:
               sudo yum install java-17-amazon-corretto
             fi
             ' 
+
+      - name: Stop existing process in ec2 server
+        env:
+          HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
+          PRIVATE_KEY: |
+            ${{ secrets.EC2_SERVER_PEM }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
+            JAR_FILE="receippt-api.jar"
+            PID=$(pgrep -f $JAR_FILE)
+            if [ -n "$PID" ]; then
+              echo "$PID"
+              kill -15 $PID
+              echo "Stopped process with PID $PID"
+            else
+              echo "No process found running for $JAR_FILE"
+            fi
+            '
+    
       - name: Create directory in ec2 server
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
@@ -227,7 +248,6 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
-            # Create an empty directory to store jar and slides
             directory="receippt"
             if [ -d "$directory" ]; then
               rm -rf "$directory"/*

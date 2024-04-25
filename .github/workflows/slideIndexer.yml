@@ -211,6 +211,11 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             pwd
             ls
-            java -version
+            if [ -x "$(command -v java)" ]; then
+              echo "Java is already installed. Version information:"
+              java -version
+            else
+              echo "Java is not installed."
+              sudo yum install java-17-amazon-corretto
             '   
 

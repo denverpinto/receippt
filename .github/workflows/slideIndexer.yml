@@ -238,7 +238,7 @@ jobs:
             else
               echo "No process found running for $JAR_FILE"
             fi
-            '
+          '
     
       - name: Create directory in ec2 server
         env:

@@ -221,21 +221,8 @@ jobs:
               sudo yum install java-17-amazon-corretto
             fi
 
-            # Stop jar if currently running 
-            JAR_FILE="receippt-api.jar"
-
-            PID=$(pgrep -f $JAR_FILE)
-            if [ -n "$PID" ]; then
-              echo "$PID"
-              kill $PID
-              echo "Stopped process with PID $PID"
-            else
-              echo "No process found running for $JAR_FILE"
-            fi
-
             # Create an empty directory to store jar and slides
             directory="receippt"
-
             if [ -d "$directory" ]; then
                 rm -rf "$directory"/*
                 echo "Contents of $directory removed."

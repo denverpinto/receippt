@@ -194,12 +194,22 @@ jobs:
             distribution: 'corretto'
 
       - name: Create receippt-api.jar 
-        env:
-          RECEIPPT_API_NAME: ${{ secrets.RECEIPPT_API_NAME }}
         working-directory: ./backend
-        run: mvn clean package -Djar.finalName="${RECEIPPT_API_NAME}"
+        run: mvn clean package
 
       - name: Check if jar is created
         working-directory: ./backend/target
         run: |
           ls
+      - name: Connect to ec2 server
+        env:
+          HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
+          PRIVATE_KEY: |
+            ${{ secrets.EC2_SERVER_PEM }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} <<'ENDSSH'
+            pwd
+            ls
+          ENDSSH     
+

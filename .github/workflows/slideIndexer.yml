@@ -259,6 +259,7 @@ jobs:
             fi
             ls
             '
+
       - name: Upload new artifacts to server directory
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
@@ -268,3 +269,15 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           scp -i private_key -r ./backend/target/receippt-api.jar ec2-user@${HOSTNAME}:/home/ec2-user/receippt/
           scp -i private_key -r ./database/ ec2-user@${HOSTNAME}:/home/ec2-user/receippt/database/
+
+      - name: Start jar in ec2 server
+        env:
+          HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
+          PRIVATE_KEY: |
+            ${{ secrets.EC2_SERVER_PEM }}
+        run: |
+          echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
+            cd receippt
+            nohup java -jar receippt-api.jar --local.database.path=./database &
+          '

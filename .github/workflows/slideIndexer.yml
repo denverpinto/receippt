@@ -225,7 +225,7 @@ jobs:
 
             PID=$(pgrep -f $JAR_FILE)
             if [ -n "$PID" ]; then
-              # Use kill to stop the process
+              echo "$PID"
               kill $PID
               echo "Stopped process with PID $PID"
             else
@@ -234,7 +234,7 @@ jobs:
 
             # Create an empty directory to store jar and slides
             directory= receippt
-            
+
             if [ -d "$directory" ]; then
                 rm -rf "$directory"/*
                 echo "Contents of $directory removed."

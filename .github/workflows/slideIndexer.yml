@@ -230,7 +230,7 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             JAR_FILE="receippt-api.jar"
-            PID=$( pgrep -f $JAR_FILE | head -n 1)
+            PID=$(ps aux | grep "[j]ava -jar $JAR_FILE" | awk '{print $2}')
             if [ -n "$PID" ]; then
               echo "$PID"
               echo "Stopping process with PID $PID"

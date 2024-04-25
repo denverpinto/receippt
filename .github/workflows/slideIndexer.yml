@@ -219,7 +219,6 @@ jobs:
               echo "Java is not installed."
               sudo yum install java-17-amazon-corretto
             fi
-
             # Create an empty directory to store jar and slides
             directory="receippt"
             if [ -d "$directory" ]; then

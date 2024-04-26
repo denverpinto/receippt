@@ -280,4 +280,5 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             cd receippt
             nohup java -jar receippt-api.jar --local.database.path=./database &
+            exit
           '

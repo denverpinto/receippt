@@ -110,12 +110,15 @@ jobs:
         working-directory: ./backend
         run: mvn clean package
 
-      - name: Check if jar is created
-        working-directory: ./backend/target
-        run: |
-          ls
+      - name: Check if receippt-api.jar is built
+        id: check_jar_built
+        uses: andstor/file-existence-action@v3
+        with:
+          files: 'backend/target/receippt-api.jar'
+          fail: true
 
       - name: Install java in ec2 server
+        if: steps.check_jar_built.outputs.files_exists == 'true'
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
@@ -135,6 +138,7 @@ jobs:
             ' 
 
       - name: Stop existing process in ec2 server
+        if: steps.check_jar_built.outputs.files_exists == 'true'
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
@@ -154,6 +158,7 @@ jobs:
           '
     
       - name: Create directory in ec2 server
+        if: steps.check_jar_built.outputs.files_exists == 'true'
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
@@ -174,6 +179,7 @@ jobs:
             '
 
       - name: Upload new artifacts to server directory
+        if: steps.check_jar_built.outputs.files_exists == 'true'
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |
@@ -184,6 +190,7 @@ jobs:
           scp -i private_key -r ./database/ ec2-user@${HOSTNAME}:/home/ec2-user/receippt/database/
 
       - name: Start jar in ec2 server
+        if: steps.check_jar_built.outputs.files_exists == 'true'
         env:
           HOSTNAME: ${{secrets.EC2_SERVER_HOSTNAME}}
           PRIVATE_KEY: |

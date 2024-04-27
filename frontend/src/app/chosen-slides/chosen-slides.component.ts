@@ -61,8 +61,5 @@ export class ChosenSlidesComponent {
       }
     });
 
-    dialogRef.closed.subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 }

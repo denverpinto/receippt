@@ -33,7 +33,6 @@ export class HeaderComponent {
     this.loadingState$ = this.dataService.loadingSubject.asObservable();
 
     this.dataService.loadingSubject.subscribe((value) => {
-      console.log(value);
       this.loadingState = value;
     });
   }
@@ -98,7 +97,6 @@ export class HeaderComponent {
     });
 
     dialogRef.closed.subscribe(result => {
-      console.log(`Delete Masspart Dialog result: ${result}`);
       if (result != null && result == 'delete') {
         this.dataService.deleteMasspartOfCurrentTemplate();
       }
@@ -116,7 +114,6 @@ export class HeaderComponent {
     });
 
     dialogRef.closed.subscribe(result => {
-      console.log(`Add Masspart Dialog result: ${result}`);
       if (result != null) {
         this.dataService.addMasspartToCurrentTemplate({
           "label": result.trim().toUpperCase(),
@@ -140,7 +137,6 @@ export class HeaderComponent {
   });
 
   dialogRef.closed.subscribe(result => {
-    console.log(`Rename Masspart Dialog result: ${result}`);
     if (result != null) {
       this.dataService.renameMasspartOfCurrentTemplate(result.trim().toUpperCase());
     }
@@ -163,9 +159,6 @@ export class HeaderComponent {
       }
     });
 
-    dialogRef.closed.subscribe(result => {
-      console.log(`Add Mass Part Dialog result: ${result}`);
-    });
   }
 
   openDownloadReceipptDialog(): void {
@@ -175,9 +168,6 @@ export class HeaderComponent {
       autoFocus: false
     });
 
-    dialogRef.closed.subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 
 }

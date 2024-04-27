@@ -57,7 +57,6 @@ export class DowloadReceipptComponent {
 
     this.dataService.downloadReceippt(this.template).subscribe(
       event => {
-        console.log(event);
         this.reportProgress(event);
       },
       (error: HttpErrorResponse) => {
@@ -82,7 +81,6 @@ export class DowloadReceipptComponent {
         this.updateStatus(httpEvent.loaded, httpEvent.total!);
         break;
       case HttpEventType.ResponseHeader: // returns headers of response
-        console.log('Header returned', httpEvent);
         if (httpEvent['headers'].keys().includes('content-disposition')) {
           this.fileStatus.fileName = httpEvent['headers'].get('content-disposition')?.split("filename=")[1].replaceAll(/"/g, "") ?? this.fileStatus.fileName;
         }
@@ -104,7 +102,6 @@ export class DowloadReceipptComponent {
 
         break;
       default:
-        console.log(httpEvent);
         break;
 
     }

@@ -14,7 +14,6 @@ export class TemplateSelectorComponent {
 
   constructor(@Inject(DIALOG_DATA) public data: { currentTemplate: Template, selectedTemplate: Template }, public dialogRef: DialogRef<string>, private dataService: ReceipptDataService) {
     this.selectionSkeleton = this.createSelectionSkeleton(this.data.selectedTemplate, this.data.currentTemplate);
-    //console.log(this.selectionSkeleton);
   }
 
   createSelectionSkeleton(selectedTemplate: any, currentTemplate: any) {
@@ -108,13 +107,10 @@ export class TemplateSelectorComponent {
         selectedTemplate.massparts.push(masspartToAdd);
       }
     });
-    console.log(selectedTemplate);
-
     return selectedTemplate;
   }
 
   closeDialog(action: 'create' | 'cancel') {
-    //console.log(this.createTemplateFromSelectionSkeleton());
     switch (action) {
       case 'create':
         this.dataService.updateCurrentTemplate(this.createTemplateFromSelectionSkeleton());

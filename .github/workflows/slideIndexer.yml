@@ -35,7 +35,7 @@ jobs:
         id: check_dist_built
         uses: andstor/file-existence-action@v3
         with:
-          files: 'dist/receippt-frontend/index.html'
+          files: 'frontend/dist/receippt-frontend/index.html'
           fail: true
 
       - name: Configure AWS Credentials

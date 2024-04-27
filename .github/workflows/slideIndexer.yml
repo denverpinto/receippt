@@ -40,54 +40,12 @@ jobs:
 
       - name: Deploy build to S3 static website endpoint
         run: aws s3 sync dist/receippt-frontend/ s3://${{ secrets.RECEIPPT_UI_S3_BUCKET}} --follow-symlinks  --delete
-
-  check_database_updated:
-    runs-on: ubuntu-latest 
-    name: Test if database was updated in any form
-    outputs:
-      all_changed_and_modified_files_count: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
-      all_changed_and_modified_files: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
-      index_exists: ${{steps.check_index_exists.outputs.files_exists}}
-    steps:
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Get all changed and modified files
-        id: changed-files
-        uses: tj-actions/changed-files@v42
-        with:
-          files: database/**
-      
-      - name: List all modified files
-        env:
-          ALL_CHANGED_MODIFIED_FILES_COUNT: ${{ steps.changed-files.outputs.all_changed_and_modified_files_count }}
-          ALL_CHANGED_MODIFIED_FILES: ${{ steps.changed-files.outputs.all_changed_and_modified_files }}
-        run: |
-          for file in ${ALL_CHANGED_MODIFIED_FILES}; do
-            echo "$file was changed or modified"
-          done     
-
-      - name: Check index existence
-        id: check_index_exists
-        uses: andstor/file-existence-action@v3
-        with:
-          files: 'database/index.json'
-
-      - name: Log index existence
-        env:
-          INDEX_EXISTS: ${{ steps.check_index_exists.outputs.files_exists }}
-        run: echo "Index Exists? $INDEX_EXISTS"
-    
-  index_slides:
+ 
+  index_database:
     name: Slides Indexer
-    needs: [check_database_updated]
     outputs:
       latest_sha: ${{ steps.sha.outputs.latest_sha }}
       is_index_modified: ${{ steps.push-index.outputs.is_index_modified }}
-
-    if: needs.check_database_updated.outputs.all_changed_and_modified_files_count > 0
 
     runs-on: ubuntu-latest
     defaults:
@@ -130,61 +88,16 @@ jobs:
             sha_new=$(git rev-parse HEAD)
             echo $sha_new
             echo "latest_sha=$sha_new" >> $GITHUB_OUTPUT
-    
-  s3_database_sync:
-    name: Sync Database To S3
-    needs: [check_database_updated,index_slides]
-
-    runs-on: ubuntu-latest
-    steps:
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v4.0.2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: 'ap-south-1'
-
-      - name: Check out the repository to the runner
-        uses: actions/checkout@v4
-        with:
-          ref: ${{ needs.index_slides.outputs.latest_sha }}
-          fetch-depth: 0
-
-      - name: Complete Sync with S3
-        if: needs.check_database_updated.outputs.index_exists == 'false'
-        run: aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "scripts/*" --delete
-
-      - name: Diff Sync with S3s
-        if: needs.check_database_updated.outputs.index_exists == 'true'
-        env:
-          ALL_CHANGED_MODIFIED_FILES: ${{ needs.check_database_updated.outputs.all_changed_and_modified_files}}
-          IS_INDEX_MODIFIED: ${{ needs.index_slides.outputs.is_index_modified}}
-        run: |
-          IFS=' ' read -r -a files_array <<< "$ALL_CHANGED_MODIFIED_FILES"
-          CMDS=()
-          for file in "${files_array[@]}"; do
-            if [[ $file == database/* ]]; then
-              modifiedPath="${file#database/}"
-              CMDS+=("--include=$modifiedPath")
-            fi
-          done
-          echo "${CMDS[@]}"
-
-          aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" "${CMDS[@]}" --exclude "scripts/*" --delete
-
-          if [[ "${IS_INDEX_MODIFIED}" == "true" ]]; then
-            aws s3 sync database/ s3://${{ secrets.AWS_S3_BUCKET}} --follow-symlinks --exclude "*" --include=index.json --delete
-          fi
-  
+ 
   deploy_backend:
     name: Deploy api and database to ec2
-    needs: [check_database_updated,index_slides]
+    needs: [index_database]
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository to the runner
         uses: actions/checkout@v4
         with:
-          ref: ${{ needs.index_slides.outputs.latest_sha }}
+          ref: ${{ needs.index_database.outputs.latest_sha }}
           fetch-depth: 0
 
       - name: Set up JDK 17 for x64

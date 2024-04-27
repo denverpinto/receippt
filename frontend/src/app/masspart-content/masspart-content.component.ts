@@ -25,7 +25,6 @@ export class MasspartContentComponent {
     this.loading$ = this.dataService.loadingSubject.asObservable();
 
     this.dataService.loadingSubject.subscribe((value) => {
-      console.log(value);
       this.loadingState = value;
     });
   }

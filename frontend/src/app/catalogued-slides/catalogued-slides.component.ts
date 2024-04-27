@@ -31,7 +31,6 @@ export class CataloguedSlidesComponent {
     });
 
     this.dataService.loadingSubject.subscribe((value) => {
-      console.log(value);
       this.loadingState = value;
     });
   }
@@ -172,8 +171,5 @@ export class CataloguedSlidesComponent {
       }
     });
 
-    dialogRef.closed.subscribe(result => {
-      console.log('The dialog was closed');
-    });
   }
 }

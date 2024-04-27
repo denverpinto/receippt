@@ -39,7 +39,6 @@ export class ReceipptDataService {
 
     /* subscribe to the BehaviourSubject for any changes */
     this.stateSubject.subscribe((value) => {
-      console.log(value);
       this.state = value;
     });
 
@@ -117,7 +116,8 @@ export class ReceipptDataService {
         this.updateAndPropagateStateChange();
         this.loadingSubject.next(false);
       },
-      (error) => { console.log(error); 
+      (error) => { 
+        console.log(error); 
         this.errorSubject.next(true);
       });
   }

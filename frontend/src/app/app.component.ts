@@ -22,7 +22,6 @@ export class AppComponent {
     });
 
     this.dataService.loadingSubject.subscribe((value) => {
-      console.log(value);
       this.loading = value;
       if(value){
        document.documentElement.style.setProperty(`--text-color`, "#777777");
@@ -35,7 +34,6 @@ export class AppComponent {
     });
 
     this.dataService.errorSubject.subscribe((value) => {
-      console.log(value);
       this.down = value;
       if(value){
         document.documentElement.style.removeProperty(`--text-color`);

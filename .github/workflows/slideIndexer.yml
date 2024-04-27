@@ -277,7 +277,7 @@ jobs:
             ${{ secrets.EC2_SERVER_PEM }}
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
-          nohup ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
+          ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             cd receippt
             nohup java -jar receippt-api.jar --local.database.path=./database &
-          ' > /dev/null 2>&1 &
+          '

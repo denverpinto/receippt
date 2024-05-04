@@ -6,8 +6,6 @@ public class Slide {
 	private String name;
 	private List<String> tags;
 	private String path;
-	private float lastModified;
-	private boolean consistent;
 	private String html;
 	
 	public Slide() {
@@ -17,13 +15,11 @@ public class Slide {
 	
 	
 
-	public Slide(String name, List<String> tags, String path, float lastModified, boolean consistent, String html) {
+	public Slide(String name, List<String> tags, String path, String html) {
 		super();
 		this.name = name;
 		this.tags = tags;
 		this.path = path;
-		this.lastModified = lastModified;
-		this.consistent = consistent;
 		this.html = html;
 	}
 
@@ -63,31 +59,10 @@ public class Slide {
 		this.path = path;
 	}
 
-	public float getLastModified() {
-		return lastModified;
-	}
-
-	public void setLastModified(float lastModified) {
-		this.lastModified = lastModified;
-	}
-
-
-	public boolean isConsistent() {
-		return consistent;
-	}
-
-
-
-	public void setConsistent(boolean consistent) {
-		this.consistent = consistent;
-	}
-
-
 
 	@Override
 	public String toString() {
-		return "Slide [name=" + name + ", tags=" + tags + ", path=" + path + ", lastModified=" + lastModified
-				+ ", consistent=" + consistent + "]";
+		return "Slide [name=" + name + ", tags=" + tags + ", path=" + path + "]";
 	}
 	
 }

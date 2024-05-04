@@ -10,7 +10,7 @@
 </div>
 <div class = "dialog-title">{{data.selectedTemplate.id}}</div>
 <div class = "dialog-content" *ngIf = "selectionSkeleton.massparts.length > 0">
-    <div class = "guide">MASSPARTS/SLIDES OF THE CURRENT WORK THAT ARE NOT DEFAULTS OF {{"THE SELECTED TEMPLATE"}} ARE UNCHECKED BY DEFAULT. THE ORDER OF MASSPARTS/SLIDES, SLIDE COLOR AND LABEL PREFERENCES WILL RESET TO THAT OF {{"THE SELECTED TEMPLATE"}} .</div>
+    <div class = "guide">ONLY DEFAULT MASSPARTS/SLIDES OF <u>{{data.selectedTemplate.id}}</u> ARE CHECKED. ALL SETTINGS WILL RESET TO THOSE OF <u>{{data.selectedTemplate.id}}</u>.</div>
     <div class = "checkbox-list">
         <ng-container *ngFor = "let masspart of selectionSkeleton.massparts">
             <label class="checkbox-control masspart">

@@ -159,6 +159,12 @@ export class HeaderComponent {
       }
     });
 
+    dialogRef.closed.subscribe(result => {
+      if (result != null) {
+        this.templatetoggle = false;
+      }
+    });
+
   }
 
   openDownloadReceipptDialog(): void {

@@ -286,7 +286,7 @@ export class IntrojsService {
     this.savedState = JSON.parse(JSON.stringify(this.state));
     /* find suitable template with massparts to make as current template for tour */
     let tourWorthyTemplate = this.savedState.templates.filter(template => { return template.massparts.length > 0 })[0];
-    let tourWorthyTemplateIdx = this.savedState.templates.findIndex(template => template.id == tourWorthyTemplate.id);
+    let tourWorthyTemplateIdx = this.savedState.templates.findIndex(template => {return template.id == tourWorthyTemplate.id && template.tag == tourWorthyTemplate.tag});
 
     /* find suitable masspart in the tour worthy template */
     let tourWorthyMassparts = tourWorthyTemplate.massparts.filter(masspart => { return masspart.slides.length > 1 });

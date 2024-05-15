@@ -6493,6 +6493,21 @@
     {
       "backgroundColor": "#000000",
       "highlightedTextColor": "#ffff00",
+      "id": "BLANK TEMPLATE",
+      "massparts": [
+        {
+          "addLabelToTitle": true,
+          "label": "BLANK MASSPART",
+          "slides": []
+        }
+      ],
+      "saveAsFileName": "",
+      "tag": "DEFAULT",
+      "textColor": "#ffffff"
+    },
+    {
+      "backgroundColor": "#000000",
+      "highlightedTextColor": "#ffff00",
       "id": "NUPTIALS MASS",
       "massparts": [
         {
@@ -6659,21 +6674,6 @@
         {
           "addLabelToTitle": true,
           "label": "RECESSIONAL",
-          "slides": []
-        }
-      ],
-      "saveAsFileName": "",
-      "tag": "DEFAULT",
-      "textColor": "#ffffff"
-    },
-    {
-      "backgroundColor": "#000000",
-      "highlightedTextColor": "#ffff00",
-      "id": "BLANK TEMPLATE",
-      "massparts": [
-        {
-          "addLabelToTitle": true,
-          "label": "BLANK MASSPART",
           "slides": []
         }
       ],

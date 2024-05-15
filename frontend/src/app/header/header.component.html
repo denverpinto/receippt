@@ -1,158 +1,169 @@
-<div class="nav-panel">
-    <div class="brand"> <!--Brand-->
-        <span>RECEI<span class = "brand-highlight">PPT</span></span>
-        <span class="choice-details-subtext brand-highlight">MASS PPT HELPER</span>
-    </div>
-    <div class="actions"> <!--Download Button-->
-        <button type="button" class="button icon-button" aria-label="Icon-only Button"
-            [disabled]="loadingState || state.templates[state.currentTemplateIndex].massparts.length == 0"
-            (click)="openDownloadReceipptDialog()">
-            <svg width="10px" height="10px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                <path
-                    d="M853.333 640v170.667c0 11.776-4.736 22.4-12.501 30.165s-18.389 12.501-30.165 12.501h-597.333c-11.776 0-22.4-4.736-30.165-12.501s-12.501-18.389-12.501-30.165v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v170.667c0 35.328 14.379 67.413 37.504 90.496s55.168 37.504 90.496 37.504h597.333c35.328 0 67.413-14.379 90.496-37.504s37.504-55.168 37.504-90.496v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667zM554.667 537.003v-409.003c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v409.003l-140.501-140.501c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c3.925 3.925 8.619 7.083 13.824 9.259s10.795 3.243 16.341 3.243c10.923 0 21.845-4.181 30.165-12.501l213.333-213.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z" />
-            </svg>
-        </button>
-    </div>
-</div>
-<div class="selection">
-    <button type="button" class="button selection-toggle" [attr.aria-expanded]="!loadingState && templatetoggle"
-        [ngClass]="{'chosen' :!loadingState && templatetoggle }" [disabled]="loadingState"
-        (click)="templatetoggle = !templatetoggle">
-        <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path xmlns="http://www.w3.org/2000/svg" d="M6 6 L6 18 L18 12 z" />
-        </svg>
-        <div class="choice-details">
-            <span class="choice-details-subtext">CURRENT TEMPLATE</span>
-            <span class="choice-details-text">
-                <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
-                    {{state.templates[state.currentTemplateIndex].id}}
-                </ng-container>
-            </span>
-            <span class="choice-details-subtext">
-                <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s-2)'">
-                    {{ getMasspartCount(state.currentTemplateIndex) }}
-                    {{ "MASSPART" | plural: getMasspartCount(state.currentTemplateIndex) }}
-                    {{ getSlideCount(state.currentTemplateIndex) }}
-                    {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex) }}
-                </ng-container>
-            </span>
+<div class = "nav">
+    <div class="nav-panel">
+        <div class="brand" id="tour-welcome"> <!--Brand-->
+            <span>RECEI<span class = "brand-highlight">PPT</span></span>
+            <span class="choice-details-subtext brand-highlight">MASS PPT HELPER</span>
         </div>
-    </button>
-    <div class="choices template-choices" *ngIf="!loadingState">
-        <div class="template-choices-title">
-            <h2>Templates</h2>
-        </div>
-        <button type="button" class="button selection-toggle" *ngFor="let template of state.templates; index as tidx"
-            (click)="openTemplateSelectorDialog(tidx)" [ngClass]="{'chosen' : tidx == state.currentTemplateIndex }">
-            <div class="choice-details">
-                <span class="choice-details-subtext">{{template.tag}}</span>
-                <span class="choice-details-text">{{template.id}}</span>
-                <span class="choice-details-subtext">
-                    {{ getMasspartCount(tidx) }}
-                    {{ "MASSPART" | plural: getMasspartCount(tidx) }}
-                    {{ getSlideCount(tidx) }}
-                    {{ "SLIDE" | plural: getSlideCount(tidx) }}
-                </span>
-            </div>
-        </button>
-    </div>
-</div>
-<div class="selection" *ngIf="loadingState || state.templates[state.currentTemplateIndex].massparts.length > 0">
-    <button type="button" class="button selection-toggle" [attr.aria-expanded]="!loadingState && massparttoggle"
-        [ngClass]="{'chosen' : !loadingState && massparttoggle }" [disabled]="loadingState"
-        (click)="massparttoggle = !massparttoggle">
-        <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-            <path xmlns="http://www.w3.org/2000/svg" d="M6 6 L6 18 L18 12 z" />
-        </svg>
-        <div class="choice-details">
-            <span class="choice-details-subtext">CURRENT MASSPART</span>
-            <span class="choice-details-text">
-                <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
-                    {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].label}}
-                </ng-container>
-            </span>
-            <span class="choice-details-subtext">
-                <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s-2)'">
-                    {{ getSlideCount(state.currentTemplateIndex,state.currentMasspartIndex) }}
-                    {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex,state.currentMasspartIndex) }}
-                </ng-container>
-            </span>
-        </div>
-    </button>
-    <div class="masspart-actions">
-        <button type="button" class="button nowrap" (click)="openRenameMasspartDialog()"
-            [ngClass]="{'chosen' : !loadingState && massparttoggle }" [disabled]="loadingState">
-            <h5>RENAME</h5>
-            <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M10 4H8V6H5C3.34315 6 2 7.34315 2 9V15C2 16.6569 3.34315 18 5 18H8V20H10V4ZM8 8V16H5C4.44772 16 4 15.5523 4 15V9C4 8.44772 4.44772 8 5 8H8Z" />
-                <path
-                    d="M19 16H12V18H19C20.6569 18 22 16.6569 22 15V9C22 7.34315 20.6569 6 19 6H12V8H19C19.5523 8 20 8.44771 20 9V15C20 15.5523 19.5523 16 19 16Z" />
-            </svg>
-        </button>
-        <button type="button" class="button nowrap" (click)="openDeleteMasspartDialog()"
-            [ngClass]="{'chosen' : !loadingState && massparttoggle }" [disabled]="loadingState">
-            <h5>DELETE</h5>
-            <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024">
-                <path
-                    d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z" />
-            </svg>
-        </button>
-        <button type="button" class="button nowrap label-action"
-            [attr.aria-selected]="loadingState || state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].addLabelToTitle"
-            (click)="updateAddLabelToTitleToggle()" [ngClass]="{'chosen' : !loadingState && massparttoggle }"
-            [disabled]="loadingState">
-            <h5>LABEL SLIDES</h5>
-            <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M17.3189 8.38152C16.9284 7.99099 16.2952 7.99099 15.9047 8.38152L10.9912 13.295C10.6007 13.6856 9.96751 13.6856 9.57698 13.295L8.12132 11.8394C7.7308 11.4488 7.09763 11.4488 6.70711 11.8394C6.31658 12.2299 6.31658 12.8631 6.70711 13.2536L8.52183 15.0621C9.49854 16.0355 11.079 16.0342 12.0541 15.0593L17.3189 9.79573C17.7094 9.4052 17.7094 8.77204 17.3189 8.38152Z" />
-                <path fill-rule="evenodd" clip-rule="evenodd"
-                    d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z" />
-            </svg>
-        </button>
-    </div>
-    <div class="choices masspart-choices" *ngIf="!loadingState">
-        <div class="masspart-choices-title">
-            <h2>MassParts</h2>
-            <!-- Action To Add New MassPart-->
+        <div class="actions"> <!--Download Button-->
             <button type="button" class="button icon-button" aria-label="Icon-only Button"
-                (click)="openAddMasspartDialog()">
-                <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                    <path d="M14 4 h4 v10 h10 v4 h-10 v10 h-4 v-10 h-10 v-4 h10 v-10z" />
+                [disabled]="loadingState || state.templates[state.currentTemplateIndex].massparts.length == 0"
+                (click)="openDownloadReceipptDialog()" id="tour-introduce-download">
+                <svg width="10px" height="10px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path
+                        d="M853.333 640v170.667c0 11.776-4.736 22.4-12.501 30.165s-18.389 12.501-30.165 12.501h-597.333c-11.776 0-22.4-4.736-30.165-12.501s-12.501-18.389-12.501-30.165v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v170.667c0 35.328 14.379 67.413 37.504 90.496s55.168 37.504 90.496 37.504h597.333c35.328 0 67.413-14.379 90.496-37.504s37.504-55.168 37.504-90.496v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667zM554.667 537.003v-409.003c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v409.003l-140.501-140.501c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c3.925 3.925 8.619 7.083 13.824 9.259s10.795 3.243 16.341 3.243c10.923 0 21.845-4.181 30.165-12.501l213.333-213.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z" />
+                </svg>
+            </button>
+            <button type="button" class="button icon-button" aria-label="Icon-only Button"
+                [disabled]="loadingState"
+                (click)="startTour()" 
+                [hidden] = "hideTour()">
+                <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                    <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M9.11241 7.82201C9.44756 6.83666 10.5551 6 12 6C13.7865 6 15 7.24054 15 8.5C15 9.75946 13.7865 11 12 11C11.4477 11 11 11.4477 11 12L11 14C11 14.5523 11.4477 15 12 15C12.5523 15 13 14.5523 13 14L13 12.9082C15.203 12.5001 17 10.7706 17 8.5C17 5.89347 14.6319 4 12 4C9.82097 4 7.86728 5.27185 7.21894 7.17799C7.0411 7.70085 7.3208 8.26889 7.84366 8.44673C8.36653 8.62458 8.93457 8.34488 9.11241 7.82201ZM12 20C12.8285 20 13.5 19.3284 13.5 18.5C13.5 17.6716 12.8285 17 12 17C11.1716 17 10.5 17.6716 10.5 18.5C10.5 19.3284 11.1716 20 12 20Z"/>
                 </svg>
             </button>
         </div>
-        <div cdkDropList class="massparts-draglist" (cdkDropListDropped)="drop($event)">
-            <div cdkDrag cdkDragLockAxis="y"
-                *ngFor="let masspart of state.templates[state.currentTemplateIndex].massparts; index as midx"
-                class="massparts-draglist-item" (click)="updateCurrentMasspartIndex(midx)"
-                [ngClass]="{'chosen' : midx == state.currentMasspartIndex }">
-                <button type="button" class="button icon-button plain grabber" aria-label="Icon-only Button"
-                    cdkDragHandle>
-                    <svg  width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
-                        <path xmlns="http://www.w3.org/2000/svg"
-                            d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z" />
+    </div>
+    <div class="selection">
+        <button type="button" class="button selection-toggle" [attr.aria-expanded]="!loadingState && state.templateSelectionExpanded"
+            [ngClass]="{'chosen' :!loadingState && state.templateSelectionExpanded }" [disabled]="loadingState"
+            (click)="updateTemplateSelectionToggle(!state.templateSelectionExpanded)"  id="tour-introduce-template">
+            <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path xmlns="http://www.w3.org/2000/svg" d="M6 6 L6 18 L18 12 z" />
+            </svg>
+            <div class="choice-details">
+                <span class="choice-details-subtext">CURRENT TEMPLATE</span>
+                <span class="choice-details-text">
+                    <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
+                        {{state.templates[state.currentTemplateIndex].id}}
+                    </ng-container>
+                </span>
+                <span class="choice-details-subtext">
+                    <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s-2)'">
+                        {{ getMasspartCount(state.currentTemplateIndex) }}
+                        {{ "MASSPART" | plural: getMasspartCount(state.currentTemplateIndex) }}
+                        {{ getSlideCount(state.currentTemplateIndex) }}
+                        {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex) }}
+                    </ng-container>
+                </span>
+            </div>
+        </button>
+        <div class="choices template-choices" *ngIf="!loadingState" id="tour-choose-template">
+            <div class="template-choices-title">
+                <h2>Templates</h2>
+            </div>
+            <button type="button" class="button selection-toggle" *ngFor="let template of state.templates; index as tidx"
+                (click)="openTemplateSelectorDialog(tidx)" [ngClass]="{'chosen' : tidx == state.currentTemplateIndex }">
+                <div class="choice-details">
+                    <span class="choice-details-subtext">{{template.tag}}</span>
+                    <span class="choice-details-text">{{template.id}}</span>
+                    <span class="choice-details-subtext">
+                        {{ getMasspartCount(tidx) }}
+                        {{ "MASSPART" | plural: getMasspartCount(tidx) }}
+                        {{ getSlideCount(tidx) }}
+                        {{ "SLIDE" | plural: getSlideCount(tidx) }}
+                    </span>
+                </div>
+            </button>
+        </div>
+    </div>
+    <div class="selection" *ngIf="loadingState || state.templates[state.currentTemplateIndex].massparts.length > 0" id="tour-introduce-masspartactions">
+        <button type="button" class="button selection-toggle" [attr.aria-expanded]="!loadingState && state.masspartSelectionExpanded"
+            [ngClass]="{'chosen' : !loadingState && state.masspartSelectionExpanded }" [disabled]="loadingState"
+            (click)="updateMasspartSelectionToggle(!state.masspartSelectionExpanded)">
+            <svg width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                <path xmlns="http://www.w3.org/2000/svg" d="M6 6 L6 18 L18 12 z" />
+            </svg>
+            <div class="choice-details">
+                <span class="choice-details-subtext">CURRENT MASSPART</span>
+                <span class="choice-details-text">
+                    <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
+                        {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].label}}
+                    </ng-container>
+                </span>
+                <span class="choice-details-subtext">
+                    <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s-2)'">
+                        {{ getSlideCount(state.currentTemplateIndex,state.currentMasspartIndex) }}
+                        {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex,state.currentMasspartIndex) }}
+                    </ng-container>
+                </span>
+            </div>
+        </button>
+        <div class="masspart-actions">
+            <button type="button" class="button nowrap" (click)="openRenameMasspartDialog()"
+                [ngClass]="{'chosen' : !loadingState && state.masspartSelectionExpanded }" [disabled]="loadingState">
+                <h5>RENAME</h5>
+                <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M10 4H8V6H5C3.34315 6 2 7.34315 2 9V15C2 16.6569 3.34315 18 5 18H8V20H10V4ZM8 8V16H5C4.44772 16 4 15.5523 4 15V9C4 8.44772 4.44772 8 5 8H8Z" />
+                    <path
+                        d="M19 16H12V18H19C20.6569 18 22 16.6569 22 15V9C22 7.34315 20.6569 6 19 6H12V8H19C19.5523 8 20 8.44771 20 9V15C20 15.5523 19.5523 16 19 16Z" />
+                </svg>
+            </button>
+            <button type="button" class="button nowrap" (click)="openDeleteMasspartDialog()"
+                [ngClass]="{'chosen' : !loadingState && state.masspartSelectionExpanded }" [disabled]="loadingState">
+                <h5>DELETE</h5>
+                <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024">
+                    <path
+                        d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z" />
+                </svg>
+            </button>
+            <button type="button" class="button nowrap label-action" id="tour-introduce-label-slides"
+                [attr.aria-selected]="loadingState || state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].addLabelToTitle"
+                (click)="updateAddLabelToTitleToggle()" [ngClass]="{'chosen' : !loadingState && state.masspartSelectionExpanded }"
+                [disabled]="loadingState">
+                <h5>LABEL SLIDES</h5>
+                <svg width="10px" height="10px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M17.3189 8.38152C16.9284 7.99099 16.2952 7.99099 15.9047 8.38152L10.9912 13.295C10.6007 13.6856 9.96751 13.6856 9.57698 13.295L8.12132 11.8394C7.7308 11.4488 7.09763 11.4488 6.70711 11.8394C6.31658 12.2299 6.31658 12.8631 6.70711 13.2536L8.52183 15.0621C9.49854 16.0355 11.079 16.0342 12.0541 15.0593L17.3189 9.79573C17.7094 9.4052 17.7094 8.77204 17.3189 8.38152Z" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M20 1C21.6569 1 23 2.34315 23 4V20C23 21.6569 21.6569 23 20 23H4C2.34315 23 1 21.6569 1 20V4C1 2.34315 2.34315 1 4 1H20ZM20 3C20.5523 3 21 3.44772 21 4V20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20V4C3 3.44772 3.44772 3 4 3H20Z" />
+                </svg>
+            </button>
+        </div>
+        <div class="choices masspart-choices" *ngIf="!loadingState" id="tour-introduce-masspart">
+            <div class="masspart-choices-title">
+                <h2>MassParts</h2>
+                <!-- Action To Add New MassPart-->
+                <button type="button" class="button icon-button" aria-label="Icon-only Button"
+                    (click)="openAddMasspartDialog()">
+                    <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path d="M14 4 h4 v10 h10 v4 h-10 v10 h-4 v-10 h-10 v-4 h10 v-10z" />
                     </svg>
                 </button>
-                <div class="choice-details">
-                    <span class="choice-details-text">{{masspart.label}}</span>
-                    <span class="choice-details-subtext">
-                        {{ getSlideCount(state.currentTemplateIndex,midx) }}
-                        {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex,midx) }}
-                    </span>
+            </div>
+            <div cdkDropList class="massparts-draglist" (cdkDropListDropped)="drop($event)">
+                <div cdkDrag cdkDragLockAxis="y"
+                    *ngFor="let masspart of state.templates[state.currentTemplateIndex].massparts; index as midx"
+                    class="massparts-draglist-item" (click)="updateCurrentMasspartIndex(midx)"
+                    [ngClass]="{'chosen' : midx == state.currentMasspartIndex }" 
+                    [id]="midx==state.currentMasspartIndex?'tour-choose-masspart':''">
+                    <button type="button" class="button icon-button plain grabber" aria-label="Icon-only Button"
+                        cdkDragHandle>
+                        <svg  width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                            <path xmlns="http://www.w3.org/2000/svg"
+                                d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z" />
+                        </svg>
+                    </button>
+                    <div class="choice-details">
+                        <span class="choice-details-text">{{masspart.label}}</span>
+                        <span class="choice-details-subtext">
+                            {{ getSlideCount(state.currentTemplateIndex,midx) }}
+                            {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex,midx) }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<div class="masspart-choices-title standalone"
-    *ngIf="!loadingState && state.templates[state.currentTemplateIndex].massparts.length == 0">
-    <h2>Add Masspart</h2>
-    <!-- Action To Add New MassPart-->
-    <button type="button" class="button icon-button" aria-label="Icon-only Button">
-        <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
-            (click)="openAddMasspartDialog()">
-            <path d="M14 4 h4 v10 h10 v4 h-10 v10 h-4 v-10 h-10 v-4 h10 v-10z" />
-        </svg>
-    </button>
+    <div class="masspart-choices-title standalone"
+        *ngIf="!loadingState && state.templates[state.currentTemplateIndex].massparts.length == 0">
+        <h2>Add Masspart</h2>
+        <!-- Action To Add New MassPart-->
+        <button type="button" class="button icon-button" aria-label="Icon-only Button">
+            <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
+                (click)="openAddMasspartDialog()">
+                <path d="M14 4 h4 v10 h10 v4 h-10 v10 h-4 v-10 h-10 v-4 h10 v-10z" />
+            </svg>
+        </button>
+    </div>
 </div>

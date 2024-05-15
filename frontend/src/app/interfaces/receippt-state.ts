@@ -6,5 +6,8 @@ export interface ReceipptState {
     tags: Array<string>,
     templates: Array<Template>,
     currentTemplateIndex: number,
-    currentMasspartIndex: number
+    currentMasspartIndex: number,
+    templateSelectionExpanded: boolean,
+    masspartSelectionExpanded: boolean,
+    slidesViewMode: 'catalogued'|'chosen'
 }

@@ -72,7 +72,8 @@ export class CataloguedSlidesComponent {
     let tagFilteredSlides = this.state.slides.filter(slide => { return this.tagsFilter.every((tag: string) => slide.tags.includes(tag)) });
 
     /* find exact Title matches */
-    let exactTitleMatchedSlides = tagFilteredSlides.filter(slide => { return slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes(searchText) });
+    let exactTitleMatchedSlides = tagFilteredSlides.filter(slide => { return slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes(searchText) })
+    .filter(slide => !slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes('BLANK SLIDE'));
 
     /* sort exact Title matches */
     exactTitleMatchedSlides.sort(function (slideA, slideB) {
@@ -91,7 +92,8 @@ export class CataloguedSlidesComponent {
     /* find partial Title matches */
     let partialTitleMatchedSlides = tagFilteredSlides
     .filter(slide => { return !slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes(searchText) })
-    .filter(slide => { return slide.name.trim().toUpperCase().replace(/[^A-Za-z0-9 ]/g, "").replace(/\s\s+/g, ' ').includes(searchTextFiltered) });
+    .filter(slide => { return slide.name.trim().toUpperCase().replace(/[^A-Za-z0-9 ]/g, "").replace(/\s\s+/g, ' ').includes(searchTextFiltered) })
+    .filter(slide => !slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes('BLANK SLIDE'));
 
     /* sort partial Title matches */
     partialTitleMatchedSlides.sort(function (slideA, slideB) {
@@ -104,16 +106,19 @@ export class CataloguedSlidesComponent {
       return 0;
     });
 
-    /* ,merge both results */
-    let allTitleMatchedSlides = [...exactTitleMatchedSlides, ...partialTitleMatchedSlides];
+    /* find BLANK SLIDE */
+    let blankSlide = this.state.slides.filter(slide => { return slide.name.trim().toUpperCase().replace(/\s\s+/g, ' ').includes("BLANK SLIDE") });
 
-    allTitleMatchedSlides.unshift({
-      "name": "BLANK SLIDE",
-      "lastModified": 0,
-      "path": "NOPATH",
-      "tags": [],
-      "html": "<hr><b><i>Slide 1/1</b></i>"
-    });
+    /* merge results */
+    let allTitleMatchedSlides = [...blankSlide, ...exactTitleMatchedSlides, ...partialTitleMatchedSlides];
+
+    // allTitleMatchedSlides.push({
+    //   "name": "BLANK SLIDE",
+    //   "lastModified": 0,
+    //   "path": "NOPATH",
+    //   "tags": [],
+    //   "html": "<hr><b><i>Slide 1/1</b></i>"
+    // });
 
     this.filteredSlides = allTitleMatchedSlides;
     return allTitleMatchedSlides;
@@ -121,19 +126,23 @@ export class CataloguedSlidesComponent {
 
   updatePage(nav: 'current' | 'prev' | 'next' | 'first' | 'last') {
     this.filterSlides();
+    let filteredSlidesLength = 0;
+    if(this.filteredSlides.length > 0){
+      filteredSlidesLength = this.filteredSlides.length - 1;
+    }
     switch (nav) {
       case 'current':
         /* check if current page is possible with the filterSlides count */
-        this.pagination.page = Math.min(this.pagination.page, Math.floor((this.filteredSlides.length - 1) / this.pagination.pageSize));
+        this.pagination.page = Math.min(this.pagination.page, Math.floor((filteredSlidesLength) / this.pagination.pageSize));
         break;
       case 'prev': this.pagination.page = Math.max(0, this.pagination.page - 1); break;
-      case 'next': this.pagination.page = Math.min(Math.floor((this.filteredSlides.length - 1) / this.pagination.pageSize), this.pagination.page + 1); break;
+      case 'next': this.pagination.page = Math.min(Math.floor((filteredSlidesLength) / this.pagination.pageSize), this.pagination.page + 1); break;
       case 'first': this.pagination.page = 0; break;
-      case 'last': this.pagination.page = Math.floor((this.filteredSlides.length - 1) / this.pagination.pageSize); break;
+      case 'last': this.pagination.page = Math.floor((filteredSlidesLength) / this.pagination.pageSize); break;
     }
 
     this.pagination.pageStartIdx = this.pagination.page * this.pagination.pageSize;
-    this.pagination.pageEndIdx = Math.min(this.pagination.pageStartIdx + this.pagination.pageSize - 1, this.filteredSlides.length - 1);
+    this.pagination.pageEndIdx = Math.min(this.pagination.pageStartIdx + this.pagination.pageSize - 1, filteredSlidesLength);
   }
 
   getPageStartIdx() {

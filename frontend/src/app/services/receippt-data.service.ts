@@ -22,7 +22,10 @@ export class ReceipptDataService {
     tags: [],
     templates: [],
     currentTemplateIndex: -1,
-    currentMasspartIndex: -1
+    currentMasspartIndex: -1,
+    templateSelectionExpanded: false,
+    masspartSelectionExpanded: false,
+    slidesViewMode: 'catalogued'
   }
 
   stateSubject = new BehaviorSubject(this.state);
@@ -54,6 +57,14 @@ export class ReceipptDataService {
           this.errorSubject.next(true);
           return;
         }
+
+        newState.slides.unshift({
+          "name": "BLANK SLIDE",
+          "lastModified": 0,
+          "path": "NOPATH",
+          "tags": [],
+          "html": "<hr><b><i>Slide 1/1</b></i>"
+        });
         
         newState.templates = (response as Index)["templates"];
         newState.tags = this.createTagList(newState.slides);
@@ -281,6 +292,30 @@ export class ReceipptDataService {
       this.state.templates[index] = template;
     }
 
+    this.updateAndPropagateStateChange();
+  }
+
+  /* update state.templateSelectionExpanded */
+  updateTemplateSelectionExpanded(expanded:boolean){
+    this.state.templateSelectionExpanded = expanded;
+    this.updateAndPropagateStateChange();
+  }
+
+  /* update state.masspartSelectionExpanded */
+  updateMasspartSelectionExpanded(expanded:boolean){
+    this.state.masspartSelectionExpanded = expanded;
+    this.updateAndPropagateStateChange();
+  }
+
+  /* toggle between catalogued and chosen slide viewer modes */
+  updateSlidesViewMode(mode:'catalogued'|'chosen'){
+    this.state.slidesViewMode = mode;
+    this.updateAndPropagateStateChange();
+  }
+
+  /* update complete state */
+  updateCompleteState(newState:ReceipptState){
+    this.state = JSON.parse(JSON.stringify(newState));
     this.updateAndPropagateStateChange();
   }
 

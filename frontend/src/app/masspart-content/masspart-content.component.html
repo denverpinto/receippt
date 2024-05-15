@@ -6,16 +6,16 @@
     </h2>
 
     <div class = "mode-tabs">
-        <button type = "button" class = "button" [ngClass]= "{'chosen' : !loadingState && mode == 'catalogued' }" 
-        (click) = "mode='catalogued'" [disabled] = "loadingState">
+        <button type = "button" class = "button" [ngClass]= "{'chosen' : !loadingState && this.state.slidesViewMode =='catalogued' }" 
+        (click) = "updateSlidesViewMode('catalogued')" [disabled] = "loadingState" id="tour-introduce-catalogued-slides">
         <ng-container *skeleton="loadingState; width: '6ch'; height: 'var(--s0)'">
             {{state.slides.length}} 
             {{ "SLIDE" | plural: state.slides.length }}
         </ng-container> 
             CATALOGUED
         </button>
-        <button type = "button" class = "button" [ngClass]="{'chosen' : !loadingState && mode == 'chosen' }" 
-        (click) = "mode='chosen'" [disabled] = "loadingState">
+        <button type = "button" class = "button" [ngClass]="{'chosen' : !loadingState && this.state.slidesViewMode =='chosen' }" 
+        (click) = "updateSlidesViewMode('chosen')" [disabled] = "loadingState" id="tour-introduce-chosen-slides" >
         <ng-container *skeleton="loadingState; width: '6ch'; height: 'var(--s0)'">
             {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides.length}}
             {{ "SLIDE" | plural: state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].slides.length}} 
@@ -24,8 +24,12 @@
         </button>
     </div>
 
-    <app-catalogued-slides *ngIf="loadingState || mode =='catalogued'" [masspartExists] = "true"></app-catalogued-slides>
-    <app-chosen-slides *ngIf="mode =='chosen'"></app-chosen-slides>
+    <div [hidden]="!loadingState && this.state.slidesViewMode !=='catalogued'">
+        <app-catalogued-slides [masspartExists] = "true"></app-catalogued-slides>
+    </div>
+    <div *ngIf="this.state.slidesViewMode === 'chosen'">
+        <app-chosen-slides></app-chosen-slides>
+    </div>
 </div>
 <ng-template #addMasspartPrompt>
     <h3 class="title">ADD A MASSPART TO GET STARTED</h3>

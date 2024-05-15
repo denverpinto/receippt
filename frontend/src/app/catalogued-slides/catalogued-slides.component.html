@@ -1,5 +1,5 @@
 <div *ngIf="loadingState || state.slides.length > 0; else noSlideError">
-    <div class="input-block">
+    <div class="input-block" id="tour-introduce-search-and-filter">
         <div class="text-input slide-filter">
             <svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -33,33 +33,35 @@
         </div>
     </div>
     <ng-container *ngIf="!loadingState;else loadingSlides">
-        <div class="paginated-slide" *ngFor="let slide of filterSlides() | slice: getPageStartIdx() : getPageEndIdx() +1; index as idx">
+        <div *ngFor="let slide of filterSlides() | slice: getPageStartIdx() : getPageEndIdx() +1; index as idx">
+            <div class="paginated-slide" [id]="idx === 0 ? 'tour-introduce-slide':''">
                 <div class="paginated-slide-item-details">
                     <div class="slide-item-info">
                         <div class="slide-item-info-name"
                             [innerHTML]="slide.name | highlight: searchTextFilter.value?.toUpperCase()">{{""}}
                         </div>
                     </div>
-                    <button type="button" class="button icon-button plain" (click)="openViewSlideDialog(slide)">
+                    <button type="button" class="button icon-button plain" (click)="openViewSlideDialog(slide)" [id]="idx === 0 ? 'tour-introduce-slide-text':''">
                         <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24"
                             fill="none">
                             <path fill-rule="evenodd" clip-rule="evenodd"
                                 d="M5 6H19V7.5H5V6ZM5 9.5H19V11H5V9.5ZM13 12.5H5V14H13V12.5ZM15.3533 18.9393L17.1287 17.164H5V15.664H17.1287L15.3533 13.8886L16.414 12.8279L20 16.414L16.414 20L15.3533 18.9393Z" />
                         </svg>
                     </button>
-                    <div class="choice-counter" *ngIf="masspartExists">
+                    <div class="choice-counter" *ngIf="masspartExists" [id]="idx === 0 ? 'tour-choose-slide':''">
                         <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
-                            (click)="removeSlideFromMasspart(slide.name)" [disabled]="duplicateSlideCount(slide.name) == 0">
-                            <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                focusable="false">
+                            (click)="removeSlideFromMasspart(slide.name)"
+                            [disabled]="duplicateSlideCount(slide.name) == 0">
+                            <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" focusable="false">
                                 <path d="M6 14 h20 v4 h-20 v-4z" />
                             </svg>
                         </button>
                         <span>{{duplicateSlideCount(slide.name)}}</span>
                         <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
                             (click)="addSlideToMasspart(slide.name)">
-                            <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                focusable="false">
+                            <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                                aria-hidden="true" focusable="false">
                                 <path d="M14 6 h4 v8 h8 v4 h-8 v8 h-4 v-8 h-8 v-4 h8 v-8z" />
                             </svg>
                         </button>
@@ -73,52 +75,52 @@
                         </div>
                     </div>
                 </div>
+            </div>
         </div>
     </ng-container>
     <ng-template #loadingSlides>
         <div class="paginated-slide" *ngFor="let x of [1,2]; index as idx">
-                <div class="paginated-slide-item-details">
-                    <div class="slide-item-info">
-                        <div class="slide-item-info-name">
-                            <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
-                                {{""}}
-                            </ng-container>
-                        </div>
+            <div class="paginated-slide-item-details">
+                <div class="slide-item-info">
+                    <div class="slide-item-info-name">
+                        <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
+                            {{""}}
+                        </ng-container>
                     </div>
-                    <button type="button" class="button icon-button plain" disabled>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24"
-                            fill="none">
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                                d="M5 6H19V7.5H5V6ZM5 9.5H19V11H5V9.5ZM13 12.5H5V14H13V12.5ZM15.3533 18.9393L17.1287 17.164H5V15.664H17.1287L15.3533 13.8886L16.414 12.8279L20 16.414L16.414 20L15.3533 18.9393Z" />
+                </div>
+                <button type="button" class="button icon-button plain" disabled>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" fill="none">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M5 6H19V7.5H5V6ZM5 9.5H19V11H5V9.5ZM13 12.5H5V14H13V12.5ZM15.3533 18.9393L17.1287 17.164H5V15.664H17.1287L15.3533 13.8886L16.414 12.8279L20 16.414L16.414 20L15.3533 18.9393Z" />
+                    </svg>
+                </button>
+                <div class="choice-counter">
+                    <button type="button" class="button icon-button plain" aria-label="Icon-only Button" disabled>
+                        <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true" focusable="false">
+                            <path d="M6 14 h20 v4 h-20 v-4z" />
                         </svg>
                     </button>
-                    <div class="choice-counter">
-                        <button type="button" class="button icon-button plain" aria-label="Icon-only Button" disabled>
-                            <svg  width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                focusable="false">
-                                <path d="M6 14 h20 v4 h-20 v-4z" />
-                            </svg>
-                        </button>
-                        <span>
-                            <ng-container *skeleton="loadingState; width: '2ch'; height: 'var(--s0)'">
-                                {{""}}
-                            </ng-container>
-                        </span>
-                        <button type="button" class="button icon-button plain" aria-label="Icon-only Button" disabled>
-                            <svg  width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"
-                                focusable="false">
-                                <path d="M14 6 h4 v8 h8 v4 h-8 v8 h-4 v-8 h-8 v-4 h8 v-8z" />
-                            </svg>
-                        </button>
+                    <span>
+                        <ng-container *skeleton="loadingState; width: '2ch'; height: 'var(--s0)'">
+                            {{""}}
+                        </ng-container>
+                    </span>
+                    <button type="button" class="button icon-button plain" aria-label="Icon-only Button" disabled>
+                        <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true" focusable="false">
+                            <path d="M14 6 h4 v8 h8 v4 h-8 v8 h-4 v-8 h-8 v-4 h8 v-8z" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <div class="tag-details">
+                <span class="nowrap">TAGS:</span>
+                <ng-container *skeleton="loadingState; repeat: 2;  height: 'var(--s-1)'; width: '5ch'">
+                    <div class="reel tags">
                     </div>
-                </div>
-                <div class="tag-details">
-                    <span class="nowrap">TAGS:</span>
-                    <ng-container *skeleton="loadingState; repeat: 2;  height: 'var(--s-1)'; width: '5ch'">
-                        <div class="reel tags">
-                        </div>
-                    </ng-container>
-                </div>
+                </ng-container>
+            </div>
         </div>
     </ng-template>
 

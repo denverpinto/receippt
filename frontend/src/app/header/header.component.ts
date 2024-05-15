@@ -1,5 +1,5 @@
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
-import { Component } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { DeleteMasspartComponent } from '../dialogs/delete-masspart/delete-masspart.component';
 import { Dialog } from '@angular/cdk/dialog';
 import { AddMasspartComponent } from '../dialogs/add-masspart/add-masspart.component';
@@ -8,6 +8,7 @@ import { TemplateSelectorComponent } from '../dialogs/template-selector/template
 import { DowloadReceipptComponent } from '../dialogs/dowload-receippt/dowload-receippt.component';
 import { ReceipptState } from '../interfaces/receippt-state';
 import { ReceipptDataService } from '../services/receippt-data.service';
+import { IntrojsService } from '../services/introjs.service';
 
 @Component({
   selector: 'app-header',
@@ -15,26 +16,40 @@ import { ReceipptDataService } from '../services/receippt-data.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
- 
-  massparttoggle = false;
-  templatetoggle = false;
-  labeltoggle = false;
 
   state!: ReceipptState;
 
-  loadingState$;
   loadingState:boolean = true;
 
-  constructor(private dataService: ReceipptDataService, public dialog: Dialog) {
+  constructor(private dataService: ReceipptDataService,private introService: IntrojsService,private cdr: ChangeDetectorRef, public dialog: Dialog) {
     this.dataService.stateSubject.subscribe((value) => {
       this.state = value;
     });
 
-    this.loadingState$ = this.dataService.loadingSubject.asObservable();
 
     this.dataService.loadingSubject.subscribe((value) => {
       this.loadingState = value;
     });
+  }
+
+  /* create intro.js tour request*/
+  startTour(){
+    this.introService.createRequest();
+  }
+
+  /* condition to show introjs tour of site */
+  hideTour(){
+    return this.introService.hideTour();
+  }
+
+  /* update templateSelectionExpanded toggle */
+  updateTemplateSelectionToggle(expanded:boolean){
+    this.dataService.updateTemplateSelectionExpanded(expanded);
+  }
+
+  /* update masspartSelectionExpanded toggle */
+  updateMasspartSelectionToggle(expanded:boolean){
+    this.dataService.updateMasspartSelectionExpanded(expanded);
   }
 
   /* return masspart counts for given template */
@@ -161,7 +176,7 @@ export class HeaderComponent {
 
     dialogRef.closed.subscribe(result => {
       if (result != null) {
-        this.templatetoggle = false;
+        this.updateTemplateSelectionToggle(false);
       }
     });
 

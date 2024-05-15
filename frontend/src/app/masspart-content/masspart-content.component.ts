@@ -9,8 +9,6 @@ import { ReceipptDataService } from '../services/receippt-data.service';
 })
 export class MasspartContentComponent {
 
-  mode = 'catalogued';
-
   state!: ReceipptState;
 
   loading$;
@@ -27,6 +25,10 @@ export class MasspartContentComponent {
     this.dataService.loadingSubject.subscribe((value) => {
       this.loadingState = value;
     });
+  }
+
+  updateSlidesViewMode(mode:'catalogued'|'chosen'){
+    this.dataService.updateSlidesViewMode(mode);
   }
 
 }

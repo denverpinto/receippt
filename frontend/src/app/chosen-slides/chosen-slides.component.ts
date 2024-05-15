@@ -40,18 +40,7 @@ export class ChosenSlidesComponent {
 
   openViewSlideDialog(sName: string): void {
     let sInfo : Slide;
-    if(sName.trim().toUpperCase() == "BLANK SLIDE"){
-      sInfo = {
-        "name": "BLANK SLIDE",
-        "lastModified": 0,
-        "path": "NOPATH",
-        "tags": [],
-        "html": "<hr><b><i>Slide 1/1</b></i>"
-      };
-    }
-    else{
-      sInfo = this.state.slides[this.state.slides.findIndex(s => s.name == sName)]
-    }
+    sInfo = this.state.slides[this.state.slides.findIndex(s => s.name == sName)];
     const dialogRef = this.dialog.open<string>(ViewSlideComponent, {
       panelClass: 'dialog-panel',
       backdropClass: 'dialog-overlay',

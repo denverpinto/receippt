@@ -1,4 +1,8 @@
 /* Nav Panel */
+.nav > *+*{
+    margin-top: var(--s-3);
+}
+
 .nav-panel {
     display: flex;
     justify-content: center;
@@ -34,7 +38,6 @@
 }
 
 .selection-toggle {
-    margin-top: var(--s-3);
     justify-content: flex-start;
     gap: var(--s-2);
     font-size: var(--s0);

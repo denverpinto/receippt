@@ -3511,7 +3511,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>PENITENTIAL ACT: THE CONFITEOR</h3></br>I Confess to almighty God and you, my brothers and sisters, that I have greatly sinned, in my thoughts and in my words, in what I have done and in what I have failed to do, through my fault, through my fault; through my most grievous fault, therefore I ask blessed Mary ever-Virgin, all the Angels and Saints, and you my brothers and sisters, to pray for me to the Lord our God.</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>PENITENTIAL ACT: THE CONFITEOR</h3></br>I Confess to almighty God and to you, my brothers and sisters, that I have greatly sinned, in my thoughts and in my words, in what I have done and in what I have failed to do, through my fault, through my fault; through my most grievous fault, therefore I ask blessed Mary ever-Virgin, all the Angels and Saints, and you my brothers and sisters, to pray for me to the Lord our God.</br>",
       "name": "PENITENTIAL ACT (THE CONFITEOR)",
       "path": "slides/PENITENTIAL_ACT_(THE_CONFITEOR).pptx",
       "tags": [
@@ -5320,7 +5320,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>SING ALLELUIA TO THE LORD</h3></br>Sing Alleluia to the Lord (2) </br>Sing Alleluia (2) Sing Alleluia to the Lord</br></br>If you hear him calling, listen to his voice.</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>SING ALLELUIA TO THE LORD</h3></br>Sing Alleluia to the Lord (2) </br>Sing Alleluia (2) Sing Alleluia to the Lord.</br></br>If you hear him calling, listen to his voice.</br></br>Sing Alleluia to the Lord!</br>",
       "name": "SING ALLELUIA TO THE LORD",
       "path": "slides/SING_ALLELUIA_TO_THE_LORD.pptx",
       "tags": [
@@ -6203,7 +6203,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>We see the troubles in our lives,</br>We wonder why things happen this way,</br>Why is there pain? Why is there loneliness?</br>Is there one who can help us in our need?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>contd..</br><hr></br><b><i>Slide 2/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>Life can be difficult at times,</br>The answers may seem far away,</br>Why is there hate? Why is there selfishness?</br>Is there one can overcome this strife?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>contd..</br><hr></br><b><i>Slide 3/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>We feel the closed world of the mind,</br>We look for words from those who care.</br>Where are the just?  Where is there openness?</br>Is there one whose life has made us free?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>",
+      "html": "<hr></br><b><i>Slide 1/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>We see the troubles in our lives,</br>We wonder why things are this way,</br>Why is there pain? Why is there loneliness?</br>Is there one who can help us in our need?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>contd..</br><hr></br><b><i>Slide 2/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>Life can be difficult at times,</br>The answers may seem far away,</br>Why is there hate? Why is there selfishness?</br>Is there one who can overcome this strife?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>contd..</br><hr></br><b><i>Slide 3/3</b></i></br><h3>WE SEE THE TROUBLES</h3></br>We feel the closed world of the mind,</br>We look for words from those who care.</br>Where are the just?  Where is there openness?</br>Is there one whose life has made us free?</br></br>Look up to the Lord; put your hope in the Saviour,</br>He showed us that to live we first must die.</br>Look up to the Lord; put your hope in the Saviour,</br>The darkness of his death has turned to light!</br></br>",
       "name": "WE SEE THE TROUBLES",
       "path": "slides/WE_SEE_THE_TROUBLES.pptx",
       "tags": [
@@ -6493,21 +6493,6 @@
     {
       "backgroundColor": "#000000",
       "highlightedTextColor": "#ffff00",
-      "id": "BLANK TEMPLATE",
-      "massparts": [
-        {
-          "addLabelToTitle": true,
-          "label": "BLANK MASSPART",
-          "slides": []
-        }
-      ],
-      "saveAsFileName": "",
-      "tag": "DEFAULT",
-      "textColor": "#ffffff"
-    },
-    {
-      "backgroundColor": "#000000",
-      "highlightedTextColor": "#ffff00",
       "id": "NUPTIALS MASS",
       "massparts": [
         {
@@ -6585,6 +6570,21 @@
         {
           "addLabelToTitle": true,
           "label": "RECESSIONAL",
+          "slides": []
+        }
+      ],
+      "saveAsFileName": "",
+      "tag": "DEFAULT",
+      "textColor": "#ffffff"
+    },
+    {
+      "backgroundColor": "#000000",
+      "highlightedTextColor": "#ffff00",
+      "id": "BLANK TEMPLATE",
+      "massparts": [
+        {
+          "addLabelToTitle": true,
+          "label": "BLANK MASSPART",
           "slides": []
         }
       ],

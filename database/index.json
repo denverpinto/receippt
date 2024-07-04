@@ -1186,12 +1186,19 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LENTEN ALLELUIA</h3></br>Glory and Praise to you O Lord Jesus Christ</br></br>One does not live on bread alone,</br>But on every word that comes from God.</br>",
+      "html": "<hr></br><b><i>Slide 1/3</b></i></br><h3>GLORY AND PRAISE</h3></br>Glory and praise to our God,</br>Who alone gives light to our days.</br>Many are the blessings he bears,</br>To those who trust in his ways.</br></br>We, the daughters and sons of him,</br>who built the valleys and plains.</br>Praise the wonders our God has done,</br>In every heart that sings.</br></br>contd..</br><hr></br><b><i>Slide 2/3</b></i></br><h3>GLORY AND PRAISE</h3></br>Glory and praise to our God,</br>Who alone gives light to our days.</br>Many are the blessings he bears,</br>To those who trust in his ways.</br></br>In his wisdom he strengthens us,</br>Like gold that\u2019s tested in fire.</br>Though the power of sin prevails,</br>Our God is there to save.</br></br>contd..</br><hr></br><b><i>Slide 3/3</b></i></br><h3>GLORY AND PRAISE</h3></br>Glory and praise to our God,</br>Who alone gives light to our days.</br>Many are the blessings he bears,</br>To those who trust in his ways.</br></br>Every moment of every day,</br>Our God is waiting to save.</br>Always ready to see the lost,</br>To answer those who pray.</br>",
       "name": "GLORY AND PRAISE",
       "path": "slides/GLORY_AND_PRAISE.pptx",
       "tags": [
+        "ENTRANCE"
+      ]
+    },
+    {
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LENTEN ALLELUIA</h3></br>Glory and Praise to you O Lord Jesus Christ</br></br>One does not live on bread alone,</br>But on every word that comes from God.</br>",
+      "name": "GLORY AND PRAISE ACCLAMATION",
+      "path": "slides/GLORY_AND_PRAISE_ACCLAMATION.pptx",
+      "tags": [
         "ACCLAMATION",
-        "ENTRANCE",
         "LENT"
       ]
     },
@@ -1747,7 +1754,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>HOLY- MASS OF PEACE</h3></br>Holy, Holy, Holy, Holy Lord God of hosts</br>Heav\u2019n and earth are filled with glory</br>Sing hosanna in the highest</br></br>Blessed is the one who comes in the </br>name of the Lord</br>Sing hosanna in the highest,</br>Sing hosanna in the highest</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>HOLY- MASS OF PEACE</h3></br>Holy, Holy, Holy, Lord God of hosts</br>Earth and heav\u2019n are filled with glory</br>Hosanna, hosanna in the highest</br></br>Blessed is the one who comes in the </br>name of the Lord</br>Hosanna, hosanna in the highest</br>Hosanna, hosanna in the highest</br>",
       "name": "HOLY (MASS OF PEACE)",
       "path": "slides/HOLY_(MASS_OF_PEACE).pptx",
       "tags": [
@@ -2745,7 +2752,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LORD HAVE MERCY- MASS OF PEACE</h3></br>Lord have mercy on your people,</br>Lord have mercy on your people,</br>Lord have mercy on your people,</br>Lord have mercy on us all.</br></br>Christ have mercy on your people,</br>Christ have mercy on your people,</br>Christ have mercy on your people,</br>Christ have mercy on us all.</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LORD HAVE MERCY- MASS OF PEACE</h3></br>Lord have mercy on your people,</br>Christ have mercy on your people,</br>Lord have mercy on your people,</br>Lord have mercy on us all.</br>",
       "name": "LORD HAVE MERCY (MASS OF PEACE)",
       "path": "slides/LORD_HAVE_MERCY_(MASS_OF_PEACE).pptx",
       "tags": [
@@ -6161,7 +6168,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>WE OFFER YOU</h3></br>We offer You, O Lord divine,</br>Our humble gifts of bread and wine.</br>We place them on your altar Lord, today.</br>Make them worthy of you love,</br>Send your blessings from above,</br>Sanctify these gifts O Lord we pray.</br></br>O take our hearts, take our minds,</br>Take all we have make them thine.</br>Code: O Lord, take all we have, O Lord</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>WE OFFER YOU</h3></br>We offer You, O Lord divine,</br>Our humble gifts of bread and wine.</br>We place them on your altar Lord, today.</br>Make them worthy of you love,</br>Send your blessings from above,</br>Sanctify these gifts O Lord we pray.</br></br>O take our hearts, take our minds,</br>Take all we have make them thine.</br>Coda: O Lord, take all we have, O Lord</br>",
       "name": "WE OFFER YOU",
       "path": "slides/WE_OFFER_YOU.pptx",
       "tags": [

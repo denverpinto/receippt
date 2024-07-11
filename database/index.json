@@ -1098,7 +1098,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/2</b></i></br><h3>COMMUNITY GLORY</h3></br>Glory, glory to God in the highest and on earth</br>peace to people of good will (2)</br></br>We praise you, we bless you,</br>We adore you, we glorify you,</br>We give you thanks for your great glory.</br>Lord God heavenly King O God Almighty Father</br>Lord Jesus Christ, only begotten Son,</br>Lord God, Lamb of God, Son of the Father,</br>You take away the sins of the world, </br>have mercy on us</br>contd..</br><hr></br><b><i>Slide 2/2</b></i></br><h3>COMMUNITY GLORY</h3></br>You take away the sins of the world, </br>receive our prayer.</br>You are seated at the right hand of the Father,</br>Have mercy on us.</br></br>For you alone are the Holy One,</br>You alone are the Lord,</br>You alone are the most High, Jesus Christ.</br>With the Holy Spirit, in the glory of God the Father. Amen (5).</br>",
+      "html": "<hr></br><b><i>Slide 1/2</b></i></br><h3>COMMUNITY GLORY</h3></br>Glory, glory to God in the highest and on earth</br>peace to people of good will</br></br>We praise you, we bless you,</br>We adore you, we glorify you,</br>We give you thanks for your great glory.</br>Lord God heavenly King O God Almighty Father</br>Lord Jesus Christ, only begotten Son,</br>Lord God, Lamb of God, Son of the Father,</br>You take away the sins of the world, </br>have mercy on us</br>contd..</br><hr></br><b><i>Slide 2/2</b></i></br><h3>COMMUNITY GLORY</h3></br>You take away the sins of the world, </br>receive our prayer.</br>You are seated at the right hand of the Father,</br>Have mercy on us.</br></br>For you alone are the Holy One,</br>You alone are the Lord,</br>You alone are the most High, Jesus Christ.</br>With the Holy Spirit, in the glory of God the Father. Amen (5).</br>",
       "name": "GLORIA (COMMUNITY GLORY)",
       "path": "slides/GLORIA_(COMMUNITY_GLORY).pptx",
       "tags": [
@@ -4508,7 +4508,7 @@
       ]
     },
     {
-      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>[RESPONSORIAL PSALM]</h3></br>Show to us, show to us your mercy Lord</br>And grant us your saving help</br>",
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>[RESPONSORIAL PSALM]</h3></br>Show to us, show to us your mercy Lord</br>And grant to us your saving help</br>",
       "name": "PSALM (OT SUN 15 YEAR B)",
       "path": "slides/PSALM_(OT_SUN_15_YEAR_B).pptx",
       "tags": [
@@ -6619,21 +6619,6 @@
     {
       "backgroundColor": "#000000",
       "highlightedTextColor": "#ffff00",
-      "id": "BLANK TEMPLATE",
-      "massparts": [
-        {
-          "addLabelToTitle": true,
-          "label": "BLANK MASSPART",
-          "slides": []
-        }
-      ],
-      "saveAsFileName": "",
-      "tag": "DEFAULT",
-      "textColor": "#ffffff"
-    },
-    {
-      "backgroundColor": "#000000",
-      "highlightedTextColor": "#ffff00",
       "id": "REGULAR WEEKEND MASS",
       "massparts": [
         {
@@ -6713,6 +6698,21 @@
         {
           "addLabelToTitle": true,
           "label": "RECESSIONAL",
+          "slides": []
+        }
+      ],
+      "saveAsFileName": "",
+      "tag": "DEFAULT",
+      "textColor": "#ffffff"
+    },
+    {
+      "backgroundColor": "#000000",
+      "highlightedTextColor": "#ffff00",
+      "id": "BLANK TEMPLATE",
+      "massparts": [
+        {
+          "addLabelToTitle": true,
+          "label": "BLANK MASSPART",
           "slides": []
         }
       ],

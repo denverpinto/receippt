@@ -63,7 +63,8 @@ export class ReceipptDataService {
           "lastModified": 0,
           "path": "NOPATH",
           "tags": [],
-          "html": "<hr><b><i>Slide 1/1</b></i>"
+          "html": "<hr><b><i>Slide 1/1</b></i>",
+          "text": "-----\nSlide 1/1"
         });
         
         newState.templates = (response as Index)["templates"];

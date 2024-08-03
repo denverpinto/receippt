@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import {DialogModule} from '@angular/cdk/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 import { HeaderComponent } from './header/header.component';
 import { MasspartContentComponent } from './masspart-content/masspart-content.component';
@@ -54,7 +55,8 @@ import { DownScreenComponent } from './down-screen/down-screen.component';
     MatSnackBarModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    ClipboardModule
 
   ],
   providers: [],

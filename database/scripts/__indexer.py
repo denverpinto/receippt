@@ -10,8 +10,8 @@ templatesRootDir = "./templates"
 # create updated index from scratch
 updatedIndex = { "slides": [], "templates": [] }
 
-# function to return all slides' text
-def getSlidesText(path):
+# function to return all slides' text as html
+def getSlidesTextAsHTML(path):
 	prs = Presentation(path)
 	texts = []
 	totalSlides = len(prs.slides)
@@ -27,6 +27,24 @@ def getSlidesText(path):
 				else:
 					texts.append(f"{shape.text}")
 	return "</br>".join(texts).replace("\n","</br>")
+
+# function to return all slides' text
+def getSlidesText(path):
+	prs = Presentation(path)
+	texts = []
+	totalSlides = len(prs.slides)
+	for slide_number, slide in enumerate(prs.slides):
+		texts.append("-----")
+		texts.append(f"Slide {slide_number + 1}/{totalSlides}")
+		firstSlide = True
+		for shape in slide.shapes: 
+			if hasattr(shape, "text"):
+				if firstSlide:
+					texts.append(f"{shape.text}")
+					firstSlide = False
+				else:
+					texts.append(f"{shape.text}")
+	return "\n".join(texts)
 
 # function to remove unknown slides from templates 
 def scrubTemplate(template):
@@ -62,7 +80,8 @@ for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
 						entry["tags"] = tags
 					else:
 						entry["tags"] = []
-			entry["html"] = getSlidesText(entry["path"])
+			entry["text"] = getSlidesText(entry["path"])
+			entry["html"] = getSlidesTextAsHTML(entry["path"])
 			updatedIndex["slides"].append(entry)
 
 # add templates 

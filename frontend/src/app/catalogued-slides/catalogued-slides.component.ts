@@ -112,13 +112,6 @@ export class CataloguedSlidesComponent {
     /* merge results */
     let allTitleMatchedSlides = [...blankSlide, ...exactTitleMatchedSlides, ...partialTitleMatchedSlides];
 
-    // allTitleMatchedSlides.push({
-    //   "name": "BLANK SLIDE",
-    //   "lastModified": 0,
-    //   "path": "NOPATH",
-    //   "tags": [],
-    //   "html": "<hr><b><i>Slide 1/1</b></i>"
-    // });
 
     this.filteredSlides = allTitleMatchedSlides;
     return allTitleMatchedSlides;

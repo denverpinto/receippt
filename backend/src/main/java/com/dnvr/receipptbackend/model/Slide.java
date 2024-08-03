@@ -7,7 +7,20 @@ public class Slide {
 	private List<String> tags;
 	private String path;
 	private String html;
+	private String text;
 	
+	public String getText() {
+		return text;
+	}
+
+
+
+	public void setText(String text) {
+		this.text = text;
+	}
+
+
+
 	public Slide() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -15,13 +28,14 @@ public class Slide {
 	
 	
 
-	public Slide(String name, List<String> tags, String path, String html) {
+	public Slide(String name, List<String> tags, String path, String html, String text) {
 		super();
 		this.name = name;
 		this.tags = tags;
 		this.path = path;
 		this.html = html;
-	}
+		this.text = text;
+		}
 
 	public String getHtml() {
 		return html;

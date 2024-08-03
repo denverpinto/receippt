@@ -69,6 +69,13 @@
             "slides": []
         },
         {
+            "label": "THE LORD'S PRAYER",
+            "addLabelToTitle": true,
+            "slides": [
+                "OUR FATHER"
+            ]
+        },
+        {
             "label": "COMMUNION",
             "addLabelToTitle": true,
             "slides": []

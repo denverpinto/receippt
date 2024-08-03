@@ -7339,93 +7339,6 @@
     {
       "backgroundColor": "#000000",
       "highlightedTextColor": "#ffff00",
-      "id": "NUPTIALS MASS",
-      "massparts": [
-        {
-          "addLabelToTitle": false,
-          "label": "PRAYER BEFORE MASS",
-          "slides": [
-            "SILENT PRAYER BEFORE MASS"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "ENTRANCE",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": false,
-          "label": "PENITENTIAL ACT",
-          "slides": [
-            "PENITENTIAL ACT (THE CONFITEOR)"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "LHM",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "GLORIA",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": false,
-          "label": "RESPONSORIAL PSALM",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "GOSPEL ACCLAMATION",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": false,
-          "label": "CREED",
-          "slides": [
-            "NICENE CREED",
-            "APOSTLES CREED"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "POST NUPTIAL",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "OFFERTORY",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "SANCTUS",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "PROCLAMATION",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "COMMUNION",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "RECESSIONAL",
-          "slides": []
-        }
-      ],
-      "saveAsFileName": "",
-      "tag": "DEFAULT",
-      "textColor": "#ffffff"
-    },
-    {
-      "backgroundColor": "#000000",
-      "highlightedTextColor": "#ffff00",
       "id": "REGULAR WEEKEND MASS",
       "massparts": [
         {
@@ -7501,6 +7414,93 @@
           "slides": [
             "JUBILEE PRAYER"
           ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "RECESSIONAL",
+          "slides": []
+        }
+      ],
+      "saveAsFileName": "",
+      "tag": "DEFAULT",
+      "textColor": "#ffffff"
+    },
+    {
+      "backgroundColor": "#000000",
+      "highlightedTextColor": "#ffff00",
+      "id": "NUPTIALS MASS",
+      "massparts": [
+        {
+          "addLabelToTitle": false,
+          "label": "PRAYER BEFORE MASS",
+          "slides": [
+            "SILENT PRAYER BEFORE MASS"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "ENTRANCE",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": false,
+          "label": "PENITENTIAL ACT",
+          "slides": [
+            "PENITENTIAL ACT (THE CONFITEOR)"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "LHM",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "GLORIA",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": false,
+          "label": "RESPONSORIAL PSALM",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "GOSPEL ACCLAMATION",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": false,
+          "label": "CREED",
+          "slides": [
+            "NICENE CREED",
+            "APOSTLES CREED"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "POST NUPTIAL",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "OFFERTORY",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "SANCTUS",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "PROCLAMATION",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "COMMUNION",
+          "slides": []
         },
         {
           "addLabelToTitle": true,

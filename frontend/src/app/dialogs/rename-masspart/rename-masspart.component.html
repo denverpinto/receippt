@@ -1,5 +1,5 @@
 <div class="dialog-header">
-    <div>RENAME MASSPART?</div>
+    <div>RENAME SECTION</div>
     <button type="button" class="button icon-button plain" aria-label="Icon-only Button" (click) ="closeDialog('cancel')">
         <svg width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
             <path
@@ -8,10 +8,10 @@
         </svg>
     </button>
 </div>
-<div class="dialog-title">from {{data.currentLabel}} to</div>
+<div class="dialog-title">from <u>{{data.currentLabel}}</u> to</div>
 <div class="dialog-content">
     <div class="text-input">
-        <input type="text" placeholder="RENAMED MASSPART LABEL" #textInput [formControl]="name" (focus) = "selectAllOnFocusInput()"/>
+        <input type="text" placeholder="RENAMED SECTION LABEL" #textInput [formControl]="name" (focus) = "selectAllOnFocusInput()"/>
     </div>
     <div class="hints">
         <div class="hint" [ngClass] = "{ 'pass': !name.hasError('maxlength') && !name.hasError('required') && !name.hasError('pattern')  , 'fail': name.hasError('maxlength') || name.hasError('required') || name.hasError('pattern')}">
@@ -36,9 +36,13 @@
             <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 1024 1024"  *ngIf="!name.hasError('used')">
                 <path d="M760 380.4l-61.6-61.6-263.2 263.1-109.6-109.5L264 534l171.2 171.2L760 380.4z" />
             </svg>
-            <span>NOT USED CURRENTLY BY ANOTHER MASSPART</span>
+            <span>NOT USED CURRENTLY BY ANOTHER SECTION</span>
         </div>
     </div>
+    <label class="checkbox-control" *ngIf = "!name.invalid">
+        <input type="checkbox" name="checkbox" [(ngModel)] = "this.data.currentAddLabelToTitleChoice" />
+        ADD [{{name.value}}] TO ALL SLIDE TITLES OF THIS SECTION?
+    </label>
 </div>
 <div class="dialog-actions">
     <button type="button" class="button nowrap" (click) ="closeDialog('rename')" [disabled] = "name.invalid">

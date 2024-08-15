@@ -40,7 +40,7 @@
                 <span class="choice-details-subtext">
                     <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s-2)'">
                         {{ getMasspartCount(state.currentTemplateIndex) }}
-                        {{ "MASSPART" | plural: getMasspartCount(state.currentTemplateIndex) }}
+                        {{ "SECTION" | plural: getMasspartCount(state.currentTemplateIndex) }}
                         {{ getSlideCount(state.currentTemplateIndex) }}
                         {{ "SLIDE" | plural: getSlideCount(state.currentTemplateIndex) }}
                     </ng-container>
@@ -58,7 +58,7 @@
                     <span class="choice-details-text">{{template.id}}</span>
                     <span class="choice-details-subtext">
                         {{ getMasspartCount(tidx) }}
-                        {{ "MASSPART" | plural: getMasspartCount(tidx) }}
+                        {{ "SECTION" | plural: getMasspartCount(tidx) }}
                         {{ getSlideCount(tidx) }}
                         {{ "SLIDE" | plural: getSlideCount(tidx) }}
                     </span>
@@ -74,7 +74,7 @@
                 <path xmlns="http://www.w3.org/2000/svg" d="M6 6 L6 18 L18 12 z" />
             </svg>
             <div class="choice-details">
-                <span class="choice-details-subtext">CURRENT MASSPART</span>
+                <span class="choice-details-subtext">CURRENT SECTION</span>
                 <span class="choice-details-text">
                     <ng-container *skeleton="loadingState; width: '20ch'; height: 'var(--s0)'">
                         {{state.templates[state.currentTemplateIndex].massparts[state.currentMasspartIndex].label}}
@@ -122,7 +122,7 @@
         </div>
         <div class="choices masspart-choices" *ngIf="!loadingState" id="tour-introduce-masspart">
             <div class="masspart-choices-title">
-                <h2>MassParts</h2>
+                <h2>Sections</h2>
                 <!-- Action To Add New MassPart-->
                 <button type="button" class="button icon-button" aria-label="Icon-only Button"
                     (click)="openAddMasspartDialog()">
@@ -157,8 +157,8 @@
     </div>
     <div class="masspart-choices-title standalone"
         *ngIf="!loadingState && state.templates[state.currentTemplateIndex].massparts.length == 0">
-        <h2>Add Masspart</h2>
-        <!-- Action To Add New MassPart-->
+        <h2>Add Section</h2>
+        <!-- Action To Add New Section-->
         <button type="button" class="button icon-button" aria-label="Icon-only Button">
             <svg width="10px" height="10px" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"
                 (click)="openAddMasspartDialog()">

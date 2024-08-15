@@ -10,7 +10,7 @@
 </div>
 <div class = "dialog-title">{{data.selectedTemplate.id}}</div>
 <div class = "dialog-content" *ngIf = "selectionSkeleton.massparts.length > 0">
-    <div class = "guide">SELECT THE MASSPARTS/SLIDES YOU NEED. DEFAULT MASSPARTS/SLIDES OF <u>{{data.selectedTemplate.id}}</u> ARE CHECKED BY DEFAULT.</div>
+    <div class = "guide">SELECT THE SECTIONS/SLIDES YOU NEED. DEFAULT SECTIONS/SLIDES OF <u>{{data.selectedTemplate.id}}</u> ARE CHECKED BY DEFAULT.</div>
     <div class = "checkbox-list">
         <ng-container *ngFor = "let masspart of selectionSkeleton.massparts">
             <label class="checkbox-control masspart">
@@ -28,7 +28,7 @@
     </div>
 </div>
 <div class = "dialog-content" *ngIf = "selectionSkeleton.massparts.length == 0">
-    <div class = "guide"> NO MASSPARTS AND SLIDES IN  CURRENT WORK AS WELL AS {{"THE SELECTED TEMPLATE"}}. A BLANK TEMPLATE WILL BE CREATED</div>
+    <div class = "guide"> NO SECTIONS AND SLIDES IN CURRENT WORK AS WELL AS {{"THE SELECTED TEMPLATE"}}. A BLANK TEMPLATE WILL BE CREATED</div>
 </div>
 <div class = "dialog-actions">
     <button type="button" class="button nowrap" (click)= "resetSelectionSkeleton()">

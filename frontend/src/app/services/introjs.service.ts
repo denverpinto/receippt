@@ -57,12 +57,12 @@ export class IntrojsService {
         {
           element: '#tour-introduce-masspart',
           intro:
-            "Next, add slides to each masspart section in the list. Sections can be reordered and new sections can be added.",
+            "Next, add slides to each section in the list. Sections can be reordered and new sections can be added.",
         },
         {
           element: '#tour-choose-masspart',
           intro:
-            "Choose a masspart section to begin adding slides to it.",
+            "Choose a section to begin adding slides to it.",
         },
         {
           element: '#tour-introduce-catalogued-slides',
@@ -87,27 +87,27 @@ export class IntrojsService {
         {
           element: '#tour-choose-slide',
           intro:
-            "Ensure it is atleast 1 to add the slide to a masspart section. Multiple copies of a slide can be added if required.",
+            "Ensure it is atleast 1 to add the slide to a section. Multiple copies of a slide can be added if required.",
         },
         {
           element: '#tour-introduce-chosen-slides',
           intro:
-            "View all the currently chosen slides of the current masspart section, which can be reordered or deleted.",
+            "View all the currently chosen slides of the current section, which can be reordered or deleted.",
         },
         {
           element: '#tour-introduce-masspartactions',
           intro:
-            "Apart from adding slides to the current masspart section, the section itself can be renamed or deleted.",
+            "Apart from adding slides to the current section, the section itself can be renamed or deleted.",
         },
         {
           element: '#tour-introduce-label-slides',
           intro:
-            "Tick this to add the [masspart] label on all of the current masspart section's slides' titles.",
+            "Tick this to add [LABEL] on all of the current section's slides' titles.",
         },
         {
           element: '#tour-introduce-download',
           intro:
-            "Download the ppt after slides have been chosen for all masspart sections."
+            "Download the ppt after slides have been chosen for all sections."
         },
 
       ]

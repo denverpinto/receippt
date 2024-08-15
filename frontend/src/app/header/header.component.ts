@@ -128,16 +128,6 @@ export class HeaderComponent {
       }
     });
 
-    dialogRef.closed.subscribe(result => {
-      if (result != null) {
-        this.dataService.addMasspartToCurrentTemplate({
-          "label": result.trim().toUpperCase(),
-          "addLabelToTitle": true,
-          "slides": []
-        });
-      }
-    });
-
   }
 
   openRenameMasspartDialog(): void {
@@ -147,15 +137,11 @@ export class HeaderComponent {
     autoFocus: false,
     data: {
       currentLabel: this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].label,
-      existingLabels: this.state.templates[this.state.currentTemplateIndex].massparts.map((masspart: any) => { return masspart.label })
+      existingLabels: this.state.templates[this.state.currentTemplateIndex].massparts.map((masspart: any) => { return masspart.label }),
+      currentAddLabelToTitleChoice: this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].addLabelToTitle
     }
   });
 
-  dialogRef.closed.subscribe(result => {
-    if (result != null) {
-      this.dataService.renameMasspartOfCurrentTemplate(result.trim().toUpperCase());
-    }
-  });
   }
 
   /* create a deep copy clone*/

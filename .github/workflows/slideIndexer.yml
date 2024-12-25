@@ -196,6 +196,8 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           scp -i private_key -r ./backend/target/receippt-api.jar ec2-user@${HOSTNAME}:/home/ec2-user/receippt/
+          directory = "receippt/database"
+          mkdir -p "$directory"
           scp -i private_key -r ./database/ ec2-user@${HOSTNAME}:/home/ec2-user/receippt/database/
 
       - name: Start jar in ec2 server

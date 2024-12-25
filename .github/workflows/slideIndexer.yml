@@ -176,13 +176,18 @@ jobs:
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           ssh -o StrictHostKeyChecking=no -i private_key ec2-user@${HOSTNAME} '
             directory="receippt"
+            dbdirectory="receippt/database"
             if [ -d "$directory" ]; then
               rm -rf "$directory"/*
               echo "Contents of $directory removed."
+              mkdir -p "$dbdirectory"
+              echo "Directory $dbdirectory created."
             else
               echo "Directory $directory does not exist. Creating..."
               mkdir -p "$directory"
               echo "Directory $directory created."
+              mkdir -p "$dbdirectory"
+              echo "Directory $dbdirectory created."
             fi
             ls
             '
@@ -196,8 +201,6 @@ jobs:
         run: |
           echo "$PRIVATE_KEY" > private_key && chmod 600 private_key
           scp -i private_key -r ./backend/target/receippt-api.jar ec2-user@${HOSTNAME}:/home/ec2-user/receippt/
-          directory = "receippt/database"
-          mkdir -p "$directory"
           scp -i private_key -r ./database/ ec2-user@${HOSTNAME}:/home/ec2-user/receippt/database/
 
       - name: Start jar in ec2 server

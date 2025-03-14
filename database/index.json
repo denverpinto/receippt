@@ -3215,6 +3215,15 @@
       "text": "-----\nSlide 1/1\nLORD HAVE MERCY - SWEDISH\nLord have mercy on us all, \nLord have mercy on us;\nLord have mercy on us all,\nLord have mercy on us.\n\nChrist have mercy on us all,\nChrist have mercy on us;\nChrist have mercy on us all,\nChrist have mercy on us.\n"
     },
     {
+      "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LORD HAVE MERCY- TAMIL</h3></br>Lord have mercy, Lord have mercy on us,</br>Christ have mercy, Christ have mercy on us,</br>Lord have mercy, Lord have mercy on us.</br>",
+      "name": "LORD HAVE MERCY (TAMIL)",
+      "path": "slides/LORD_HAVE_MERCY_(TAMIL).pptx",
+      "tags": [
+        "LORD HAVE MERCY"
+      ],
+      "text": "-----\nSlide 1/1\nLORD HAVE MERCY- TAMIL\nLord have mercy, Lord have mercy on us,\nChrist have mercy, Christ have mercy on us,\nLord have mercy, Lord have mercy on us.\n"
+    },
+    {
       "html": "<hr></br><b><i>Slide 1/1</b></i></br><h3>LHM- YOU WERE SENT TO HEAL(1)</h3></br>You were sent to heal the contrite.</br>Lord, Lord have mercy</br></br>You came to call sinners.</br>Christ, Christ have mercy</br></br>You plead for us at the right hand of the Father. </br>Lord, Lord have mercy</br>",
       "name": "LORD HAVE MERCY (YOU WERE SENT TO HEAL 1)",
       "path": "slides/LORD_HAVE_MERCY_(YOU_WERE_SENT_TO_HEAL_1).pptx",
@@ -7441,6 +7450,100 @@
     {
       "backgroundColor": "#000000",
       "highlightedTextColor": "#ffff00",
+      "id": "NUPTIALS MASS",
+      "massparts": [
+        {
+          "addLabelToTitle": false,
+          "label": "PRAYER BEFORE MASS",
+          "slides": [
+            "SILENT PRAYER BEFORE MASS"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "ENTRANCE",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": false,
+          "label": "PENITENTIAL ACT",
+          "slides": [
+            "PENITENTIAL ACT (THE CONFITEOR)"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "LHM",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "GLORIA",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "PSALM",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "GOSPEL ACCLAMATION",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": false,
+          "label": "CREED",
+          "slides": [
+            "NICENE CREED",
+            "APOSTLES CREED"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "POST NUPTIAL",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "OFFERTORY",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "SANCTUS",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "PROCLAMATION",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "THE LORD'S PRAYER",
+          "slides": [
+            "OUR FATHER"
+          ]
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "COMMUNION",
+          "slides": []
+        },
+        {
+          "addLabelToTitle": true,
+          "label": "RECESSIONAL",
+          "slides": []
+        }
+      ],
+      "saveAsFileName": "",
+      "tag": "DEFAULT",
+      "textColor": "#ffffff"
+    },
+    {
+      "backgroundColor": "#000000",
+      "highlightedTextColor": "#ffff00",
       "id": "REGULAR WEEKEND MASS",
       "massparts": [
         {
@@ -7523,100 +7626,6 @@
           "slides": [
             "JUBILEE PRAYER"
           ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "RECESSIONAL",
-          "slides": []
-        }
-      ],
-      "saveAsFileName": "",
-      "tag": "DEFAULT",
-      "textColor": "#ffffff"
-    },
-    {
-      "backgroundColor": "#000000",
-      "highlightedTextColor": "#ffff00",
-      "id": "NUPTIALS MASS",
-      "massparts": [
-        {
-          "addLabelToTitle": false,
-          "label": "PRAYER BEFORE MASS",
-          "slides": [
-            "SILENT PRAYER BEFORE MASS"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "ENTRANCE",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": false,
-          "label": "PENITENTIAL ACT",
-          "slides": [
-            "PENITENTIAL ACT (THE CONFITEOR)"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "LHM",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "GLORIA",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "PSALM",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "GOSPEL ACCLAMATION",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": false,
-          "label": "CREED",
-          "slides": [
-            "NICENE CREED",
-            "APOSTLES CREED"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "POST NUPTIAL",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "OFFERTORY",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "SANCTUS",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "PROCLAMATION",
-          "slides": []
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "THE LORD'S PRAYER",
-          "slides": [
-            "OUR FATHER"
-          ]
-        },
-        {
-          "addLabelToTitle": true,
-          "label": "COMMUNION",
-          "slides": []
         },
         {
           "addLabelToTitle": true,

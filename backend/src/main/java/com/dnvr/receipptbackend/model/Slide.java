@@ -1,52 +1,44 @@
 package com.dnvr.receipptbackend.model;
 
-import java.util.List;
+import java.util.ArrayList;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 public class Slide {
+	@NotBlank(message ="{slide.name.blank}")
 	private String name;
-	private List<String> tags;
+	@NotNull(message ="{slide.tags.null}")
+	private ArrayList<String> tags;
+	@NotBlank(message ="{slide.path.blank}")
 	private String path;
-	private String html;
-	private String text;
-	
-	public String getText() {
-		return text;
+	@NotEmpty(message ="{slide.verses.blank}")
+	@Valid
+	private ArrayList<Verse> verses;
+	@NotEmpty(message ="{slide.desiredVerses.blank}")
+	private ArrayList<String> desiredVerses;
+
+
+	public Slide(
+		@NotBlank(message ="{slide.name.blank}") String name, 
+		@NotNull(message ="{slide.tags.null}") ArrayList<String> tags, 
+		@NotBlank(message ="{slide.path.blank}") String path, 
+		@NotEmpty(message ="{slide.verse.blank}") @Valid ArrayList<Verse> verses,
+		@NotEmpty(message ="{slide.desiredVerses.blank}") ArrayList<String> desiredVerses) {
+		super();
+		this.name = name;
+		this.tags = tags;
+		this.path = path;
+		this.verses = verses;
+		this.desiredVerses = desiredVerses;
 	}
-
-
-
-	public void setText(String text) {
-		this.text = text;
-	}
-
-
 
 	public Slide() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-
-	public Slide(String name, List<String> tags, String path, String html, String text) {
-		super();
-		this.name = name;
-		this.tags = tags;
-		this.path = path;
-		this.html = html;
-		this.text = text;
-		}
-
-	public String getHtml() {
-		return html;
-	}
-
-
-
-	public void setHtml(String html) {
-		this.html = html;
-	}
-
 
 
 	public String getName() {
@@ -57,11 +49,11 @@ public class Slide {
 		this.name = name;
 	}
 
-	public List<String> getTags() {
+	public ArrayList<String> getTags() {
 		return tags;
 	}
 
-	public void setTags(List<String> tags) {
+	public void setTags(ArrayList<String> tags) {
 		this.tags = tags;
 	}
 
@@ -73,10 +65,27 @@ public class Slide {
 		this.path = path;
 	}
 
+	public ArrayList<Verse> getVerses() {
+		return verses;
+	}
+
+	public void setVerses(ArrayList<Verse> verses) {
+		this.verses = verses;
+	}
+
+	public ArrayList<String> getDesiredVerses() {
+		return desiredVerses;
+	}
+
+	public void setDesiredVerses(ArrayList<String> desiredVerses) {
+		this.desiredVerses = desiredVerses;
+	}
 
 	@Override
 	public String toString() {
-		return "Slide [name=" + name + ", tags=" + tags + ", path=" + path + "]";
+		return "Slide [name=" + name + ", tags=" + tags + ", path=" + path + ", verses=" + verses + ", desiredVerses="
+				+ desiredVerses + "]";
 	}
+
 	
 }

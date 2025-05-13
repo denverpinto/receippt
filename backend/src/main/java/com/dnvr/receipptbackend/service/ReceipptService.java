@@ -37,6 +37,7 @@ import com.dnvr.receipptbackend.model.Index;
 import com.dnvr.receipptbackend.model.Masspart;
 import com.dnvr.receipptbackend.model.Slide;
 import com.dnvr.receipptbackend.model.Template;
+import com.dnvr.receipptbackend.model.Verse;
 
 
 @Service("pptService")
@@ -66,7 +67,7 @@ public class ReceipptService {
 		} else {
 			// 2. GET list of all slides via index file
 			Index indexFile = localDbService.getIndexDetails();
-			ArrayList<Slide> slidesList = (ArrayList<Slide>) indexFile.getSlides();
+			ArrayList<Slide> indexSlidesList = (ArrayList<Slide>) indexFile.getSlides();
 
 			XMLSlideShow finalPpt = new XMLSlideShow();
 
@@ -80,23 +81,46 @@ public class ReceipptService {
 					// adding slides for that masspart
 					for (int slideIndex = 0; slideIndex < masspart.getSlides().size(); slideIndex++) {
 
-						String slide = masspart.getSlides().get(slideIndex).toUpperCase().trim();
+						Slide currentSlide = masspart.getSlides().get(slideIndex);
+						String currentSlideName = currentSlide.getName().trim().toUpperCase().trim();
 
-						if (slide.equals("BLANK") || slide.equals("BLANK SLIDE")) {
+						if (currentSlideName.equals("BLANK") || currentSlideName.equals("BLANK SLIDE")) {
 							// explicitly adding label to understand which masspart it belongs to
 							masspart.setAddLabelToTitle(true);
-							finalPpt = this.generateBlankSlide(finalPpt, slide, masspart, template, slideIndex);
-						} else if (slidesList.stream().filter(indexEntry -> indexEntry.getName().equals(slide))
-								.collect(Collectors.toList()).size() > 0) { // If it exists in list GET slide
+							finalPpt = this.generateBlankSlide(finalPpt, currentSlideName, masspart, template, slideIndex);
+						} else if (indexSlidesList.stream().filter(indexEntry -> indexEntry.getName().trim().equals(currentSlideName))
+								.collect(Collectors.toList()).size() > 0) { 
+							// If it exists in list GET all slide verses requested in order
 							try {
-								InputStream srcFile = localDbService.getFileContent(
-										slidesList.stream().filter(indexEntry -> indexEntry.getName().equals(slide))
-												.collect(Collectors.toList()).get(0).getPath()); // throws ReceipptException
-								try (XMLSlideShow slideFile = new XMLSlideShow(srcFile)) {
-									// copy all the slides from the slideFile to the final presentation
-									for (XSLFSlide srcSlide : slideFile.getSlides()) {
-										XSLFSlide destSlide = finalPpt.createSlide().importContent(srcSlide);
+								ArrayList<String> desiredVerses = currentSlide.getDesiredVerses();
+								ArrayList<XMLSlideShow> desiredVerseXMLs = new ArrayList<XMLSlideShow>();
+								Slide currentSlideInfoInIndex = indexSlidesList.stream().filter(indexEntry -> indexEntry.getName().trim().equals(currentSlideName))
+										.collect(Collectors.toList()).get(0);
+								
+								for(int verseIndex = 0; verseIndex < desiredVerses.size(); verseIndex++) {
+									/* 
+									 * cross check verse existence in actual index slide 
+									 * use path from index if verse exists for slide
+									 * otherwise silently ignore and move on ( bad actor / bad input )
+									 */
+									String desiredVerseName = desiredVerses.get(verseIndex).trim();
+									
+									if(currentSlideInfoInIndex.getVerses().stream().filter(indexEntry -> indexEntry.getName().equals(desiredVerseName)).
+											collect(Collectors.toList()).size() > 0) {
+										InputStream srcFile = localDbService.getFileContent(currentSlideInfoInIndex.getVerses().stream().filter(indexEntry -> indexEntry.getName().trim().equals(desiredVerseName)).
+												collect(Collectors.toList()).get(0).getPath()); // throws ReceipptException
+										XMLSlideShow slideFile = new XMLSlideShow(srcFile);
+										// save XMLSlideShow files for valid verses
+										desiredVerseXMLs.add(slideFile);
+									}
+								}
 
+								// copy all slides from all valid verse XMLSlideShow files to the final presentation 
+								for (int fileId = 0; fileId < desiredVerseXMLs.size(); fileId++) {
+									XMLSlideShow verseSlidesFile = desiredVerseXMLs.get(fileId);
+									for (int slideId = 0; slideId < verseSlidesFile.getSlides().size(); slideId++) {
+										XSLFSlide srcSlide = verseSlidesFile.getSlides().get(slideId);
+										XSLFSlide destSlide = finalPpt.createSlide().importContent(srcSlide);
 										if (masspart.getAddLabelToTitle()) { // add masspart label to the title
 											XSLFTextShape title = destSlide.getPlaceholder(0);
 
@@ -108,23 +132,61 @@ public class ReceipptService {
 												title.appendText(" [" + masspart.getLabel().toUpperCase() + "]", false);
 											}
 										}
+										// add contd.. for all slides except last one
+										if(!(fileId == desiredVerseXMLs.size()-1 && slideId == verseSlidesFile.getSlides().size()-1)){
+											XSLFTextBox contdBox = destSlide.createTextBox();
+											contdBox.setAnchor(this.contdAnchor);
+											// unset any margins of the textBody
+											XDDFTextBody contdBody = contdBox.getTextBody();
+											XDDFBodyProperties contdProperties = contdBody.getBodyProperties();
+											contdProperties.setTopInset(0d);
+											contdProperties.setBottomInset(0d);
+											contdProperties.setLeftInset(0d);
+											contdProperties.setRightInset(0d);
+											// unset any existing text
+											contdBox.clearText();
+											// remove any existing TextParagraphs
+											List<XSLFTextParagraph> xslfContdParagraphs = contdBox.getTextParagraphs();
+											xslfContdParagraphs.forEach((textParagraph) -> {
+												contdBox.removeTextParagraph(textParagraph);
+											});
+											
+											// add a TextParagraph
+											XSLFTextParagraph xslfContdParagraph = contdBox.addNewTextParagraph();
+											xslfContdParagraph.setBullet(false);
+											xslfContdParagraph.setTextAlign(TextAlign.RIGHT);
+											xslfContdParagraph.setFontAlign(FontAlign.CENTER);
+											xslfContdParagraph.setIndent(0.0d);
+											xslfContdParagraph.setIndentLevel(0);
+											XSLFTextRun contd = xslfContdParagraph.addNewTextRun();
+											contd.setText("contd..");
+											contd.setFontSize(36.0d);
+											contd.setFontColor(new Color(Integer.parseInt(template.getHighlightedTextColor().substring(1, 3), 16),
+													Integer.parseInt(template.getHighlightedTextColor().substring(3, 5), 16),
+													Integer.parseInt(template.getHighlightedTextColor().substring(5), 16)));
+											contd.setFontFamily("Calibri");
+											contd.setBold(true);
+											contd.setItalic(true);
+											contd.setUnderlined(false);
+										}
 									}
-								} catch (IOException ioex) {
-									throw new ReceipptException(env.getProperty("local.database.file.read.error"));
-								}
+								}								
+								
 							} catch (Exception ex) {
 								// If retrieval resulted in an error, then create BLANK slide for that slide
-								logger.error(ex.getMessage());
+								System.out.println(ex.getMessage());
+								ex.printStackTrace();
+								logger.error(env.getProperty("local.database.file.read.error"));
 								// explicitly adding label to understand which masspart it belongs to
 								masspart.setAddLabelToTitle(true);
-								finalPpt = this.generateBlankSlide(finalPpt, slide, masspart, template, slideIndex);
+								finalPpt = this.generateBlankSlide(finalPpt, currentSlideName, masspart, template, slideIndex);
 							}
 
 						} else {
-							// If it doesnt exist create BLANK slide for that slide
+							// If it doesn't exist create BLANK slide for that slide
 							// explicitly adding label to understand which masspart it belongs to
 							masspart.setAddLabelToTitle(true);
-							finalPpt = this.generateBlankSlide(finalPpt, slide, masspart, template, slideIndex);
+							finalPpt = this.generateBlankSlide(finalPpt, currentSlideName, masspart, template, slideIndex);
 						}
 					}
 				}
@@ -164,7 +226,7 @@ public class ReceipptService {
 						}
 					}
 				}
-				// 5. Add receippt shoutout in slide notes
+				// 5. Add receippt.com shoutout in slide notes
 				XSLFNotes note = finalPpt.getNotesSlide(slide);
 				for (XSLFTextShape shape : note.getPlaceholders()) {
 					if (shape.getTextType() == Placeholder.BODY) {

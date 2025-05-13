@@ -2,24 +2,28 @@ package com.dnvr.receipptbackend.model;
 
 import java.util.ArrayList;
 
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 public class Masspart {
 
-	@NotBlank(message ="{masspart.label.blank}")
-	@NotNull(message ="{masspart.label.null}")
+	@NotBlank(message = "{masspart.label.blank}")
 	private String label;
-	@NotNull(message ="{masspart.addLabelToTitle.null}")
 	private boolean addLabelToTitle;
-	@NotNull(message ="{masspart.slides.null}")
-	 private ArrayList<String> slides;
+	@NotNull(message = "{masspart.slides.required}")
+	@Valid
+	private ArrayList<Slide> slides;
 
 	public Masspart() {
 		super();
 	}
 
-	public Masspart(String label, boolean addLabelToTitle, ArrayList<String> slides) {
+	public Masspart(
+			@NotBlank(message = "{masspart.label.blank}") String label, 
+			boolean addLabelToTitle,
+			@NotNull(message = "{masspart.slides.required}") @Valid ArrayList<Slide> slides) {
 		super();
 		this.label = label;
 		this.addLabelToTitle = addLabelToTitle;
@@ -42,14 +46,14 @@ public class Masspart {
 		this.addLabelToTitle = addLabelToTitle;
 	}
 
-	public ArrayList<String> getSlides() {
+	public ArrayList<Slide> getSlides() {
 		return slides;
 	}
 
-	public void setSlides(ArrayList<String> slides) {
+	public void setSlides(ArrayList<Slide> slides) {
 		this.slides = slides;
 	}
-	
+
 	@Override
 	public String toString() {
 		return "Masspart [label=" + label + ", addLabelToTitle=" + addLabelToTitle + ", slides=" + slides + "]";

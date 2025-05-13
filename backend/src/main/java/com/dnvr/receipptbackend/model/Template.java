@@ -12,10 +12,8 @@ public class Template {
 	
 	private String id;
 	private String tag;
-	@NotNull(message ="{template.saveAsFileName.null}")
 	@NotBlank(message ="{template.saveAsFileName.blank}")
 	private String saveAsFileName;
-	@NotNull(message ="{template.massparts.null}")
 	@NotEmpty(message ="{template.massparts.empty}")
 	@Valid
 	private ArrayList<Masspart> massparts;
@@ -35,8 +33,8 @@ public class Template {
 	
 	
 	public Template(String id, String tag,
-			@NotNull(message = "{template.saveAsFileName.null}") @NotBlank(message = "{template.saveAsFileName.blank}") String saveAsFileName,
-			@NotNull(message = "{template.massparts.null}") @NotEmpty(message = "{template.massparts.empty}") @Valid ArrayList<Masspart> massparts,
+			@NotBlank(message = "{template.saveAsFileName.blank}") String saveAsFileName,
+			@NotEmpty(message = "{template.massparts.empty}") @Valid ArrayList<Masspart> massparts,
 			@NotNull(message = "{template.textColor.null}") @Pattern(regexp = "^#[0-9a-fA-F]{6}$", message = "{template.textColor.pattern}") String textColor,
 			@NotNull(message = "{template.backgroundColor.null}") @Pattern(regexp = "^#[0-9a-fA-F]{6}$", message = "{template.backgroundColor.pattern}") String backgroundColor,
 			@NotNull(message = "{template.highlightedTextColor.null}") @Pattern(regexp = "^#[0-9a-fA-F]{6}$", message = "{template.highlightedTextColor.pattern}") String highlightedTextColor) {

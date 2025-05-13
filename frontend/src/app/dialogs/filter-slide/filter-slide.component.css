@@ -1,0 +1,51 @@
+.lyrics{
+    margin: var(--s1);
+}
+
+.strikethrough {
+  text-decoration: line-through;
+}
+
+/* reel verse specific styling */
+.verse-details{
+  display: flex;
+  align-items: center;
+  background-color: var(--background-color);
+}
+
+.verse-details>:first-child{
+  font-size: var(--s-1);
+  font-style: italic;
+  font-weight: 600;
+  text-align: center;
+  padding: calc(var(--s-5)/2);
+}
+
+.verse-details>:last-child{
+  flex-grow: 99;
+}
+
+.reel.verse{
+  min-height: var(--s1);
+}
+
+.reel.verse > *,.verse-entry {
+  font-size: var(--s-2);
+  margin: calc(var(--s-5)/2);
+  margin-right: 0;
+  font-style: normal;
+  font-weight: 600;
+  border: calc(var(--s-5)/4) solid var(--text-color);
+  padding: calc(var(--s-5)/2);
+  background-color: var(--background-color);
+  cursor: pointer;
+}
+
+.reel.verse > * + * {
+  margin-left: var(--s-4);
+  border-bottom: calc(var(--s-5)/4) solid var(--text-color);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}

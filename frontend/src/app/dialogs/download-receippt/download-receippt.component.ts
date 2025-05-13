@@ -4,15 +4,16 @@ import { Component, ElementRef, Inject, OnInit, ViewChild } from '@angular/core'
 import { FormControl, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ReceipptState } from 'src/app/interfaces/receippt-state';
+import { Slide } from 'src/app/interfaces/slide';
 import { Template } from 'src/app/interfaces/template';
 import { ReceipptDataService } from 'src/app/services/receippt-data.service';
 
 @Component({
-  selector: 'app-dowload-receippt',
-  templateUrl: './dowload-receippt.component.html',
-  styleUrls: ['./dowload-receippt.component.css']
+  selector: 'app-download-receippt',
+  templateUrl: './download-receippt.component.html',
+  styleUrls: ['./download-receippt.component.css']
 })
-export class DowloadReceipptComponent {
+export class DownloadReceipptComponent {
   template!: Template
 
   @ViewChild("textInput")textInput!: ElementRef;
@@ -39,7 +40,18 @@ export class DowloadReceipptComponent {
     this.template = JSON.parse(JSON.stringify(this.state.templates[this.state.currentTemplateIndex]));
     this.template.massparts.forEach((masspart: any) => {
       if (masspart.slides.length == 0) {
-        masspart.slides.push("BLANK SLIDE");
+        masspart.slides.push({
+          "name": "BLANK SLIDE", 
+          "tags": [], 
+          "path": "NOPATH",
+          "desiredVerses" : ["1"],
+          "verses" : [{
+            "name" : "1",
+            "path" : "NOPATH",
+            "tags" : [],
+            "html": "<hr>",
+            "text": "-----\n"
+          }]});
       }
     });
     this.saveAsFileName.setValue(this.template.saveAsFileName.trim().toUpperCase());
@@ -48,12 +60,18 @@ export class DowloadReceipptComponent {
     this.highlightedTextColor.setValue(this.template.highlightedTextColor);
   }
 
+    getSlideVerseInclusionInfo(slide: Slide){
+     return this.dataService.getSlideVerseInclusionInfo(slide);
+    }
+    
   downloadReceippt() {
 
     this.template.saveAsFileName = this.saveAsFileName.value?.trim().toUpperCase() ?? "RECEIPPT";
     this.template.backgroundColor = this.backgroundColor.value ?? this.template.backgroundColor;
     this.template.textColor = this.textColor.value ?? this.template.textColor;
     this.template.highlightedTextColor = this.highlightedTextColor.value ?? this.template.highlightedTextColor;
+
+    console.log(this.template);
 
     this.dataService.downloadReceippt(this.template).subscribe(
       event => {
@@ -112,8 +130,16 @@ export class DowloadReceipptComponent {
     this.fileStatus.percent = `${Math.round(100 * loaded / total)}%`;
   }
 
+  redirectToMasspart(mIdx: number){
+    this.dataService.updateCurrentMasspartIndex(mIdx);
+    this.dataService.updateSlidesViewMode("chosen");
+    this.dataService.updateMasspartSelectionExpanded(false);
+    this.dialogRef.close('cancel');
+  }
+
+  toggleMasspartAddLabelToTitle(mIdx: number,){
+    this.dataService.toggleAddLabelToTitleForGivenMasspart(mIdx);
+  }
 }
-function ngOnInit() {
-  throw new Error('Function not implemented.');
-}
+
 

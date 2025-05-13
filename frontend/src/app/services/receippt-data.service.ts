@@ -16,6 +16,8 @@ export class ReceipptDataService {
   private indexUrl = `${environment.RECEIPPT_API_URL}${environment.RECEIPPT_API_INDEX_ENDPOINT}`;
   private downloadAttachmentUrl = `${environment.RECEIPPT_API_URL}${environment.RECEIPPT_API_DOWNLOAD_ENDPOINT}`;
 
+  private CURRENT_VERSION = '2.0.0-VERSES';
+  private VERSION_KEY = 'appVersion';
 
   state: ReceipptState = {
     slides: [],
@@ -53,34 +55,40 @@ export class ReceipptDataService {
         let newState = this.state;
         newState.slides = (response as Index)["slides"];
 
-        if(newState.slides.length == 0){
+        if (newState.slides.length == 0) {
           this.errorSubject.next(true);
           return;
         }
 
         newState.slides.unshift({
           "name": "BLANK SLIDE",
-          "lastModified": 0,
           "path": "NOPATH",
           "tags": [],
-          "html": "<hr><b><i>Slide 1/1</b></i>",
-          "text": "-----\nSlide 1/1"
+          "desiredVerses": ["1"],
+          "verses": [{
+            "name": "1",
+            "path": "NOPATH",
+            "tags": [],
+            "html": "<hr>",
+            "text": "-----\n"
+          }]
         });
-        
+
         newState.templates = (response as Index)["templates"];
         newState.tags = this.createTagList(newState.slides);
 
         /* adding current template using default json or making out of blank template */
         let blankTemplateId = "BLANK TEMPLATE";
         let blankTemplateIdx = -1;
-        for(let idx = 0; idx < newState.templates.length; idx++){
-          if(newState.templates[idx].id == blankTemplateId){
+        for (let idx = 0; idx < newState.templates.length; idx++) {
+          if (newState.templates[idx].id == blankTemplateId) {
             blankTemplateIdx = idx;
             break;
           }
         }
 
-        if(blankTemplateIdx == -1){
+        /* add blank template if it doesn't exist */
+        if (blankTemplateIdx == -1) {
           newState.templates.unshift(
             {
               "id": "BLANK TEMPLATE",
@@ -94,7 +102,7 @@ export class ReceipptDataService {
                   "label": "BLANK MASSPART",
                   "addLabelToTitle": true,
                   "slides": []
-              }
+                }
               ]
             }
           );
@@ -104,9 +112,20 @@ export class ReceipptDataService {
         }
 
         newState.currentTemplateIndex = 0;
-        newState.currentMasspartIndex = newState.templates[newState.currentTemplateIndex].massparts.length > 0 ? 0: -1;
+        newState.currentMasspartIndex = newState.templates[newState.currentTemplateIndex].massparts.length > 0 ? 0 : -1;
+
 
         /* if previously created current state exists in localStorage, update state with those details*/
+
+        /* avoid using old localStorage on app updates */
+        if (localStorage.getItem(this.VERSION_KEY) == null || localStorage.getItem(this.VERSION_KEY) != this.CURRENT_VERSION) {
+          localStorage.removeItem("currentTemplate");
+          localStorage.removeItem("currentMasspartIndex");
+          localStorage.removeItem("lastDownloadedTemplate");
+
+          localStorage.setItem(this.VERSION_KEY, this.CURRENT_VERSION);
+        }
+
         if (localStorage.getItem("currentTemplate") !== null) {
           newState.templates[newState.currentTemplateIndex] = JSON.parse(localStorage.getItem("currentTemplate") ||
             JSON.stringify(newState.templates[newState.currentTemplateIndex]));
@@ -128,8 +147,8 @@ export class ReceipptDataService {
         this.updateAndPropagateStateChange();
         this.loadingSubject.next(false);
       },
-      (error) => { 
-        console.log(error); 
+      (error) => {
+        console.log(error);
         this.errorSubject.next(true);
       });
   }
@@ -140,15 +159,15 @@ export class ReceipptDataService {
   }
 
   /* scrub templates to only have existing slides */
-  scrubTemplates(){
-    let knownSlides = this.state.slides.map((slide:Slide) => {return slide.name});
-    
-    for(let tIdx = 0; tIdx < this.state.templates.length; tIdx++ ){
+  scrubTemplates() {
+    let knownSlides = this.state.slides.map((slide: Slide) => { return slide.name.trim() });
+
+    for (let tIdx = 0; tIdx < this.state.templates.length; tIdx++) {
       let currentTemplate = JSON.parse(JSON.stringify(this.state.templates[tIdx]));
-      
-      for(let mIdx = 0; mIdx < currentTemplate.massparts.length; mIdx++){
-        currentTemplate.massparts[mIdx].slides = 
-        currentTemplate.massparts[mIdx].slides.filter((slide:string) => {return knownSlides.includes(slide)});
+
+      for (let mIdx = 0; mIdx < currentTemplate.massparts.length; mIdx++) {
+        currentTemplate.massparts[mIdx].slides =
+          currentTemplate.massparts[mIdx].slides.filter((slide: Slide) => { return knownSlides.includes(slide.name.trim()) });
       }
       this.state.templates[tIdx] = currentTemplate;
     }
@@ -216,6 +235,13 @@ export class ReceipptDataService {
     this.updateAndPropagateStateChange();
   }
 
+  /* toggle the addLabelToTile option for given masspartIndex of the currentTemplate */
+  toggleAddLabelToTitleForGivenMasspart(mIdx: number) {
+    this.state.templates[this.state.currentTemplateIndex].massparts[mIdx].addLabelToTitle = !this.state.templates[this.state.currentTemplateIndex].massparts[mIdx].addLabelToTitle;
+
+    this.updateAndPropagateStateChange();
+  }
+
   /* append new masspart to the end of the template massparts array and bring it to focus */
   addMasspartToCurrentTemplate(masspart: Masspart) {
     this.state.templates[this.state.currentTemplateIndex].massparts.push(masspart);
@@ -265,26 +291,47 @@ export class ReceipptDataService {
   }
 
   /* push slide to currentMasspart */
-  addSlideToMasspart(slide: string) {
-    this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.push(slide);
+  addSlideToMasspart(slideName: string) {
+    let desiredSlideIdx = this.state.slides.findIndex(s => s.name == slideName.trim());
+    if (desiredSlideIdx == -1) {
+      return;
+    }
+    let desiredSlide: Slide = JSON.parse(JSON.stringify(this.state.slides[desiredSlideIdx]));
+
+    this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.push(desiredSlide);
     this.updateAndPropagateStateChange();
   }
 
   /* remove slide form currentMasspart */
-  removeSlideFromMasspart(slide: string) {
-    this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.splice(this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.lastIndexOf(slide), 1);
+  removeSlideFromMasspart(slideName: string) {
+    let array = this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides;
+    let undesiredSlideIdx = [...array].reverse().findIndex(s => s.name == slideName.trim());
+    if (undesiredSlideIdx == -1) {
+      return;
+    }
+
+    this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.splice(array.length - 1 - undesiredSlideIdx, 1);
     this.updateAndPropagateStateChange();
   }
 
   /* return duplicate slide count in the currentMasspart */
-  countOfDuplicateSlides(slide: string) {
-    return this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.filter((ele: string) => { return ele == slide }).length;
+  countOfDuplicateSlides(slideName: string) {
+    return this.state.templates[this.state.currentTemplateIndex].massparts[this.state.currentMasspartIndex].slides.filter((s: Slide) => { return s.name == slideName }).length;
   }
 
   /* save last downloaded template to state and localstorage */
   saveLastDownloaded(template: Template) {
+    template = JSON.parse(JSON.stringify(template));
     template.tag = "LAST DOWNLOADED";
     let index = this.state.templates.findIndex(t => t.tag == template.tag);
+
+    /* remove blank slides from massparts if there are no other slides */
+    for (let mIdx = 0; mIdx < template.massparts.length; mIdx++) {
+      if (template.massparts[mIdx].slides.length > 0 && template.massparts[mIdx].slides.filter(s => (s.name == "BLANK SLIDE" || s.name == "BLANK")).length == template.massparts[mIdx].slides.length) {
+        console.log(template.massparts[mIdx].label);
+        template.massparts[mIdx].slides = [];
+      }
+    }
 
     if (index == -1) {
       this.state.templates.push(template);
@@ -297,27 +344,39 @@ export class ReceipptDataService {
   }
 
   /* update state.templateSelectionExpanded */
-  updateTemplateSelectionExpanded(expanded:boolean){
+  updateTemplateSelectionExpanded(expanded: boolean) {
     this.state.templateSelectionExpanded = expanded;
     this.updateAndPropagateStateChange();
   }
 
   /* update state.masspartSelectionExpanded */
-  updateMasspartSelectionExpanded(expanded:boolean){
+  updateMasspartSelectionExpanded(expanded: boolean) {
     this.state.masspartSelectionExpanded = expanded;
     this.updateAndPropagateStateChange();
   }
 
   /* toggle between catalogued and chosen slide viewer modes */
-  updateSlidesViewMode(mode:'catalogued'|'chosen'){
+  updateSlidesViewMode(mode: 'catalogued' | 'chosen') {
     this.state.slidesViewMode = mode;
     this.updateAndPropagateStateChange();
   }
 
   /* update complete state */
-  updateCompleteState(newState:ReceipptState){
+  updateCompleteState(newState: ReceipptState) {
     this.state = JSON.parse(JSON.stringify(newState));
     this.updateAndPropagateStateChange();
+  }
+
+  /* get infoString on which verses are included and excluded */
+  getSlideVerseInclusionInfo(slide: Slide) {
+    let userDesiredVerses = JSON.parse(JSON.stringify(slide.desiredVerses));
+    let sysDesiredVerses = JSON.parse(JSON.stringify(this.state.slides.filter(s => s.name == slide.name)[0].desiredVerses.filter(v => !userDesiredVerses.includes(v))));
+
+    let inclusionInfo = `VERSES -> INCLUDED: ${userDesiredVerses.join(",")}`;
+    if (sysDesiredVerses.length > 0) {
+      inclusionInfo += ` | EXCLUDED: ${sysDesiredVerses.join(",")}`;
+    }
+    return inclusionInfo;
   }
 
 }

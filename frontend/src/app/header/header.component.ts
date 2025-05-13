@@ -5,7 +5,7 @@ import { Dialog } from '@angular/cdk/dialog';
 import { AddMasspartComponent } from '../dialogs/add-masspart/add-masspart.component';
 import { RenameMasspartComponent } from '../dialogs/rename-masspart/rename-masspart.component';
 import { TemplateSelectorComponent } from '../dialogs/template-selector/template-selector.component';
-import { DowloadReceipptComponent } from '../dialogs/dowload-receippt/dowload-receippt.component';
+import { DownloadReceipptComponent } from '../dialogs/download-receippt/download-receippt.component';
 import { ReceipptState } from '../interfaces/receippt-state';
 import { ReceipptDataService } from '../services/receippt-data.service';
 import { IntrojsService } from '../services/introjs.service';
@@ -169,7 +169,7 @@ export class HeaderComponent {
   }
 
   openDownloadReceipptDialog(): void {
-    const dialogRef = this.dialog.open<string>(DowloadReceipptComponent, {
+    const dialogRef = this.dialog.open<string>(DownloadReceipptComponent, {
       panelClass: 'dialog-panel',
       backdropClass: 'dialog-overlay',
       autoFocus: false

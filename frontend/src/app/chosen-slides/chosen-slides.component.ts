@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 import { ReceipptState } from '../interfaces/receippt-state';
 import { ReceipptDataService } from '../services/receippt-data.service';
 import { Dialog } from '@angular/cdk/dialog';
-import { ViewSlideComponent } from '../dialogs/view-slide/view-slide.component';
 import { Slide } from '../interfaces/slide';
+import { FilterSlideComponent } from '../dialogs/filter-slide/filter-slide.component';
 
 @Component({
   selector: 'app-chosen-slides',
@@ -30,23 +30,24 @@ export class ChosenSlidesComponent {
     this.dataService.removeSlideIdxFromMasspart(sIdx);
   }
 
-  getTagsForSlide(sName:string){
-    if(sName == "BLANK SLIDE"){
+  getTagsForSlide(slide:Slide){
+    if(slide.name == "BLANK SLIDE"){
       return [];
     }
-    let slideIdx = this.state.slides.findIndex(s => s.name == sName);
-    return this.state.slides[slideIdx].tags;
+    return slide.tags;
   }
 
-  openViewSlideDialog(sName: string): void {
-    let sInfo : Slide;
-    sInfo = this.state.slides[this.state.slides.findIndex(s => s.name == sName)];
-    const dialogRef = this.dialog.open<string>(ViewSlideComponent, {
+  getSlideVerseInclusionInfo(slide: Slide){
+    return this.dataService.getSlideVerseInclusionInfo(slide);
+  }
+
+  openFilterSlideDialog(slide: Slide): void {
+    const dialogRef = this.dialog.open<string>(FilterSlideComponent, {
       panelClass: 'dialog-panel',
       backdropClass: 'dialog-overlay',
       autoFocus: false,
       data: {
-        slide: sInfo
+        slide: slide
       }
     });
 

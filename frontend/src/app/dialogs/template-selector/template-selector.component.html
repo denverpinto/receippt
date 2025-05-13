@@ -21,7 +21,10 @@
               <div class = "checkbox-list">
                 <label class="checkbox-control" *ngFor = "let slide of masspart.slides">
                     <input type="checkbox" name="checkbox" [(ngModel)]="slide.selected" (ngModelChange)="updateSelectionForMasspart(masspart.label)" />
-                    {{slide.label}}
+                    <div class="checkbox-text">
+                        {{ slide.name }} <br />
+                        <small class="verses">[INCLUDED VERSES: {{ slide.desiredVerses }}]</small>
+                    </div>
                   </label>
               </div>
         </ng-container>

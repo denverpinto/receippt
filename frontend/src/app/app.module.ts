@@ -21,12 +21,13 @@ import { DeleteMasspartComponent } from './dialogs/delete-masspart/delete-masspa
 import { AddMasspartComponent } from './dialogs/add-masspart/add-masspart.component';
 import { RenameMasspartComponent } from './dialogs/rename-masspart/rename-masspart.component';
 import { TemplateSelectorComponent } from './dialogs/template-selector/template-selector.component';
-import { DowloadReceipptComponent } from './dialogs/dowload-receippt/dowload-receippt.component';
+import { DownloadReceipptComponent } from './dialogs/download-receippt/download-receippt.component';
 import { HighlightPipe } from './pipes/highlight.pipe';
 import { PluralPipe } from './pipes/plural.pipe';
 import { RectSkeComponent } from './rect-ske/rect-ske.component';
 import { SkeletonDirective } from './skeleton.directive';
 import { DownScreenComponent } from './down-screen/down-screen.component';
+import { FilterSlideComponent } from './dialogs/filter-slide/filter-slide.component';
 
 @NgModule({
   declarations: [
@@ -40,12 +41,13 @@ import { DownScreenComponent } from './down-screen/down-screen.component';
     AddMasspartComponent,
     RenameMasspartComponent,
     TemplateSelectorComponent,
-    DowloadReceipptComponent,
+    DownloadReceipptComponent,
     HighlightPipe,
     PluralPipe,
     RectSkeComponent,
     SkeletonDirective,
-    DownScreenComponent
+    DownScreenComponent,
+    FilterSlideComponent
   ],
   imports: [
     BrowserModule,

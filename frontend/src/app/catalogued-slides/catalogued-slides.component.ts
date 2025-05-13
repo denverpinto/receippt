@@ -149,18 +149,18 @@ export class CataloguedSlidesComponent {
   }
 
   /*function to push slide to current masspart */
-  addSlideToMasspart(slide: string) {
-    this.dataService.addSlideToMasspart(slide);
+  addSlideToMasspart(slideName: string) {
+    this.dataService.addSlideToMasspart(slideName);
   }
 
   /* function to remove slide form current masspart */
-  removeSlideFromMasspart(slide: string) {
-    this.dataService.removeSlideFromMasspart(slide);
+  removeSlideFromMasspart(slideName: string) {
+    this.dataService.removeSlideFromMasspart(slideName);
   }
 
   /* function to return duplicate slide count in the current masspart */
-  duplicateSlideCount(slide: string) {
-    return this.dataService.countOfDuplicateSlides(slide);
+  duplicateSlideCount(slideName: string) {
+    return this.dataService.countOfDuplicateSlides(slideName);
   }
 
   openViewSlideDialog(slide: Slide): void {

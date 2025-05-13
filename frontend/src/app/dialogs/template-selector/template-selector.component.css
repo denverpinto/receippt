@@ -22,8 +22,19 @@
     font-style: italic;
     line-height: var(--line-height-small);
     display: grid;
-    grid-template-columns: var(--s-1) auto;
+    grid-template-columns: var(--s-1) 1fr;
     gap: var(--s-3);
+    align-items: start; /* aligns checkbox with top of label */
+}
+
+.checkbox-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.verses {
+    color: var(--highlighted-text-color);
+    font-weight: 700;
 }
 
 .checkbox-control.masspart{

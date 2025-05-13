@@ -10,12 +10,13 @@
             </button>
             <div class="chosen-slide-item-details">
                 <div class="slide-item-info">
-                    <div class="slide-item-info-name">{{sIdx+1}}. {{slide}}</div>
+                    <div class="slide-item-info-name">{{sIdx+1}}. {{slide.name}}</div>
+                    <span class ="slide-item-info-verses">{{getSlideVerseInclusionInfo(slide)}}</span>
                 </div>
-                <button type ="button" class = "button icon-button plain">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" fill="none" (click) = "openViewSlideDialog(slide)">
-                        <path fill-rule="evenodd" clip-rule="evenodd" d="M5 6H19V7.5H5V6ZM5 9.5H19V11H5V9.5ZM13 12.5H5V14H13V12.5ZM15.3533 18.9393L17.1287 17.164H5V15.664H17.1287L15.3533 13.8886L16.414 12.8279L20 16.414L16.414 20L15.3533 18.9393Z"/>
-                        </svg>
+                <button type ="button" class = "button icon-button plain" (click) = "openFilterSlideDialog(slide)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 24 24" fill="none">
+                         <path xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd" d="M15 10.5A3.502 3.502 0 0 0 18.355 8H21a1 1 0 1 0 0-2h-2.645a3.502 3.502 0 0 0-6.71 0H3a1 1 0 0 0 0 2h8.645A3.502 3.502 0 0 0 15 10.5zM3 16a1 1 0 1 0 0 2h2.145a3.502 3.502 0 0 0 6.71 0H21a1 1 0 1 0 0-2h-9.145a3.502 3.502 0 0 0-6.71 0H3z"/>
+                    </svg>
                 </button>
                 <button type="button" class="button icon-button plain" aria-label="Icon-only Button" (click) = "deleteSlide(sIdx)">
                     <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1"
@@ -25,7 +26,7 @@
                         </path>
                     </svg>
                 </button>
-            </div>
+            </div> 
         </div>
         <div class = "tag-details">
             <span class = "nowrap">TAGS:</span>

@@ -1,5 +1,7 @@
 import { DIALOG_DATA, DialogRef } from '@angular/cdk/dialog';
 import { Component, Inject } from '@angular/core';
+import { ReceipptState } from 'src/app/interfaces/receippt-state';
+import { Slide } from 'src/app/interfaces/slide';
 import { Template } from 'src/app/interfaces/template';
 import { ReceipptDataService } from 'src/app/services/receippt-data.service';
 
@@ -10,35 +12,48 @@ import { ReceipptDataService } from 'src/app/services/receippt-data.service';
 })
 export class TemplateSelectorComponent {
 
-  selectionSkeleton!: { massparts: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { label: string; selected: boolean }[] }[]};
+  selectionSkeleton!: { massparts: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { name: string; desiredVerses: string; selected: boolean }[] }[]};
 
+  state!: ReceipptState;
+  
   constructor(@Inject(DIALOG_DATA) public data: { currentTemplate: Template, selectedTemplate: Template }, public dialogRef: DialogRef<string>, private dataService: ReceipptDataService) {
     this.selectionSkeleton = this.createSelectionSkeleton(this.data.selectedTemplate, this.data.currentTemplate);
+
+    this.dataService.stateSubject.subscribe((value) => {
+      this.state = value;
+    });
   }
 
   createSelectionSkeleton(selectedTemplate: any, currentTemplate: any) {
 
-    let templateSkeleton:{ massparts: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { label: string; selected: boolean }[] }[]} = { massparts: [] };
+    let templateSkeleton:{ massparts: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { name: string; desiredVerses: string; selected: boolean }[] }[]} = { massparts: [] };
 
     selectedTemplate.massparts.forEach((masspart: any) => {
-      let masspartSkeleton: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { label: string; selected: boolean }[] } =
+      let masspartSkeleton: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { name: string; desiredVerses: string; selected: boolean }[] } =
       {
         label: masspart.label,
         addLabelToTitle: masspart.addLabelToTitle,
         selected: true,
         slides: []
       }
-      masspart.slides.forEach((slide: string) => {
-        masspartSkeleton.slides.push({ label: slide, selected: true });
+      let selectedMasspartSlideMap = new Map<string, number>();
+      masspart.slides.forEach((slide: Slide) => {
+        masspartSkeleton.slides.push({ name: slide.name, desiredVerses: slide.desiredVerses.join(","), selected: true });
+        let mapIndex = `${slide.name.trim()}-${slide.desiredVerses.join(",")}`;
+        selectedMasspartSlideMap.set(mapIndex, (selectedMasspartSlideMap.get(mapIndex) || 0) + 1);
       });
 
-      // if masspart exists in currentTemplate, include it's slides too
+      // if masspart exists in currentTemplate, include its slides too that already haven't been included (name + desiredVerses)
       if (currentTemplate.massparts.filter((currentMassPart: any) => { return masspart.label == currentMassPart.label }).length > 0) {
         let currentMassPartInfo = currentTemplate.massparts.filter((currentMassPart: any) => { return masspart.label == currentMassPart.label })[0];
 
-        currentMassPartInfo.slides.forEach((slide: string) => {
-          if (!masspartSkeleton.slides.map(slideskeleton => slideskeleton.label).includes(slide)) {
-            masspartSkeleton.slides.push({ label: slide, selected: false });
+        currentMassPartInfo.slides.forEach((slide: Slide) => {
+          let currentMapIndex = `${slide.name.trim()}-${slide.desiredVerses.join(",")}`;
+          let currentMapIndexCount = selectedMasspartSlideMap.get(currentMapIndex) || 0;
+          if(currentMapIndexCount > 0){
+            selectedMasspartSlideMap.set(currentMapIndex, currentMapIndexCount - 1);
+          } else {
+            masspartSkeleton.slides.push({ name: slide.name, desiredVerses: slide.desiredVerses.join(","), selected: false });
           }
         });
       }
@@ -46,18 +61,18 @@ export class TemplateSelectorComponent {
       templateSkeleton.massparts.push(masspartSkeleton);
     });
 
-    // if there is a masspart that isnt included in the default template
+    // if there is a masspart that isn't included in the selected template
     currentTemplate.massparts.forEach((masspart: any) => {
       if (!selectedTemplate.massparts.map((defaultMassPart: any) => defaultMassPart.label).includes(masspart.label)) {
-        let masspartSkeleton: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { label: string; selected: boolean }[] } =
+        let masspartSkeleton: { label: string; addLabelToTitle: boolean; selected: boolean; slides: { name: string; desiredVerses: string; selected: boolean }[] } =
         {
           label: masspart.label,
           addLabelToTitle: masspart.addLabelToTitle,
           selected: false,
           slides: []
         }
-        masspart.slides.forEach((slide: string) => {
-          masspartSkeleton.slides.push({ label: slide, selected: false });
+        masspart.slides.forEach((slide: Slide) => {
+          masspartSkeleton.slides.push({ name: slide.name, desiredVerses: slide.desiredVerses.join(","), selected: false });
         });
 
         templateSkeleton.massparts.push(masspartSkeleton);
@@ -95,15 +110,16 @@ export class TemplateSelectorComponent {
     selectedTemplate.massparts = [];
     this.selectionSkeleton.massparts.forEach( masspartInfo =>{
       if(masspartInfo.selected){
-        let masspartToAdd: { label: string, addLabelToTitle: boolean, slides: string[] } = 
+        let masspartToAdd: { label: string, addLabelToTitle: boolean, slides: Slide[] } = 
         { label: masspartInfo.label, addLabelToTitle: masspartInfo.addLabelToTitle, slides: [] };
 
         masspartInfo.slides.forEach( slideInfo => {
           if(slideInfo.selected){
-            masspartToAdd.slides.push(slideInfo.label);
+            let selectedSlide = JSON.parse(JSON.stringify(this.state.slides.filter(indexSlide => indexSlide.name == slideInfo.name)[0]));
+            selectedSlide.desiredVerses = slideInfo.desiredVerses.split(",");
+            masspartToAdd.slides.push(selectedSlide);
           }
         });
-
         selectedTemplate.massparts.push(masspartToAdd);
       }
     });

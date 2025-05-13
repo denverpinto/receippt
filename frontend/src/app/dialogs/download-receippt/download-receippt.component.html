@@ -21,12 +21,13 @@
 </div>
 <div class="dialog-title">
     <div class="text-input filename">
-        <input type="text" placeholder="FILE NAME" [formControl]="saveAsFileName" #textInput 
-        (focus) = "selectAllOnFocusInput()" />
+        <input type="text" placeholder="FILE NAME" [formControl]="saveAsFileName" #textInput
+            (focus)="selectAllOnFocusInput()" />
         <span class="nowrap">.pptx</span>
         <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
             [disabled]="saveAsFileName.invalid" (click)="downloadReceippt()">
-            <svg width="10px" height="10px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <svg width="10px" height="10px" viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true" focusable="false">
                 <path
                     d="M853.333 640v170.667c0 11.776-4.736 22.4-12.501 30.165s-18.389 12.501-30.165 12.501h-597.333c-11.776 0-22.4-4.736-30.165-12.501s-12.501-18.389-12.501-30.165v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v170.667c0 35.328 14.379 67.413 37.504 90.496s55.168 37.504 90.496 37.504h597.333c35.328 0 67.413-14.379 90.496-37.504s37.504-55.168 37.504-90.496v-170.667c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667zM554.667 537.003v-409.003c0-23.552-19.115-42.667-42.667-42.667s-42.667 19.115-42.667 42.667v409.003l-140.501-140.501c-16.683-16.683-43.691-16.683-60.331 0s-16.683 43.691 0 60.331l213.333 213.333c3.925 3.925 8.619 7.083 13.824 9.259s10.795 3.243 16.341 3.243c10.923 0 21.845-4.181 30.165-12.501l213.333-213.333c16.683-16.683 16.683-43.691 0-60.331s-43.691-16.683-60.331 0z" />
             </svg>
@@ -71,11 +72,26 @@
             </div>
         </div>
     </div>
-    <div class="title">PPT SLIDES</div>
-    <div *ngFor="let masspart of template.massparts" class="masspart">
-        <span>{{masspart.label}}</span>
-        <div *ngFor="let slide of masspart.slides" class="slide">
-            {{slide}}
+    <div class="title">PPT SECTIONS</div>
+    <div *ngFor="let masspart of template.massparts; index as mIdx">
+        <div class = "masspart-section">
+            <button type="button" class="button icon-button plain label-action" [attr.aria-selected] = "state.templates[state.currentTemplateIndex].massparts[mIdx].addLabelToTitle" (click) = "toggleMasspartAddLabelToTitle(mIdx)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 48 48" fill="none">
+                    <path xmlns="http://www.w3.org/2000/svg" d="M33.5,9H4a2,2,0,0,0-2,2V37a2,2,0,0,0,2,2H33.5a.9.9,0,0,0,.8-.4L45.6,25.2a2.1,2.1,0,0,0,0-2.4L34.3,9.4a.9.9,0,0,0-.8-.4Z"/>
+                </svg>
+            </button>
+            <span class = "masspart-details">{{masspart.label}}</span>
+            <button type="button" class="button icon-button plain" (click)="redirectToMasspart(mIdx)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="10px" height="10px" viewBox="0 0 16 16" fill="none">
+                    <path xmlns="http://www.w3.org/2000/svg" d="M8 6L8 2L10 2L16 8L10 14L8 14L8 10L-1.74845e-07 10L-3.01991e-07 6L8 6Z"/>
+                </svg>
+            </button>
+        </div>
+        <div *ngFor="let slide of masspart.slides; index as sIdx;">
+            <div class="slide-item-info">
+                <div class="slide-item-info-name">{{sIdx+1}}. {{slide.name}}</div>
+                <span class ="slide-item-info-verses">{{getSlideVerseInclusionInfo(slide)}}</span>
+            </div>
         </div>
     </div>
 </div>

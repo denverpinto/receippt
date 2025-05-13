@@ -15,7 +15,8 @@ export class ViewSlideComponent {
   }
 
   copyToClipBoard(){
-    this.clipboard.copy(this.data.slide.text);
+    let combinedVersesText = this.data.slide.verses.map(v => v.text).join("\n");
+    this.clipboard.copy(combinedVersesText);
     this.snackBar.open("Copied To Clipboard", "DISMISS",{
       duration: 3000,
       verticalPosition: 'top'

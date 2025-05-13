@@ -1,5 +1,5 @@
 <div class="dialog-header"> 
-    <div>SLIDE DETAILS</div>
+    <div>CUSTOMIZE - {{data.slide.name}}</div>
     <button type="button" class="button icon-button plain" aria-label="Icon-only Button"
         (click)="dialogRef.close('cancel')">
         <svg width="10px" height="10px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -9,9 +9,32 @@
         </svg>
     </button>
 </div>
-<div class="dialog-title">{{data.slide.name}}</div>
+<div class = "dialog-title">
+    <div cdkDropListGroup>
+        <div class="verse-details">
+            <span class="nowrap">INCLUDE &rarr;</span>
+                <div cdkDropList id = "included-verses" cdkDropListOrientation="horizontal" [cdkDropListData]="data.slide.desiredVerses" (cdkDropListDropped)="drop($event)" class="reel verse">
+                    <div class = "verse-entry" cdkDrag *ngFor = "let included of data.slide.desiredVerses"> <svg  width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z" />
+                    </svg> VERSE: {{included}}</div>
+                </div>
+        </div>
+        <div class="verse-details">
+            <span class="nowrap">EXCLUDE  &rarr;</span>
+                <div cdkDropList id = "excluded-verses" cdkDropListOrientation="horizontal" [cdkDropListData]="excludedVerseNames" (cdkDropListDropped)="drop($event)" class="reel verse">
+                    <div class = "verse-entry" cdkDrag *ngFor = "let excluded of excludedVerseNames"> <svg  width="10px" height="10px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path xmlns="http://www.w3.org/2000/svg"
+                            d="M10,6H6V2h4V6z M18,2h-4v4h4V2z M10,10H6v4h4V10z M18,10h-4v4h4V10z M10,18H6v4h4V18z M18,18h-4v4h4V18z" />
+                    </svg>VERSE: {{excluded}}</div>
+                </div>
+        </div>
+    </div>
+</div>
 <div class="dialog-content">
-    <div *ngFor="let verse of data.slide.verses; index as vIdx" class="lyrics" [innerHTML]="verse.html">
+    <div *ngFor="let verse of getIncludedVerses(); index as vIdx" class="lyrics" [innerHTML]="verse.html">
+    </div>
+    <div *ngFor="let verse of getExcludedVerses(); index as vIdx" class="lyrics strikethrough" [innerHTML]="verse.html">
     </div>
 </div>
 <div class="dialog-actions">

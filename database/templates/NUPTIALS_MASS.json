@@ -9,9 +9,10 @@
         {
             "label": "PRAYER BEFORE MASS",
             "addLabelToTitle": false,
-            "slides": [
-                "SILENT PRAYER BEFORE MASS"
-            ]
+            "slides": [ {
+                "name": "SILENT PRAYER BEFORE MASS",
+                "desiredVerses" : [ "1" ]
+            } ]
         },
         {
             "label": "ENTRANCE",
@@ -21,9 +22,10 @@
         {
             "label": "PENITENTIAL ACT",
             "addLabelToTitle": false,
-            "slides": [
-                "PENITENTIAL ACT (THE CONFITEOR)"
-            ]
+            "slides": [ {
+                "name": "PENITENTIAL ACT",
+                "desiredVerses" : [ "1" ]
+            } ]
         },
         {
             "label": "LHM",
@@ -48,10 +50,15 @@
         {
             "label": "CREED",
             "addLabelToTitle": false,
-            "slides": [
-                "NICENE CREED",
-                "APOSTLES CREED"
-            ]
+            "slides": [ {
+                "name": "NICENE CREED",
+                "desiredVerses" : [ "1" ]
+            },
+            {
+                "name": "APOSTLES CREED",
+                "desiredVerses" : [ "1" ]
+            } ]
+            
         },
         {
             "label": "POST NUPTIAL",
@@ -77,7 +84,10 @@
             "label": "THE LORD'S PRAYER",
             "addLabelToTitle": true,
             "slides": [
-                "OUR FATHER"
+                {
+                    "name": "OUR FATHER",
+                    "desiredVerses" : [ "1" ]
+                } 
             ]
         },
         {

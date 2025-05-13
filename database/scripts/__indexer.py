@@ -11,46 +11,59 @@ templatesRootDir = "./templates"
 updatedIndex = { "slides": [], "templates": [] }
 
 # function to return all slides' text as html
-def getSlidesTextAsHTML(path):
+def getSlidesTextAsHTML(path, verseName,tags):
 	prs = Presentation(path)
 	texts = []
-	totalSlides = len(prs.slides)
+	texts.append("<hr>")
+	texts.append(f"<h4> VERSE: {verseName} <i>[{", ".join(tags)}]</i> </h4>")
+	texts.append("<hr>")
 	for slide_number, slide in enumerate(prs.slides):
-		texts.append("<hr>")
-		texts.append(f"<b><i>Slide {slide_number + 1}/{totalSlides}</b></i>")
-		firstSlide = True
+		firstShape = True
 		for shape in slide.shapes: 
 			if hasattr(shape, "text"):
-				if firstSlide:
-					texts.append(f"<h3>{shape.text}</h3>")
-					firstSlide = False
+				if firstShape:
+					if slide_number == 0:
+						texts.append(f"<h4>{shape.text}</h4>")
+					firstShape = False
 				else:
 					texts.append(f"{shape.text}")
 	return "</br>".join(texts).replace("\n","</br>")
 
 # function to return all slides' text
-def getSlidesText(path):
+def getSlidesText(path, verseName, tags):
 	prs = Presentation(path)
 	texts = []
-	totalSlides = len(prs.slides)
+	texts.append("-----")
 	for slide_number, slide in enumerate(prs.slides):
-		texts.append("-----")
-		texts.append(f"Slide {slide_number + 1}/{totalSlides}")
-		firstSlide = True
+		firstShape = True
 		for shape in slide.shapes: 
 			if hasattr(shape, "text"):
-				if firstSlide:
-					texts.append(f"{shape.text}")
-					firstSlide = False
+				if firstShape:
+					firstShape = False
 				else:
 					texts.append(f"{shape.text}")
 	return "\n".join(texts)
 
-# function to remove unknown slides from templates 
+# function to remove unknown slides and verses from templates TODO:
 def scrubTemplate(template):
-	knownSlides = [slideDetails["name"] for slideDetails in updatedIndex["slides"] ]
+	knownSlides = [slideDetails["name"] for slideDetails in updatedIndex["slides"]]
+	# scrub unknown slides
 	for masspart in template["massparts"]:
-		masspart["slides"] = [ slide for slide in masspart["slides"] if slide in knownSlides]
+		masspart["slides"] = [slideDetails for slideDetails in masspart["slides"] if slideDetails["name"] in knownSlides]
+	# scrub unknown slide verses
+	for masspart in template["massparts"]:
+		for slide in masspart["slides"]:
+			matchingIndexSlide = next((indexSlide for indexSlide in updatedIndex["slides"] if indexSlide["name"] == slide["name"]), None)
+			if matchingIndexSlide:
+				# slide["verses"] = [verseDetails for verseDetails in slide["verses"] if verseDetails["name"] in matchingIndexSlide["desiredVerses"]]
+				slide["desiredVerses"] = [desiredVerse for desiredVerse in slide["desiredVerses"] if desiredVerse in matchingIndexSlide["desiredVerses"]]
+				slide["verses"] = matchingIndexSlide["verses"]
+				slide["path"] = matchingIndexSlide["path"]
+				slide["tags"] = matchingIndexSlide["tags"]
+	# scrub slides with empty desiredVerses
+	for masspart in template["massparts"]:
+		masspart["slides"] = [slideDetails for slideDetails in masspart["slides"] if len(slideDetails["desiredVerses"]) > 0]
+
 	return template
 
 
@@ -58,35 +71,48 @@ def scrubTemplate(template):
 try:
 	with open( './index.json','r') as f:
 		currentIndex = json.load(f)
-		print("Found Existing Index With {} Slides and {} Templates ".format(len(currentIndex["slides"]),len(currentIndex["templates"])))
+		print("Found Existing Index With {} Slides, {} Templates and {} Verses ".format(len(currentIndex["slides"]),len(currentIndex["templates"]),sum(len(slide["verses"]) for slide in currentIndex["slides"])))
 except IOError:
 	print("No Index Found, Creating Index From Scratch")
 
+for hymnFolder in os.listdir(slidesRootDir):
+	hymnPath = os.path.join(slidesRootDir, hymnFolder)
+	if os.path.isdir(hymnPath):
+		hymnEntry = {}
+		hymnEntry["name"] = " ".join(" ".join(hymnFolder.split("_")).split()).upper()
+		hymnEntry["path"] = hymnPath[2:]
+		hymnEntry["tags"] = []
+		hymnEntry["verses"] = []
 
-for (root,dirs,files) in os.walk(slidesRootDir, topdown=False):
-	if root == slidesRootDir : # top level directory containing files with tags
-		for file in files:
-			entry = {}
-			entry["name"] = " ".join(" ".join(file.split("_")).split()).split(".pptx")[0].upper()
-			entry["path"] = root[2:] + "/" + file
-			prs = prs = Presentation(root+"/"+file)
+		for verseFile in os.listdir(hymnPath):
+			versePath = os.path.join(hymnPath, verseFile)
+			verseEntry = {}
+			verseEntry["name"] = " ".join(" ".join(verseFile.split("_")).split()).split(".pptx")[0].upper()
+			verseEntry["path"] = versePath[2:]
+
+			prs = Presentation(versePath)
 			for slide_number, slide in enumerate(prs.slides):
 				if slide_number == 0:
 					noteText = slide.notes_slide.notes_text_frame.text
 					if noteText.strip().upper().startswith(noteTagLabel):
 						tags = noteText.strip().split(noteTagLabel)[1].strip().split(",")
-						tags = [ tag.strip().upper() for tag in tags]
-						tags = list(filter(lambda tag:tag!='', tags))
-						entry["tags"] = tags
+						tags = [tag.strip().upper() for tag in tags]
+						tags = [tag for tag in tags if tag]
+						verseEntry["tags"] = tags
 					else:
-						entry["tags"] = []
-			entry["text"] = getSlidesText(entry["path"])
-			entry["html"] = getSlidesTextAsHTML(entry["path"])
-			updatedIndex["slides"].append(entry)
+						verseEntry["tags"] = []
+			verseEntry["html"] = getSlidesTextAsHTML(verseEntry["path"], verseEntry["name"], verseEntry["tags"])
+			verseEntry["text"] = getSlidesText(verseEntry["path"], verseEntry["name"], verseEntry["tags"])
+
+			hymnEntry["verses"].append(verseEntry)
+			hymnEntry["tags"] = list(set(hymnEntry["tags"]) | set(verseEntry["tags"]))
+			
+		hymnEntry["desiredVerses"] = [verse["name"] for verse in hymnEntry["verses"]]
+		updatedIndex["slides"].append(hymnEntry)		
 
 # add templates 
 for (root,dirs,files) in os.walk(templatesRootDir, topdown=False):
-	if root == templatesRootDir : # top level directory containing files with tags
+	if root == templatesRootDir : # top level directory containing template jsons
 		for file in files:
 			try:
 				with open(root+"/"+file,'r') as f:
@@ -102,7 +128,8 @@ def sortFn(e):
 updatedIndex["slides"].sort(key=sortFn)
 
 # display updated stats
-print("Updated Index Has {} Slides and {} Templates \n".format(len(updatedIndex["slides"]),len(updatedIndex["templates"])))
+verses = [verse for slide in updatedIndex["slides"] for verse in slide["verses"]]
+print("Updated Index Has {} Slides, {} Templates and {} Verses \n".format(len(updatedIndex["slides"]),len(updatedIndex["templates"]),len(verses),sum(len(slide["verses"]) for slide in updatedIndex["slides"])))
 
 # persist index to file
 with open('./index.json', 'w') as f:

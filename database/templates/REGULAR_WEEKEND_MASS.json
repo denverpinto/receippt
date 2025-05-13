@@ -10,7 +10,12 @@
             "label": "PRAYER BEFORE MASS",
             "addLabelToTitle": false,
             "slides": [
-                "SILENT PRAYER BEFORE MASS"
+                {
+                    "name": "SILENT PRAYER BEFORE MASS",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                }
             ]
         },
         {
@@ -22,7 +27,12 @@
             "label": "PENITENTIAL ACT",
             "addLabelToTitle": false,
             "slides": [
-                "PENITENTIAL ACT (THE CONFITEOR)"
+                {
+                    "name": "PENITENTIAL ACT",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                }
             ]
         },
         {
@@ -49,8 +59,18 @@
             "label": "CREED",
             "addLabelToTitle": false,
             "slides": [
-                "NICENE CREED",
-                "APOSTLES CREED"
+                {
+                    "name": "NICENE CREED",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                },
+                {
+                    "name": "APOSTLES CREED",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                }
             ]
         },
         {
@@ -72,7 +92,12 @@
             "label": "THE LORD'S PRAYER",
             "addLabelToTitle": true,
             "slides": [
-                "OUR FATHER"
+                {
+                    "name": "OUR FATHER",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                }
             ]
         },
         {
@@ -84,7 +109,12 @@
             "label": "JUBILEE PRAYER",
             "addLabelToTitle": false,
             "slides": [
-                "JUBILEE PRAYER"
+                {
+                    "name": "JUBILEE PRAYER",
+                    "desiredVerses": [
+                        "1"
+                    ]
+                }
             ]
         },
         {

@@ -1,6 +1,7 @@
 import os
 import json
 from pptx import Presentation 
+import re
 
 # index created for directories -
 slidesRootDir = "./slides"
@@ -66,6 +67,14 @@ def scrubTemplate(template):
 
 	return template
 
+# function to sort desiredVerses numerically then alphabetically
+def smart_sort_key(name):
+    # Try to extract numbers like "2", "2.1", etc.
+    match = re.match(r'^(\d+(?:\.\d+)?)$', name)
+    if match:
+        return (0, [float(match.group(1))])  # numeric entries come first
+    else:
+        return (1, name.upper())  # non-numeric entries come after, sorted alphabetically
 
 # retrieve existing index if it exists
 try:
@@ -107,7 +116,8 @@ for hymnFolder in os.listdir(slidesRootDir):
 			hymnEntry["verses"].append(verseEntry)
 			hymnEntry["tags"] = list(set(hymnEntry["tags"]) | set(verseEntry["tags"]))
 			
-		hymnEntry["desiredVerses"] = [verse["name"] for verse in hymnEntry["verses"]]
+		# hymnEntry["desiredVerses"] = [verse["name"] for verse in hymnEntry["verses"]]
+		hymnEntry["desiredVerses"] = sorted([verse["name"] for verse in hymnEntry["verses"]], key=smart_sort_key)
 		updatedIndex["slides"].append(hymnEntry)		
 
 # add templates 

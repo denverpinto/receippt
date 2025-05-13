@@ -15,7 +15,7 @@ def getSlidesTextAsHTML(path, verseName,tags):
 	prs = Presentation(path)
 	texts = []
 	texts.append("<hr>")
-	texts.append(f"<h4> VERSE: {verseName} <i>[{", ".join(tags)}]</i> </h4>")
+	texts.append(f"<h4> VERSE: {verseName} <i>[{', '.join(tags)}]</i> </h4>")
 	texts.append("<hr>")
 	for slide_number, slide in enumerate(prs.slides):
 		firstShape = True

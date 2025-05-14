@@ -11,7 +11,7 @@
 </div>
 <div class="dialog-title">{{data.slide.name}}</div>
 <div class="dialog-content">
-    <div *ngFor="let verse of data.slide.verses; index as vIdx" class="lyrics" [innerHTML]="verse.html">
+    <div *ngFor="let verse of getSortedVerses(); index as vIdx" class="lyrics" [innerHTML]="verse.html">
     </div>
 </div>
 <div class="dialog-actions">

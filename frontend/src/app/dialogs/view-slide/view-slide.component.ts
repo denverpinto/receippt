@@ -22,4 +22,11 @@ export class ViewSlideComponent {
       verticalPosition: 'top'
     });
   }
+
+  getSortedVerses(){
+      return this.data.slide.desiredVerses.map( verseName => { 
+        return this.data.slide.verses.filter( v => v.name == verseName)[0];
+      });
+  }
+
 }
